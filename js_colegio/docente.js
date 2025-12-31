@@ -362,7 +362,7 @@ function initAutocompletados() {
     // Autocompletado en Ver Notas (filtra por curso y asignatura)
     initAutocompletadoCampoAPI(
         'filtrarAlumnoVer',
-        null,
+        'filtrarAlumnoVerValue',
         'dropdownFiltrarAlumnoVer',
         () => document.getElementById('verCurso')?.value,
         () => document.getElementById('verAsignatura')?.value
@@ -813,6 +813,23 @@ async function cargarNotasCurso() {
         return;
     }
 
+    // Obtener filtros de alumno
+    const alumnoInput = document.getElementById('filtrarAlumnoVer');
+    const alumnoIdInput = document.getElementById('filtrarAlumnoVerValue');
+    let alumnoId = null;
+    let alumnoBusqueda = null;
+
+    if (alumnoInput && alumnoInput.value.trim() !== '') {
+        if (alumnoIdInput && alumnoIdInput.value) {
+            alumnoId = parseInt(alumnoIdInput.value);
+        } else {
+            alumnoBusqueda = alumnoInput.value.trim();
+        }
+    }
+
+    const notaMin = document.getElementById('filtrarNotaMin')?.value || null;
+    const notaMax = document.getElementById('filtrarNotaMax')?.value || null;
+
     try {
         const response = await fetch('api/obtener_notas_curso_completo.php', {
             method: 'POST',
@@ -820,7 +837,11 @@ async function cargarNotasCurso() {
             body: JSON.stringify({
                 curso_id: parseInt(cursoId),
                 asignatura_id: parseInt(asignaturaId),
-                docente_id: DOCENTE_ID
+                docente_id: DOCENTE_ID,
+                alumno_id: alumnoId,
+                alumno_busqueda: alumnoBusqueda,
+                nota_min: notaMin ? parseFloat(notaMin) : null,
+                nota_max: notaMax ? parseFloat(notaMax) : null
             })
         });
 

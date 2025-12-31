@@ -63,11 +63,14 @@ if (!$curso_id || !$asignatura_id) {
 }
 
 // Obtener todos los alumnos del curso
+$alumno_id = isset($input['alumno_id']) ? intval($input['alumno_id']) : null;
 $sql_alumnos = "SELECT id, nombres, apellidos, rut
                 FROM tb_alumnos
                 WHERE curso_id = ? AND establecimiento_id = ? AND activo = TRUE";
 
-if (!empty($alumno_busqueda)) {
+if ($alumno_id) {
+    $sql_alumnos .= " AND id = ?";
+} else if (!empty($alumno_busqueda)) {
     $sql_alumnos .= " AND (nombres LIKE ? OR apellidos LIKE ?)";
 }
 
@@ -75,7 +78,9 @@ $sql_alumnos .= " ORDER BY apellidos, nombres";
 
 $stmt_alumnos = $conn->prepare($sql_alumnos);
 
-if (!empty($alumno_busqueda)) {
+if ($alumno_id) {
+    $stmt_alumnos->bind_param("iii", $curso_id, $establecimiento_id, $alumno_id);
+} else if (!empty($alumno_busqueda)) {
     $busquedaLike = "%$alumno_busqueda%";
     $stmt_alumnos->bind_param("iiss", $curso_id, $establecimiento_id, $busquedaLike, $busquedaLike);
 } else {
@@ -139,7 +144,7 @@ while ($row = $result_notas->fetch_assoc()) {
     $alumno_id = $row['alumno_id'];
     $trimestre = $row['trimestre'];
     $num_eval = min($row['numero_evaluacion'], 8); // Máximo 8 notas por trimestre
-    $es_pendiente = isset($row['es_pendiente']) ? (bool)$row['es_pendiente'] : false;
+    $es_pendiente = isset($row['es_pendiente']) ? (bool) $row['es_pendiente'] : false;
 
     if (isset($alumnos[$alumno_id])) {
         // Si es pendiente, guardar 'PEND', sino el valor numérico
@@ -151,16 +156,20 @@ $stmt_notas->close();
 // Calcular promedios (excluyendo notas pendientes 'PEND')
 foreach ($alumnos as $id => &$alumno) {
     // Filtrar solo notas numéricas (excluir null y 'PEND')
-    $notas_t1 = array_filter($alumno['trimestre_1'], function($n) { return $n !== null && $n !== 'PEND' && is_numeric($n); });
-    $notas_t2 = array_filter($alumno['trimestre_2'], function($n) { return $n !== null && $n !== 'PEND' && is_numeric($n); });
-    $notas_t3 = array_filter($alumno['trimestre_3'], function($n) { return $n !== null && $n !== 'PEND' && is_numeric($n); });
+    $notas_t1 = array_filter($alumno['trimestre_1'], function ($n) {
+        return $n !== null && $n !== 'PEND' && is_numeric($n); });
+    $notas_t2 = array_filter($alumno['trimestre_2'], function ($n) {
+        return $n !== null && $n !== 'PEND' && is_numeric($n); });
+    $notas_t3 = array_filter($alumno['trimestre_3'], function ($n) {
+        return $n !== null && $n !== 'PEND' && is_numeric($n); });
 
     $alumno['promedio_t1'] = count($notas_t1) > 0 ? round(array_sum($notas_t1) / count($notas_t1), 1) : null;
     $alumno['promedio_t2'] = count($notas_t2) > 0 ? round(array_sum($notas_t2) / count($notas_t2), 1) : null;
     $alumno['promedio_t3'] = count($notas_t3) > 0 ? round(array_sum($notas_t3) / count($notas_t3), 1) : null;
 
     // Promedio final (promedio de los 3 trimestres)
-    $promedios = array_filter([$alumno['promedio_t1'], $alumno['promedio_t2'], $alumno['promedio_t3']], function($p) { return $p !== null; });
+    $promedios = array_filter([$alumno['promedio_t1'], $alumno['promedio_t2'], $alumno['promedio_t3']], function ($p) {
+        return $p !== null; });
     $alumno['promedio_final'] = count($promedios) > 0 ? round(array_sum($promedios) / count($promedios), 1) : null;
 
     // Determinar estado
@@ -177,10 +186,13 @@ foreach ($alumnos as $id => &$alumno) {
 
 // Aplicar filtro de nota mínima/máxima si se especificaron
 if ($nota_min !== null || $nota_max !== null) {
-    $alumnos = array_filter($alumnos, function($alumno) use ($nota_min, $nota_max) {
-        if ($alumno['promedio_final'] === null) return false;
-        if ($nota_min !== null && $alumno['promedio_final'] < $nota_min) return false;
-        if ($nota_max !== null && $alumno['promedio_final'] > $nota_max) return false;
+    $alumnos = array_filter($alumnos, function ($alumno) use ($nota_min, $nota_max) {
+        if ($alumno['promedio_final'] === null)
+            return false;
+        if ($nota_min !== null && $alumno['promedio_final'] < $nota_min)
+            return false;
+        if ($nota_max !== null && $alumno['promedio_final'] > $nota_max)
+            return false;
         return true;
     });
 }

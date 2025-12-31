@@ -528,6 +528,7 @@ if (empty($iniciales)) {
                                                 <input type="text" id="filtrarAlumnoVer"
                                                     class="form-control autocomplete-input"
                                                     placeholder="Buscar alumno..." autocomplete="off">
+                                                <input type="hidden" id="filtrarAlumnoVerValue">
                                                 <button type="button" class="autocomplete-arrow"
                                                     onclick="mostrarTodosAlumnos('filtrarAlumnoVer', 'dropdownFiltrarAlumnoVer')">
                                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
