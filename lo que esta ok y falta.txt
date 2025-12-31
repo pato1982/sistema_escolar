@@ -1,0 +1,42 @@
+la pagian de registro esta Ok lo siguiente:
+Apoderado					OK
+Docente 					OK
+Administrador 					OK
+Responsive					OK
+
+La pagina Login esta ok lo siguientes:
+Datos a ingresar				OK
+Recuperar contraseña 				OK
+Dervia el register				OK
+Falta conectar envio contraseña de recupero	PENDIENTE
+Responsive 					OK
+
+La pagina nosotros lo que esta ok:
+Responsive					OK
+Informacion 					OK
+lista completamente				OK
+
+La pagina Index lo que esta OK ES:
+Información 					OK
+Falta paginas de footer de:
+privacidad y condiciones y términos		OK
+Responsive					OK
+
+La pagina colegio es ok en:
+Panel de Control 				OK
+Pestañas y su informacion 			OK
+Falta arreglar los kpis en los 
+responsive dejando dos por fila			OK
+En los responsive de comunicados
+falta al final los botones en la 
+misma fila					OK
+
+Falta pagina de control DOCENTE			OK
+Definir pagina colegio para Administradr	OK
+
+Hacer en las notas que ven los apoderados
+una funcion que cuando la pinchen
+vean los comentarios de los profesores		OK
+
+	
+

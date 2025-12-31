@@ -1,0 +1,3536 @@
+/* ==================== VARIABLES ==================== */
+:root {
+    --primary-color: #1a365d;
+    --primary-dark: #0f2440;
+    --primary-light: #2c5282;
+    --secondary-color: #2d3748;
+    --accent-color: #3182ce;
+    --success-color: #276749;
+    --danger-color: #c53030;
+    --warning-color: #c05621;
+    --background-color: #f7fafc;
+    --surface-color: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --transition: all 0.2s ease;
+}
+
+/* ==================== RESET & BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== HEADER ==================== */
+.main-header {
+    background: #1e3a5f;
+    color: white;
+    padding: 0 24px;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background: #2d5a87;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.brand-text h1 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.current-date {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-logout:hover {
+    background: var(--primary-light);
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ==================== CONTROL PANEL ==================== */
+.control-panel {
+    background: var(--surface-color);
+    border-radius: 0;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #1e3a5f;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Botón toggle - oculto en desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow-icon {
+    font-size: 12px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* ==================== TABS ==================== */
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-nav {
+    display: flex;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.tab-btn:hover {
+    background: rgba(49, 130, 206, 0.05);
+    color: var(--accent-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    background: var(--surface-color);
+    border-bottom-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.tab-btn:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    width: 1px;
+    background: var(--border-color);
+}
+
+/* ==================== TAB CONTENT ==================== */
+.tabs-content {
+    padding: 24px;
+    min-height: 400px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ==================== SUB-PESTAÑAS ==================== */
+.sub-tabs-container {
+    display: none;
+}
+
+.sub-tabs-nav {
+    display: flex;
+    background: var(--background-color);
+    border-radius: var(--radius-md);
+    padding: 0;
+    margin-bottom: 16px;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.sub-tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-secondary);
+    background: var(--surface-color);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sub-tab-btn:first-child {
+    border-right: 1px solid var(--border-color);
+}
+
+.sub-tab-btn:not(.active):hover {
+    background: var(--background-color);
+}
+
+.sub-tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* ==================== TWO COLUMNS LAYOUT ==================== */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== CARDS ==================== */
+.card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.card-header {
+    background: var(--background-color);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.card-body {
+    padding: 18px;
+}
+
+/* ==================== FORM ELEMENTS ==================== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+.form-control:disabled {
+    background: var(--background-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+select.form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* ==================== BUTTONS ==================== */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding-top: 8px;
+}
+
+.btn {
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: var(--surface-color);
+    color: var(--text-secondary);
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--background-color);
+    color: var(--text-primary);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background: #a82828;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+/* Iconos ocultos por defecto (se muestran en responsive) */
+.btn-icon .icon {
+    display: none;
+}
+
+/* ==================== DATA TABLE ==================== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.data-table thead {
+    background: var(--primary-color);
+    color: white;
+}
+
+.data-table th {
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.data-table tbody tr:hover {
+    background: var(--background-color);
+}
+
+.data-table td {
+    padding: 12px 10px;
+    color: var(--text-primary);
+}
+
+/* Columna de nombres alineada a la izquierda */
+.data-table td:first-child {
+    text-align: left;
+}
+
+.data-table th:first-child {
+    text-align: left;
+}
+
+.data-table .actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.data-table .table-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+    text-align: right;
+}
+
+/* ==================== UTILITIES ==================== */
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+/* Texto desktop/mobile */
+.texto-desktop {
+    display: inline;
+}
+
+.texto-mobile {
+    display: none;
+}
+
+.nota-aprobada {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.nota-reprobada {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+/* Clases de notas por rendimiento */
+.nota-excelente {
+    color: #059669;
+    font-weight: 600;
+}
+
+.nota-buena {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.nota-suficiente {
+    color: #d97706;
+    font-weight: 500;
+}
+
+.nota-insuficiente {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+.nota-pendiente-tabla {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+    border-radius: 3px;
+}
+
+.estado-aprobado {
+    color: #059669;
+    font-weight: 600;
+}
+
+.estado-reprobado {
+    color: #dc2626;
+    font-weight: 600;
+}
+
+/* ==================== CHECKBOX GROUP ==================== */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 12px;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Checkbox en 4 columnas para especialidades */
+.checkbox-4-columnas {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px 6px;
+}
+
+.checkbox-4-columnas .checkbox-item {
+    font-size: 10px;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.checkbox-4-columnas .checkbox-item label {
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.checkbox-4-columnas .checkbox-item input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+/* Label con botón para agregar asignatura */
+.label-con-boton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.label-con-boton label {
+    margin-bottom: 0;
+}
+
+.botones-asignatura {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-agregar-asignatura,
+.btn-eliminar-asignatura {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    font-family: inherit;
+    color: #ffffff;
+    border-radius: 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-agregar-asignatura {
+    background: #2d5a87;
+    border: 1px solid #2d5a87;
+}
+
+.btn-agregar-asignatura:hover {
+    background: #245070;
+    border-color: #245070;
+}
+
+.btn-eliminar-asignatura {
+    background: #dc2626;
+    border: 1px solid #dc2626;
+}
+
+.btn-eliminar-asignatura:hover {
+    background: #b91c1c;
+    border-color: #b91c1c;
+}
+
+.btn-agregar-asignatura span,
+.btn-eliminar-asignatura span {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-item label {
+    cursor: pointer;
+    margin: 0;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+/* ==================== AUTOCOMPLETE ==================== */
+.autocomplete-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Permitir que dropdowns se muestren sobre el contenido */
+.card:has(.autocomplete-container),
+.card-body:has(.autocomplete-container),
+.form-group:has(.autocomplete-container),
+.form-row:has(.autocomplete-container),
+.filtros-docentes,
+.filtros-alumnos,
+.filtros-asignaciones,
+.column:has(.autocomplete-container) {
+    overflow: visible !important;
+}
+
+.autocomplete-container .form-control {
+    padding-right: 32px;
+    flex: 1;
+}
+
+.autocomplete-arrow {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 30px;
+    background: var(--surface-color);
+    border: none;
+    border-left: 1px solid var(--border-color);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.autocomplete-arrow:hover {
+    background: var(--background-color);
+    color: var(--text-primary);
+}
+
+.autocomplete-arrow:active {
+    background: var(--border-color);
+}
+
+.autocomplete-arrow svg {
+    transition: transform 0.2s ease;
+}
+
+.autocomplete-arrow.active svg {
+    transform: rotate(180deg);
+}
+
+.autocomplete-arrow:disabled,
+.autocomplete-arrow[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.autocomplete-container .form-control:disabled + .autocomplete-arrow {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.sugerencias-lista {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    max-height: 252px;
+    overflow-y: auto;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.sugerencias-lista.visible {
+    display: block;
+}
+
+.sugerencias-lista.dropdown-arriba {
+    top: auto;
+    bottom: 100%;
+    border-top: 1px solid var(--border-color);
+    border-bottom: none;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sugerencia-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.sugerencia-item:last-child {
+    border-bottom: none;
+}
+
+.sugerencia-item:hover {
+    background: var(--background-color);
+}
+
+.sugerencia-item.activo {
+    background: var(--primary-color);
+    color: white;
+}
+
+.sugerencia-item.no-resultados {
+    color: var(--text-muted);
+    font-style: italic;
+    cursor: default;
+}
+
+.sugerencia-item.no-resultados:hover {
+    background: transparent;
+}
+
+.sugerencia-item mark {
+    background: rgba(37, 99, 235, 0.2);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0;
+}
+
+.sugerencia-todos {
+    font-weight: 600;
+    color: #1e3a5f;
+    background: #f0f4f8;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* ==================== MODAL ==================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 24px;
+}
+
+.modal {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    max-width: 480px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* ==================== FILTROS ==================== */
+.filtros-notas {
+    margin-bottom: 16px;
+}
+
+/* ==================== SUB-TABS MOBILE ==================== */
+.sub-tabs-mobile {
+    display: none;
+    margin-bottom: 16px;
+}
+
+.filtros-alumnos {
+    margin-bottom: 16px;
+}
+
+.filtros-notas-curso {
+    margin-bottom: 20px;
+}
+
+/* ==================== GRID DE CURSOS ==================== */
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.curso-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-secondary);
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.curso-btn:hover {
+    background: var(--background-color);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.curso-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* ==================== TABLA DE NOTAS AMPLIA ==================== */
+.tabla-notas-amplia {
+    font-size: 11px;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 100%;
+}
+
+.tabla-notas-amplia th,
+.tabla-notas-amplia td {
+    padding: 5px 3px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Columna de alumno */
+.tabla-notas-amplia .th-alumno-notas,
+.tabla-notas-amplia .td-alumno-notas {
+    text-align: left;
+    min-width: 120px;
+    max-width: 140px;
+    position: sticky;
+    left: 0;
+    background: var(--card-background);
+    z-index: 2;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabla-notas-amplia .th-alumno-notas {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Encabezado de trimestre */
+.tabla-notas-amplia .th-trimestre-header {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 8px 4px;
+}
+
+/* Columnas de notas */
+.tabla-notas-amplia .th-nota-col {
+    background: var(--primary-light);
+    color: white;
+    font-size: 9px;
+    min-width: 28px;
+    max-width: 32px;
+    padding: 4px 2px;
+}
+
+.tabla-notas-amplia .td-nota-valor {
+    font-size: 10px;
+    min-width: 28px;
+    max-width: 32px;
+}
+
+.tabla-notas-amplia .td-nota-vacia {
+    color: var(--text-muted);
+    font-size: 10px;
+}
+
+/* Columnas de promedio trimestre */
+.tabla-notas-amplia .th-prom-col {
+    background: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 9px;
+    min-width: 34px;
+    border-right: 2px solid var(--primary-color);
+}
+
+.tabla-notas-amplia .td-prom-trimestre {
+    font-weight: 600;
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.03);
+    border-right: 2px solid var(--border-color);
+}
+
+/* Columna promedio final */
+.tabla-notas-amplia .th-prom-final {
+    background: var(--accent-color);
+    color: white;
+    font-weight: 700;
+    font-size: 10px;
+    min-width: 45px;
+}
+
+.tabla-notas-amplia .td-prom-final {
+    font-weight: 700;
+    font-size: 11px;
+    background: rgba(49, 130, 206, 0.08);
+}
+
+/* Filas alternadas */
+.tabla-notas-amplia tbody tr:nth-child(even) td {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.tabla-notas-amplia tbody tr:nth-child(even) .td-alumno-notas {
+    background: #f5f5f5;
+}
+
+.tabla-notas-amplia tbody tr:hover td {
+    background: rgba(49, 130, 206, 0.06);
+}
+
+.tabla-notas-amplia tbody tr:hover .td-alumno-notas {
+    background: rgba(49, 130, 206, 0.1);
+}
+
+.nota-cell-valor {
+    font-weight: 500;
+}
+
+.nota-vacia {
+    color: var(--text-muted);
+}
+
+/* Form row para 3 columnas */
+.form-row-tres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* ==================== TABLA CON SCROLL ==================== */
+.table-scroll {
+    max-height: 175px;
+    overflow-y: auto;
+}
+
+.table-scroll table {
+    width: 100%;
+}
+
+.table-scroll thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* ==================== PESTAÑA: ESTADÍSTICAS ==================== */
+.estadisticas-container {
+    padding: 20px 0;
+}
+
+/* Panel de Filtros */
+.stats-filtros-panel {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 0;
+    padding: 20px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.stats-filtros-header {
+    margin-bottom: 0;
+}
+
+.stats-filtros-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-filtros-header h3::before {
+    content: '';
+    width: 5px;
+    height: 24px;
+    background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%);
+    border-radius: 0;
+}
+
+.stats-filtros-header p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.stats-filtros-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.stats-filtro-grupo {
+    min-width: 180px;
+    max-width: 220px;
+}
+
+.stats-filtro-grupo label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.stats-filtro-grupo select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid rgba(148, 163, 184, 0.3);
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1e293b;
+    background: white;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.stats-filtro-grupo select:hover {
+    border-color: #6366f1;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+.stats-filtro-grupo select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* Título de sección */
+.stats-titulo-seccion {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.stats-titulo-seccion h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* KPIs Ejecutivos */
+.stats-kpis-executive {
+    display: grid;
+    grid-template-columns: 280px 1fr 200px;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* KPI Principal con Gauge */
+.stats-kpi-main {
+    background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+    border-radius: 0;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(30, 41, 59, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-kpi-main::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+}
+
+/* ===== KPI Círculos Solo Borde ===== */
+.kpi-circle-bg {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+/* Círculo Azul Pastel - Promedio */
+.kpi-circle-azul {
+    border: 4px solid #74c0fc;
+}
+
+/* Círculo Verde Pastel - Aprobación */
+.kpi-circle-verde {
+    border: 4px solid #8ce99a;
+}
+
+.kpi-gauge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.gauge-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.gauge-label {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-gauge-footer {
+    margin-top: 10px;
+}
+
+.stats-kpi-trend {
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 0;
+    backdrop-filter: blur(10px);
+}
+
+.stats-kpi-trend.up {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.15);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.stats-kpi-trend.down {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.15);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+}
+
+/* KPIs Secundarios */
+.stats-kpis-secondary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.stats-kpi-exec-card {
+    background: #fff;
+    border-radius: 0;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-kpi-exec-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--kpi-accent);
+}
+
+.stats-kpi-exec-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.stats-kpi-exec-card.kpi-success { --kpi-accent: linear-gradient(90deg, #10b981, #34d399); }
+.stats-kpi-exec-card.kpi-danger { --kpi-accent: linear-gradient(90deg, #ef4444, #f87171); }
+.stats-kpi-exec-card.kpi-info { --kpi-accent: linear-gradient(90deg, #6366f1, #818cf8); }
+.stats-kpi-exec-card.kpi-warning { --kpi-accent: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+.kpi-exec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.kpi-exec-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.kpi-exec-badge {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 0;
+    letter-spacing: 0.5px;
+}
+
+.kpi-success .kpi-exec-badge { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.kpi-danger .kpi-exec-badge { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.kpi-info .kpi-exec-badge { background: rgba(99, 102, 241, 0.1); color: #6366f1; }
+.kpi-warning .kpi-exec-badge { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.kpi-exec-body {
+    margin-bottom: 14px;
+}
+
+.kpi-exec-value {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.kpi-exec-subtext {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.kpi-exec-bar {
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.kpi-exec-bar-fill {
+    height: 100%;
+    border-radius: 0;
+    transition: width 1s ease-out;
+}
+
+.kpi-success .kpi-exec-bar-fill { background: linear-gradient(90deg, #10b981, #34d399); }
+.kpi-danger .kpi-exec-bar-fill { background: linear-gradient(90deg, #ef4444, #f87171); }
+.kpi-info .kpi-exec-bar-fill { background: linear-gradient(90deg, #6366f1, #818cf8); }
+.kpi-warning .kpi-exec-bar-fill { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+/* KPI Tasa de Aprobación */
+.stats-kpi-approval {
+    background: linear-gradient(145deg, #fff 0%, #f8fafc 100%);
+    border-radius: 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.approval-ring-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.approval-percent {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}
+
+.approval-label {
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.approval-details {
+    margin-top: 6px;
+    text-align: center;
+}
+
+.approval-subtext {
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+}
+
+/* Footer del gauge de promedio general */
+.gauge-footer {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.gauge-subtext {
+    font-size: 10px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+}
+
+/* Gráficos body large */
+.stats-grafico-body-lg {
+    height: 240px;
+}
+
+/* Gráficos Corporativos */
+.stats-graficos-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.stats-graficos-row:last-child {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.stats-grafico-card {
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 30px -5px rgba(30, 41, 59, 0.1);
+    border: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.stats-grafico-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3a5f 0%, #3b82f6 50%, #06b6d4 100%);
+}
+
+.stats-grafico-card:hover {
+    box-shadow:
+        0 8px 12px -2px rgba(0, 0, 0, 0.08),
+        0 20px 50px -10px rgba(30, 41, 59, 0.15);
+    transform: translateY(-4px);
+}
+
+.stats-grafico-header {
+    padding: 20px 24px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.stats-grafico-header h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: -0.02em;
+}
+
+.stats-grafico-header h4::before {
+    content: '';
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(145deg, #1e3a5f 0%, #334155 100%);
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.25);
+}
+
+.stats-grafico-card:nth-child(1) .stats-grafico-header h4::before {
+    background: linear-gradient(145deg, #0369a1 0%, #0284c7 100%);
+    box-shadow: 0 4px 12px rgba(3, 105, 161, 0.3);
+}
+
+.stats-grafico-card:nth-child(2) .stats-grafico-header h4::before {
+    background: linear-gradient(145deg, #7c3aed 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.stats-graficos-row:last-child .stats-grafico-card:nth-child(1) .stats-grafico-header h4::before {
+    background: linear-gradient(145deg, #059669 0%, #10b981 100%);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.stats-graficos-row:last-child .stats-grafico-card:nth-child(2) .stats-grafico-header h4::before {
+    background: linear-gradient(145deg, #dc2626 0%, #ef4444 100%);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.stats-grafico-header h4::after {
+    content: '';
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(148, 163, 184, 0.3) 50%, transparent 100%);
+}
+
+.stats-grafico-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(145deg, #1e3a5f 0%, #334155 100%);
+    padding: 6px 14px;
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.25);
+}
+
+.stats-grafico-body {
+    padding: 16px;
+    height: 240px;
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
+}
+
+.stats-grafico-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(148, 163, 184, 0.15) 20%, rgba(148, 163, 184, 0.15) 80%, transparent 100%);
+}
+
+.stats-grafico-body canvas {
+    max-height: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .stats-kpis-executive {
+        grid-template-columns: 250px 1fr 180px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .stats-kpis-executive {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .stats-kpi-main {
+        grid-column: 1;
+    }
+
+    .stats-kpis-secondary {
+        grid-column: 2;
+    }
+
+    .stats-kpi-approval {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .stats-kpis-executive {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-kpi-main {
+        grid-column: 1;
+        padding: 24px;
+    }
+
+    .stats-kpis-secondary {
+        grid-column: 1;
+    }
+
+    .stats-kpi-approval {
+        grid-column: 1;
+        flex-direction: column;
+    }
+
+    /* Gráficos en 2x2 para tablet */
+    .stats-graficos-row,
+    .stats-graficos-row:last-child {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .stats-grafico-body,
+    .stats-grafico-body-lg {
+        height: 280px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .estadisticas-container {
+        padding: 10px 0;
+    }
+
+    .stats-filtros-panel {
+        padding: 16px;
+        margin-bottom: 16px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stats-filtros-header {
+        margin-bottom: 12px;
+    }
+
+    .stats-filtros-header h3 {
+        font-size: 16px;
+    }
+
+    .stats-filtros-header p {
+        font-size: 11px;
+    }
+
+    .stats-filtros-grid {
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+        flex-wrap: nowrap;
+    }
+
+    .stats-filtro-grupo {
+        flex: 1;
+        max-width: 50%;
+        min-width: auto;
+    }
+
+    .stats-filtro-grupo label {
+        font-size: 9px;
+        margin-bottom: 4px;
+    }
+
+    .stats-filtro-grupo select {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .stats-titulo-seccion h4 {
+        font-size: 14px;
+    }
+
+    /* KPIs Ejecutivos Mobile - Principales lado a lado */
+    .stats-kpis-executive {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .stats-kpi-main {
+        padding: 12px;
+        border-radius: 0;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .stats-kpi-approval {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 12px;
+    }
+
+    .stats-kpis-secondary {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    /* KPI Círculos Responsive - más pequeños */
+    .kpi-circle-bg {
+        width: 70px;
+        height: 70px;
+        border-width: 3px;
+    }
+
+    .gauge-number {
+        font-size: 18px;
+    }
+
+    .gauge-label {
+        font-size: 7px;
+    }
+
+    .approval-percent {
+        font-size: 16px;
+    }
+
+    .approval-label {
+        font-size: 7px;
+    }
+
+    .approval-subtext {
+        font-size: 8px;
+    }
+
+    .gauge-subtext {
+        font-size: 8px;
+    }
+
+    .stats-kpi-exec-card {
+        padding: 14px;
+        border-radius: 0;
+    }
+
+    .kpi-exec-label {
+        font-size: 9px;
+    }
+
+    .kpi-exec-badge {
+        font-size: 8px;
+        padding: 3px 8px;
+    }
+
+    .kpi-exec-value {
+        font-size: 16px;
+    }
+
+    .kpi-exec-subtext {
+        font-size: 10px;
+    }
+
+    .stats-kpi-approval {
+        padding: 16px;
+        border-radius: 0;
+    }
+
+    .stats-graficos-row {
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .stats-grafico-card {
+        border-radius: 0;
+    }
+
+    .stats-grafico-card::before {
+        height: 3px;
+    }
+
+    .stats-grafico-header {
+        padding: 16px 18px 14px;
+    }
+
+    .stats-grafico-header h4 {
+        font-size: 13px;
+        gap: 10px;
+    }
+
+    .stats-grafico-header h4::before {
+        width: 30px;
+        height: 30px;
+        border-radius: 0;
+    }
+
+    .stats-grafico-badge {
+        font-size: 9px;
+        padding: 5px 10px;
+        border-radius: 0;
+    }
+
+    .stats-grafico-body {
+        padding: 16px;
+        height: 240px;
+    }
+
+    .stats-grafico-body-lg {
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-kpis-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .stats-kpi-card {
+        padding: 12px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stats-kpi-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .stats-kpi-value {
+        font-size: 16px;
+    }
+
+    .stats-grafico-body {
+        height: 200px;
+    }
+
+    /* KPIs Ejecutivos - Extra Small */
+    .stats-kpis-executive {
+        gap: 12px;
+    }
+
+    .stats-kpi-main {
+        padding: 16px;
+        border-radius: 0;
+    }
+
+    .kpi-circle-bg {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+
+    .gauge-number {
+        font-size: 18px;
+    }
+
+    .gauge-label {
+        font-size: 7px;
+    }
+
+    .approval-percent {
+        font-size: 16px;
+    }
+
+    .approval-label {
+        font-size: 7px;
+    }
+
+    .kpi-gauge-footer {
+        margin-top: 6px;
+    }
+
+    .stats-kpis-secondary {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .stats-kpi-exec-card {
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .kpi-exec-header {
+        margin-bottom: 4px;
+    }
+
+    .kpi-exec-label {
+        font-size: 8px;
+    }
+
+    .kpi-exec-badge {
+        font-size: 6px;
+        padding: 2px 4px;
+    }
+
+    .kpi-exec-value {
+        font-size: 12px;
+    }
+
+    .kpi-exec-subtext {
+        font-size: 8px;
+    }
+
+    .kpi-exec-bar {
+        height: 2px;
+        margin-top: 6px;
+    }
+
+    .stats-kpi-approval {
+        padding: 10px 14px;
+        border-radius: 0;
+        gap: 4px;
+    }
+
+
+    /* Filtros panel mobile pequeño */
+    .stats-filtros-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .stats-filtros-header h3 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .stats-filtros-selects {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stats-filtros-selects select {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    /* Gráficos mobile pequeño */
+    .stats-graficos-row {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .stats-grafico-card {
+        border-radius: 0;
+    }
+
+    .stats-grafico-card::before {
+        height: 3px;
+    }
+
+    .stats-grafico-header {
+        padding: 14px 14px 12px;
+    }
+
+    .stats-grafico-header h4 {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .stats-grafico-header h4::before {
+        width: 26px;
+        height: 26px;
+        border-radius: 0;
+    }
+
+    .stats-grafico-badge {
+        font-size: 8px;
+        padding: 4px 8px;
+        border-radius: 0;
+    }
+
+    .stats-grafico-body {
+        padding: 14px;
+        height: 200px;
+    }
+
+    .stats-grafico-body-lg {
+        height: 220px;
+    }
+}
+
+/* ==================== FOOTER ==================== */
+.main-footer {
+    background: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+/* ==================== GRID DE CURSOS COMUNICADOS ==================== */
+.cursos-grid-container {
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--background-color);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.cursos-grid label span {
+    font-size: 11px;
+}
+
+.curso-check-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.curso-check-item:hover {
+    border-color: var(--accent-color);
+}
+
+.curso-check-item input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.curso-check-item span {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.curso-check-item input[type="checkbox"]:checked + span {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* ==================== RESPONSIVE ==================== */
+/* Breakpoints:
+   - Escritorio: 1101px+ (dos columnas lado a lado)
+   - Tablet: 768px - 1100px (pestañas horizontales, sub-pestañas para columnas)
+   - Móvil: 0 - 767px (pestañas colapsables, sub-pestañas para columnas)
+*/
+
+/* ==================== MODO TABLET Y MÓVIL (0 - 1100px) ==================== */
+@media (max-width: 1100px) {
+    /* Header */
+    .main-header {
+        padding: 0 12px;
+    }
+
+    .header-content {
+        height: 50px;
+    }
+
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-icon {
+        font-size: 16px;
+    }
+
+    .brand-text h1 {
+        font-size: 12px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .current-date {
+        display: none;
+    }
+
+    /* Main content */
+    .main-content {
+        padding: 10px;
+    }
+
+    /* Control panel */
+    .control-panel {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .panel-header {
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+    }
+
+    .panel-header h2 {
+        font-size: 12px;
+    }
+
+    .tabs-container {
+        background: transparent;
+    }
+
+    /* Pestañas horizontales en tablet (visibles) */
+    .tabs-nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tab-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    /* Tabs content */
+    .tabs-content {
+        padding: 12px;
+        min-height: auto;
+    }
+
+    /* Dos columnas en una sola */
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Sub-pestañas visibles en tablet y móvil */
+    .sub-tabs-container {
+        display: block;
+    }
+
+    /* Por defecto ocultar la segunda columna */
+    #subtab-ultimas-notas {
+        display: none;
+    }
+
+    #subtab-ultimas-notas.active {
+        display: block;
+    }
+
+    #subtab-registrar-nota {
+        display: block;
+    }
+
+    #subtab-registrar-nota.hidden {
+        display: none;
+    }
+
+    /* Form row en una columna en móvil */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    /* Excepciones: Curso/Asignatura y Alumno/Nota en dos columnas */
+    #formRegistrarNota .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Gestión de Alumnos: Curso/RUT y FechaNac/Sexo en dos columnas */
+    #formGestionAlumno .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Gestión de Docentes: Nombres/Apellidos y RUT/Email en dos columnas */
+    #formGestionDocente .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Checkbox group en responsive: 2 columnas, sin scroll */
+    .checkbox-group {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: none;
+        overflow-y: visible;
+    }
+
+    /* Checkbox 4 columnas pasa a 2 columnas en responsive */
+    .checkbox-4-columnas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px 6px;
+    }
+
+    .checkbox-4-columnas .checkbox-item {
+        font-size: 9px;
+        gap: 3px;
+    }
+
+    .checkbox-4-columnas .checkbox-item label {
+        font-size: 9px;
+    }
+
+    .checkbox-4-columnas .checkbox-item input[type="checkbox"] {
+        width: 11px;
+        height: 11px;
+    }
+
+    /* Grid de cursos en comunicados: 3 columnas en móvil */
+    .cursos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+    }
+
+    .curso-check-item {
+        padding: 5px 6px;
+        gap: 4px;
+    }
+
+    .curso-check-item span {
+        font-size: 10px;
+    }
+
+    .curso-check-item input[type="checkbox"] {
+        width: 12px;
+        height: 12px;
+    }
+
+    .checkbox-group .text-muted {
+        font-size: 11px;
+        margin: 0;
+    }
+
+    /* Botones de Gestión de Alumnos en fila */
+    #formGestionAlumno .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #formGestionAlumno .form-actions .btn {
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Botones de Gestión de Docentes en fila */
+    #formGestionDocente .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #formGestionDocente .form-actions .btn {
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Asignación de Cursos: Docente/Curso en dos columnas */
+    #formAsignacionCurso .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Botones de Asignación en fila */
+    #formAsignacionCurso .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #formAsignacionCurso .form-actions .btn {
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Filtros de notas registradas en dos columnas */
+    .filtros-notas .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Filtros de alumnos en dos columnas */
+    .filtros-alumnos .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Filtros de asignaciones en dos columnas */
+    .filtros-asignaciones .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Notas por Curso: Curso/Asignatura en dos columnas */
+    #notas-por-curso .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Form row 3 columnas en responsive */
+    .form-row-tres {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-row-tres .form-group:last-child {
+        grid-column: span 2;
+    }
+
+    /* Tabla de Notas por Curso responsive */
+    .tabla-notas-amplia {
+        font-size: 9px;
+    }
+
+    .tabla-notas-amplia .th-alumno-notas,
+    .tabla-notas-amplia .td-alumno-notas {
+        min-width: 80px;
+        max-width: 90px;
+        font-size: 8px;
+    }
+
+    .tabla-notas-amplia .th-trimestre-header {
+        font-size: 9px;
+        padding: 5px 2px;
+    }
+
+    .tabla-notas-amplia .th-nota-col {
+        font-size: 7px;
+        min-width: 22px;
+        max-width: 26px;
+        padding: 3px 1px;
+    }
+
+    .tabla-notas-amplia .td-nota-valor,
+    .tabla-notas-amplia .td-nota-vacia {
+        font-size: 8px;
+        min-width: 22px;
+        max-width: 26px;
+    }
+
+    .tabla-notas-amplia .th-prom-col {
+        font-size: 7px;
+        min-width: 28px;
+    }
+
+    .tabla-notas-amplia .td-prom-trimestre {
+        font-size: 8px;
+    }
+
+    .tabla-notas-amplia .th-prom-final {
+        font-size: 8px;
+        min-width: 38px;
+    }
+
+    .tabla-notas-amplia .td-prom-final {
+        font-size: 9px;
+    }
+
+    /* Mensaje de selección más pequeño en Notas por Curso */
+    #notas-por-curso .text-muted {
+        font-size: 11px;
+    }
+
+    /* Cards */
+    .card {
+        border-radius: var(--radius-md);
+    }
+
+    .card-header {
+        padding: 10px 12px;
+    }
+
+    .card-header h3 {
+        font-size: 11px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    /* Form elements */
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .form-control {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    textarea.form-control {
+        min-height: 60px;
+    }
+
+    /* Buttons */
+    .form-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .btn-sm {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    /* Tables */
+    .data-table {
+        font-size: 11px;
+    }
+
+    .data-table th {
+        padding: 8px 6px;
+        font-size: 10px;
+    }
+
+    .data-table td {
+        padding: 8px 6px;
+    }
+
+    .data-table .actions {
+        flex-direction: row;
+        gap: 4px;
+        justify-content: flex-end;
+    }
+
+    .data-table .table-actions {
+        gap: 4px;
+    }
+
+    /* Botones con iconos en responsive */
+    .btn-icon {
+        padding: 4px 5px;
+        min-width: auto;
+        width: auto;
+    }
+
+    .btn-icon svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .btn-icon .btn-text {
+        display: none;
+    }
+
+    .btn-icon .icon {
+        display: inline;
+        font-size: 11px;
+    }
+
+    /* Texto desktop/mobile en responsive */
+    .texto-desktop {
+        display: none;
+    }
+
+    .texto-mobile {
+        display: inline;
+    }
+
+    /* Filtros de docentes en responsive: lado a lado */
+    .filtros-docentes .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .filtros-docentes .form-group {
+        margin-bottom: 0;
+    }
+
+    .filtros-docentes .form-group label {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+
+    .filtros-docentes .form-control {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+
+    /* Lista de sugerencias en responsive */
+    .filtros-docentes .sugerencias-lista {
+        max-height: 180px;
+    }
+
+    .filtros-docentes .sugerencia-item {
+        font-size: 11px;
+        padding: 8px 10px;
+    }
+
+    /* Tamaño de nota en listado */
+    .nota-valor {
+        font-size: 11px;
+    }
+
+    /* Botones de Nueva Nota en fila y angostos */
+    #formRegistrarNota .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #formRegistrarNota .form-actions .btn {
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Botones de Comunicados en fila */
+    #comunicados .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #comunicados .form-actions .btn {
+        width: auto;
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Comunicados: Tipo y Curso en la misma fila */
+    #comunicados .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Nombres de cursos más pequeños en selector de comunicados */
+    #contenedorCursosEspecificos .cursos-grid label span {
+        font-size: 9px !important;
+    }
+
+    #contenedorCursosEspecificos .cursos-grid label {
+        padding: 4px 3px;
+        gap: 3px;
+    }
+
+    #contenedorCursosEspecificos .cursos-grid label input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+
+    .table-scroll {
+        max-height: 150px;
+    }
+
+    /* Scroll para tabla de notas registradas - 4 registros visibles */
+    #tablaNotas {
+        display: block;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    #tablaNotas thead,
+    #tablaNotas tbody,
+    #tablaNotas tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    #tablaNotas thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    /* Scroll para tabla de alumnos - 4 registros visibles */
+    #columna-listado-alumnos .table-scroll {
+        max-height: 200px;
+    }
+
+    /* Scroll para tabla de docentes - 5 registros visibles */
+    #columna-listado-docentes .table-scroll {
+        max-height: 260px;
+    }
+
+    /* Scroll para tabla de asignaciones - 3 registros visibles */
+    #columna-asignaciones-actuales .table-responsive {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    /* Tabla de notas amplia */
+    .tabla-notas-amplia {
+        font-size: 10px;
+    }
+
+    .tabla-notas-amplia th,
+    .tabla-notas-amplia td {
+        padding: 6px 4px;
+        min-width: 35px;
+    }
+
+    .tabla-notas-amplia th:first-child,
+    .tabla-notas-amplia td:first-child {
+        min-width: 100px;
+    }
+
+    /* Modal */
+    .modal-overlay {
+        padding: 16px;
+    }
+
+    .modal {
+        max-width: 100%;
+    }
+
+    .modal-header {
+        padding: 12px 14px;
+    }
+
+    .modal-header h3 {
+        font-size: 14px;
+    }
+
+    .modal-body {
+        padding: 14px;
+    }
+
+    .modal-footer {
+        padding: 12px 14px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+
+    /* Filtros */
+    .filtros-notas,
+    .filtros-alumnos,
+    .filtros-notas-curso {
+        margin-bottom: 12px;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 12px 16px;
+        font-size: 10px;
+    }
+
+    /* Utilities */
+    .nota-aprobada,
+    .nota-reprobada {
+        font-size: 12px;
+    }
+
+    /* Sub-tabs mobile - ajustes de tamaño */
+    .sub-tabs-nav {
+        margin-bottom: 12px;
+    }
+
+    .sub-tab-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    /* Ocultar columnas según sub-tab activa */
+    #columna-notas-registradas {
+        display: none;
+    }
+
+    #columna-notas-registradas.active {
+        display: block;
+    }
+
+    #columna-nueva-nota.hidden {
+        display: none;
+    }
+
+    /* Sub-tabs Alumnos - Mostrar solo un bloque a la vez */
+    .sub-tabs-alumnos {
+        display: flex;
+    }
+
+    /* Por defecto: mostrar gestión, ocultar listado */
+    #columna-gestion-alumnos {
+        display: block !important;
+    }
+
+    #columna-listado-alumnos {
+        display: none !important;
+    }
+
+    /* Cuando se selecciona listado: ocultar gestión, mostrar listado */
+    #columna-gestion-alumnos.hidden {
+        display: none !important;
+    }
+
+    #columna-listado-alumnos.active {
+        display: block !important;
+    }
+
+    /* Sub-tabs Docentes */
+    .sub-tabs-docentes {
+        display: flex;
+    }
+
+    #docentes #columna-listado-docentes {
+        display: none;
+    }
+
+    #docentes #columna-listado-docentes.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #docentes #columna-agregar-docente.hidden {
+        display: none;
+    }
+
+    /* Sub-tabs Asignaciones */
+    .sub-tabs-asignaciones {
+        display: flex;
+    }
+
+    #asignacion-cursos #columna-asignaciones-actuales {
+        display: none;
+    }
+
+    #asignacion-cursos #columna-asignaciones-actuales.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #asignacion-cursos #columna-asignar-docente.hidden {
+        display: none;
+    }
+}
+
+/* ==================== MODO MÓVIL (0 - 767px) - Pestañas colapsables ==================== */
+@media (max-width: 767px) {
+    /* Mostrar botón toggle en móvil */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Panel header con menú */
+    .panel-header {
+        transition: border-radius 0.3s ease;
+    }
+
+    .panel-header.menu-open {
+        border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+
+    /* Ocultar pestañas por defecto en móvil */
+    .tabs-nav {
+        flex-direction: column;
+        height: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border: none !important;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Mostrar pestañas cuando el menú está abierto */
+    .tabs-nav.open {
+        height: auto;
+        max-height: 300px;
+        background: var(--surface-color);
+        border: 1px solid var(--border-color) !important;
+        border-top: none !important;
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        margin-top: -1px;
+    }
+
+    .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        text-align: left;
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+    .tab-btn.active {
+        border-left-color: var(--accent-color);
+        border-bottom-color: transparent;
+    }
+
+    .tab-btn:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Gráficos en una columna en móvil */
+    .stats-graficos-row,
+    .stats-graficos-row:last-child {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 0 8px;
+    }
+
+    .header-content {
+        height: 46px;
+    }
+
+    .logo {
+        width: 28px;
+        height: 28px;
+    }
+
+    .logo-icon {
+        font-size: 14px;
+    }
+
+    .brand-text h1 {
+        font-size: 11px;
+    }
+
+    .main-content {
+        padding: 8px;
+    }
+
+    .panel-header {
+        padding: 10px 12px;
+    }
+
+    .panel-header h2 {
+        font-size: 11px;
+    }
+
+    .tabs-content {
+        padding: 10px;
+    }
+
+    .card-header {
+        padding: 8px 10px;
+    }
+
+    .card-header h3 {
+        font-size: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .form-group label {
+        font-size: 11px;
+    }
+
+    .form-control {
+        padding: 7px 8px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .btn-sm {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .data-table {
+        font-size: 10px;
+    }
+
+    .data-table th {
+        font-size: 9px;
+        padding: 6px 4px;
+    }
+
+    .data-table td {
+        padding: 6px 4px;
+    }
+
+    .table-scroll {
+        max-height: 130px;
+    }
+
+    .modal-header h3 {
+        font-size: 13px;
+    }
+
+    /* Tabla de Notas por Curso extra small */
+    .form-row-tres {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row-tres .form-group:last-child {
+        grid-column: span 1;
+    }
+
+    .tabla-notas-amplia {
+        font-size: 8px;
+    }
+
+    .tabla-notas-amplia .th-alumno-notas,
+    .tabla-notas-amplia .td-alumno-notas {
+        min-width: 65px;
+        max-width: 70px;
+        font-size: 7px;
+    }
+
+    .tabla-notas-amplia .th-trimestre-header {
+        font-size: 8px;
+        padding: 4px 1px;
+    }
+
+    .tabla-notas-amplia .th-nota-col {
+        font-size: 6px;
+        min-width: 18px;
+        max-width: 22px;
+        padding: 2px 1px;
+    }
+
+    .tabla-notas-amplia .td-nota-valor,
+    .tabla-notas-amplia .td-nota-vacia {
+        font-size: 7px;
+        min-width: 18px;
+        max-width: 22px;
+    }
+
+    .tabla-notas-amplia .th-prom-col {
+        font-size: 6px;
+        min-width: 24px;
+    }
+
+    .tabla-notas-amplia .td-prom-trimestre {
+        font-size: 7px;
+    }
+
+    .tabla-notas-amplia .th-prom-final {
+        font-size: 7px;
+        min-width: 32px;
+    }
+
+    .tabla-notas-amplia .td-prom-final {
+        font-size: 8px;
+    }
+
+    .main-footer {
+        font-size: 9px;
+        padding: 10px 12px;
+    }
+}
+
+/* ==================== ESTILOS GLOBALES PESTAÑAS ==================== */
+.tab-panel .card {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 1px solid #d5d5d5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+}
+
+.tab-panel .card-header {
+    background: #2d5a87;
+    border-bottom: 1px solid #245070;
+}
+
+.tab-panel .card-header h3 {
+    color: #ffffff;
+}
+
+.tab-panel .card-body {
+    background: transparent;
+}
+
+#asignacion-cursos .column .card,
+#asignacion-cursos .column .card-body {
+    overflow: visible;
+}
+
+.tab-panel .form-group label {
+    color: #333333;
+}
+
+.tab-panel .form-control {
+    background: #ffffff;
+    border-color: #cccccc;
+    border-radius: 0;
+}
+
+.tab-panel .form-control:focus {
+    border-color: #2d5a87;
+    box-shadow: 0 0 0 3px rgba(45, 90, 135, 0.25);
+}
+
+.tab-panel .data-table thead {
+    background: #2d5a87;
+}
+
+.tab-panel .data-table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tab-panel .data-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tab-panel .data-table td {
+    color: #1a1a1a;
+}
+
+.tab-panel .text-muted {
+    color: #555555;
+}
+
+.tab-panel .filtros-alumnos,
+.tab-panel .filtros-notas,
+.tab-panel .filtros-notas-curso,
+.tab-panel .filtros-asignaciones,
+.tab-panel .filtros-docentes {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 12px;
+    border-radius: 0;
+    margin-bottom: 16px;
+}
+
+.tab-panel .btn-primary {
+    background: #2d5a87;
+    border-color: #2d5a87;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.tab-panel .btn-primary:hover {
+    background: #245070;
+    border-color: #245070;
+}
+
+.tab-panel .btn-secondary {
+    background: #ffffff;
+    border-color: #909090;
+    color: #505050;
+    border-radius: 0;
+}
+
+.tab-panel .btn-secondary:hover {
+    background: #f0f0f0;
+    border-color: #707070;
+}
+
+.tab-panel .btn-danger {
+    background: #707070;
+    border-color: #707070;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.tab-panel .btn-danger:hover {
+    background: #585858;
+    border-color: #585858;
+}
+
+.tab-panel .checkbox-group {
+    border-radius: 0;
+}
+
+.tab-panel .modal .modal-header {
+    background: #2d5a87;
+}
+
+.tab-panel .modal {
+    border-radius: 0;
+}
+
+.tab-panel .modal .form-control {
+    border-radius: 0;
+}
+
+.tab-panel .modal .btn {
+    border-radius: 0;
+}
+
+/* ==================== ESTILOS PESTAÑA ESTADÍSTICAS ==================== */
+#estadisticas .estadisticas-container {
+    background: transparent;
+    padding: 24px 0;
+}
+
+#estadisticas .stats-filtros-panel {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 1px solid #d5d5d5;
+    border-radius: 0;
+}
+
+#estadisticas .stats-filtros-header h3::before {
+    background: linear-gradient(180deg, #1e3a5f 0%, #2d5a87 100%);
+    border-radius: 0;
+}
+
+#estadisticas .stats-filtro-grupo label {
+    color: #1e3a5f;
+}
+
+#estadisticas .stats-filtro-grupo select {
+    border-radius: 0;
+    border-color: #cccccc;
+}
+
+#estadisticas .stats-filtro-grupo select:hover,
+#estadisticas .stats-filtro-grupo select:focus {
+    border-color: #2d5a87;
+    box-shadow: 0 0 0 3px rgba(45, 90, 135, 0.15);
+}
+
+#estadisticas .stats-titulo-seccion {
+    border-bottom-color: #2d5a87;
+}
+
+#estadisticas .stats-titulo-seccion h4 {
+    color: #1e3a5f;
+}
+
+#estadisticas .stats-kpi-main {
+    background: linear-gradient(145deg, #1e3a5f 0%, #2d5a87 100%);
+    border: 1px solid #245070;
+    border-radius: 0;
+}
+
+#estadisticas .stats-kpi-main .kpi-circle-bg {
+    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
+    border: 3px solid #2d5a87;
+}
+
+#estadisticas .stats-kpi-main .gauge-number {
+    color: #1e3a5f;
+}
+
+#estadisticas .stats-kpi-main .gauge-label {
+    color: #2d5a87;
+}
+
+#estadisticas .stats-kpi-main .gauge-subtext {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#estadisticas .stats-kpi-exec-card {
+    border-radius: 0;
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 1px solid #d5d5d5;
+}
+
+#estadisticas .stats-kpi-exec-card::before {
+    background: linear-gradient(90deg, #1e3a5f, #2d5a87);
+}
+
+#estadisticas .stats-kpi-exec-card.kpi-success::before { background: linear-gradient(90deg, #1e3a5f, #2d5a87); }
+#estadisticas .stats-kpi-exec-card.kpi-danger::before { background: linear-gradient(90deg, #1e3a5f, #2d5a87); }
+#estadisticas .stats-kpi-exec-card.kpi-info::before { background: linear-gradient(90deg, #1e3a5f, #2d5a87); }
+#estadisticas .stats-kpi-exec-card.kpi-warning::before { background: linear-gradient(90deg, #1e3a5f, #2d5a87); }
+
+#estadisticas .stats-kpi-approval {
+    background: linear-gradient(145deg, #1e3a5f 0%, #2d5a87 100%);
+    border: 1px solid #245070;
+    border-radius: 0;
+}
+
+#estadisticas .stats-kpi-approval .kpi-circle-bg {
+    background: linear-gradient(145deg, #ffffff 0%, #f0f0f0 100%);
+    border: 3px solid #2d5a87;
+}
+
+#estadisticas .stats-kpi-approval .approval-percent {
+    color: #1e3a5f;
+}
+
+#estadisticas .stats-kpi-approval .approval-label {
+    color: #2d5a87;
+}
+
+#estadisticas .stats-kpi-approval .approval-subtext {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+#estadisticas .stats-grafico-card {
+    border-radius: 0;
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 1px solid #d5d5d5;
+}
+
+#estadisticas .stats-grafico-header {
+    background: #2d5a87;
+    border-bottom: 1px solid #245070;
+}
+
+#estadisticas .stats-grafico-header h4 {
+    color: #ffffff;
+}
+
+#estadisticas .stats-grafico-header h4::before {
+    display: none;
+}
+
+#estadisticas .stats-grafico-body {
+    background: transparent;
+}
+
+#estadisticas .stats-grafico-card::before {
+    background: linear-gradient(90deg, #1e3a5f 0%, #2d5a87 50%, #3d6a97 100%);
+}
+
+#estadisticas .stats-grafico-header h4::before {
+    background: linear-gradient(145deg, #1e3a5f 0%, #2d5a87 100%);
+    border-radius: 0;
+}
+
+#estadisticas .stats-grafico-badge {
+    background: linear-gradient(145deg, #1e3a5f 0%, #2d5a87 100%);
+    border-radius: 0;
+}
+
+#estadisticas .kpi-exec-badge {
+    border-radius: 0;
+}
+
+#estadisticas .stats-kpi-trend {
+    border-radius: 0;
+}
+
+/* ==================== SCROLL ASIGNACIONES ACTUALES ==================== */
+@media (min-width: 1101px) {
+    #columna-asignaciones-actuales .table-responsive {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    #columna-asignaciones-actuales .table-responsive thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+/* ==================== IGUALAR ALTURA COLUMNAS DOCENTES ==================== */
+@media (min-width: 1101px) {
+    #docentes .two-columns {
+        align-items: start;
+    }
+
+    #columna-listado-docentes .card {
+        height: auto;
+        max-height: 100%;
+    }
+
+    #columna-listado-docentes .table-scroll {
+        max-height: 290px;
+        overflow-y: auto;
+    }
+
+    #columna-listado-docentes .table-scroll thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
+
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ==================== MODAL DE MENSAJES ==================== */
+#modalMensaje .modal {
+    max-width: 320px;
+    border-radius: 0;
+}
+
+#modalMensaje .modal-header {
+    padding: 12px 16px;
+    border-radius: 0;
+}
+
+#modalMensaje .modal-header h3 {
+    font-size: 14px;
+    color: white !important;
+}
+
+#modalMensaje .modal-header.error-header {
+    background: #dc2626;
+}
+
+#modalMensaje .modal-header.success-header {
+    background: #059669;
+}
+
+#modalMensaje .modal-header.warning-header {
+    background: #d97706;
+}
+
+#modalMensaje .modal-body {
+    padding: 16px;
+}
+
+#modalMensaje .modal-body p {
+    font-size: 13px;
+}
+
+#modalMensaje .modal-footer {
+    padding: 12px 16px;
+}
+
+#modalMensaje .modal-footer .btn {
+    padding: 6px 20px;
+    font-size: 13px;
+    border-radius: 0;
+}
+
+/* ==================== SECCIÓN APODERADO COLAPSABLE ==================== */
+#alumnos .seccion-apoderado-colapsable {
+    margin-top: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-header {
+    background-color: #2d5a87 !important;
+    border-bottom: 1px solid #245070;
+    padding: 14px 18px;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    cursor: pointer;
+    user-select: none;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-header:hover {
+    background-color: #3d6a97 !important;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-header h4 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    flex: 1;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-toggle-icon {
+    font-size: 12px;
+    color: #ffffff !important;
+    margin-left: 10px;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-content {
+    background-color: #ffffff;
+    padding: 18px;
+    border-top: none;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-content .form-row {
+    margin-bottom: 12px;
+}
+
+#alumnos .seccion-apoderado-colapsable .apoderado-content .form-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Ajuste para igualar alturas de columnas en pestaña alumnos - Solo desktop */
+@media (min-width: 1101px) {
+    #alumnos .two-columns {
+        align-items: stretch;
+    }
+
+    #alumnos .two-columns .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #alumnos .two-columns .column .card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #alumnos .two-columns .column .card .card-body {
+        flex: 1;
+    }
+}
+
+/* ==================== FIX RESPONSIVE SUB-TABS ALUMNOS ==================== */
+@media screen and (max-width: 499px) {
+    /* Ocultar columna listado por defecto */
+    div#columna-listado-alumnos {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Mostrar columna gestión por defecto */
+    div#columna-gestion-alumnos {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    /* Cuando gestión tiene clase hidden, ocultarla */
+    div#columna-gestion-alumnos.hidden {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Cuando listado tiene clase active, mostrarla */
+    div#columna-listado-alumnos.active {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+}

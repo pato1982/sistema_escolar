@@ -1,0 +1,1281 @@
+/* ==================== NOSOTROS PAGE - DYNAMIC STYLES ==================== */
+
+/* Animaciones */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes floatReverse {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(20px) rotate(-5deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scrollWheel {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+}
+
+@keyframes ringPulse {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(49, 130, 206, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(49, 130, 206, 0.8); }
+}
+
+/* ==================== HERO SECTION ==================== */
+.nosotros-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    padding: 100px 30px 60px;
+    overflow: hidden;
+}
+
+/* Formas geometricas flotantes */
+.hero-shapes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.3), rgba(99, 179, 237, 0.1));
+    filter: blur(1px);
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    left: -50px;
+    background: linear-gradient(135deg, rgba(236, 201, 75, 0.2), rgba(246, 224, 94, 0.05));
+    animation: floatReverse 10s ease-in-out infinite;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite 1s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    bottom: 30%;
+    right: 15%;
+    animation: floatReverse 7s ease-in-out infinite;
+}
+
+.shape-5 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: 30%;
+    background: linear-gradient(135deg, rgba(72, 187, 120, 0.2), rgba(72, 187, 120, 0.05));
+    animation: float 9s ease-in-out infinite 2s;
+}
+
+/* Iconos flotantes */
+.floating-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.floating-1 {
+    top: 20%;
+    left: 8%;
+    animation: float 5s ease-in-out infinite;
+}
+
+.floating-2 {
+    top: 60%;
+    right: 10%;
+    animation: floatReverse 6s ease-in-out infinite;
+}
+
+.floating-3 {
+    bottom: 20%;
+    left: 15%;
+    animation: float 7s ease-in-out infinite 1s;
+}
+
+/* Hero Content */
+.hero-content-nosotros {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #48bb78;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-content-nosotros h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.hero-content-nosotros .highlight {
+    background: linear-gradient(90deg, #f6e05e, #ecc94b, #f6e05e);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+.hero-content-nosotros > p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 50px;
+    text-align: justify;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+/* Scroll Indicator */
+.hero-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeInUp 1s ease-out 0.8s backwards;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+.hero-scroll-indicator span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ==================== HISTORIA SECTION ==================== */
+.historia-section {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-decoration {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.decoration-line {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(180deg, var(--accent-color), transparent);
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.historia-content {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.historia-content.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), #4299e1);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+}
+
+.section-badge.badge-light {
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1), rgba(66, 153, 225, 0.05));
+    color: var(--accent-color);
+    box-shadow: none;
+    border: 2px solid rgba(49, 130, 206, 0.2);
+}
+
+.historia-content h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    line-height: 1.2;
+    position: relative;
+}
+
+.historia-content h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), #48bb78);
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.historia-intro {
+    font-size: 18px;
+    color: var(--text-primary);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.historia-content p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.historia-content strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Visual Card */
+.historia-visual {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.historia-visual.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.visual-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-bg-shape {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1), rgba(72, 187, 120, 0.1));
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.visual-card {
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
+    padding: 50px 40px;
+    border-radius: 24px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 25px 80px rgba(26, 54, 93, 0.4),
+        0 10px 30px rgba(26, 54, 93, 0.2);
+    transform: rotate(3deg);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.visual-card:hover {
+    transform: rotate(0deg) scale(1.05) translateY(-10px);
+    box-shadow:
+        0 35px 100px rgba(26, 54, 93, 0.5),
+        0 15px 40px rgba(26, 54, 93, 0.3);
+}
+
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent 30%);
+    animation: spin 8s linear infinite;
+}
+
+.visual-icon {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.visual-icon svg {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+.visual-card h4 {
+    position: relative;
+    z-index: 1;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.visual-card > p {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    opacity: 0.9;
+    text-align: center;
+}
+
+.card-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.card-particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.card-particles span:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.card-particles span:nth-child(2) {
+    top: 60%;
+    right: 20%;
+    animation: floatReverse 5s ease-in-out infinite;
+}
+
+.card-particles span:nth-child(3) {
+    bottom: 20%;
+    left: 30%;
+    animation: float 6s ease-in-out infinite 1s;
+}
+
+/* ==================== EMPRESA SECTION ==================== */
+.empresa-section {
+    padding: 40px 0 80px;
+    background: linear-gradient(180deg, #f0f4f8 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(49, 130, 206, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(72, 187, 120, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.empresa-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.empresa-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.empresa-header > p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.empresa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.empresa-card {
+    background: white;
+    padding: 50px 35px;
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.empresa-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.empresa-card:nth-child(2) { transition-delay: 0.1s; }
+.empresa-card:nth-child(3) { transition-delay: 0.2s; }
+
+.empresa-card:hover {
+    transform: translateY(-15px);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(49, 130, 206, 0.1);
+}
+
+.card-number {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 60px;
+    font-weight: 800;
+    color: rgba(49, 130, 206, 0.08);
+    line-height: 1;
+}
+
+.empresa-icon {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--accent-color), #4299e1);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(49, 130, 206, 0.35);
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.empresa-card:hover .empresa-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 20px 45px rgba(49, 130, 206, 0.45);
+}
+
+.empresa-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.empresa-card > p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: justify;
+    position: relative;
+    z-index: 1;
+}
+
+.card-hover-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), #48bb78);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.empresa-card:hover .card-hover-effect {
+    transform: scaleX(1);
+}
+
+/* ==================== PRESENCIA SECTION ==================== */
+.villarrica-section {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    overflow: hidden;
+}
+
+.wave-decoration svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    fill: #e2e8f0;
+}
+
+.villarrica-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.villarrica-visual {
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.villarrica-visual.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.villarrica-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.villarrica-badge svg {
+    color: var(--accent-color);
+}
+
+.map-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-rings {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+}
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(49, 130, 206, 0.2);
+    border-radius: 50%;
+    animation: ringPulse 3s ease-out infinite;
+}
+
+.ring-2 { animation-delay: 1s; }
+.ring-3 { animation-delay: 2s; }
+
+.villarrica-map {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 30px 80px rgba(49, 130, 206, 0.3),
+        inset 0 -15px 30px rgba(0, 0, 0, 0.05),
+        inset 0 15px 30px rgba(255, 255, 255, 0.5);
+    animation: float 6s ease-in-out infinite;
+}
+
+.map-pin {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.5);
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.map-pin::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.pin-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 30px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    filter: blur(5px);
+}
+
+.map-pulse {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #e53e3e;
+    border-radius: 50%;
+    animation: pulse 2s ease-out infinite;
+}
+
+.map-pulse-2 {
+    animation-delay: 1s;
+}
+
+/* Villarrica Content */
+.villarrica-content {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.villarrica-content.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.villarrica-content h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.villarrica-content h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), #48bb78);
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.villarrica-intro {
+    font-size: 18px;
+    color: var(--text-primary);
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.villarrica-content > p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.villarrica-stats {
+    display: flex;
+    gap: 50px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    min-width: 160px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.stat-top-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1), rgba(72, 187, 120, 0.1));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-color), #48bb78);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* ==================== MISION SECTION ==================== */
+.mision-section {
+    padding: 40px 0 80px;
+    background: linear-gradient(180deg, #f0f4f8 0%, #e2e8f0 100%);
+    position: relative;
+}
+
+.mision-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.mision-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-top: 15px;
+}
+
+.mision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.mision-card {
+    background: white;
+    padding: 60px 50px;
+    border-radius: 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mision-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mision-card:nth-child(2) { transition-delay: 0.15s; }
+
+.mision-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+.mision-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), #48bb78);
+}
+
+.mision-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.1), rgba(72, 187, 120, 0.05));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    color: var(--accent-color);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.mision-icon::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px dashed rgba(49, 130, 206, 0.2);
+    animation: spin 20s linear infinite;
+}
+
+.mision-card:hover .mision-icon {
+    background: linear-gradient(135deg, var(--accent-color), #4299e1);
+    color: white;
+    transform: scale(1.1);
+}
+
+.mision-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.mision-card > p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.mision-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.mision-decoration span {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--accent-color), #48bb78);
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.mision-decoration span:nth-child(2) { opacity: 0.7; }
+.mision-decoration span:nth-child(3) { opacity: 1; }
+
+/* ==================== CTA SECTION ==================== */
+.cta-nosotros {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.cta-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-circle-1 {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    left: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.cta-circle-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -50px;
+    animation: floatReverse 10s ease-in-out infinite;
+}
+
+.cta-circle-3 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-color: rgba(255, 255, 255, 0.05);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-nosotros h2 {
+    font-size: 46px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-nosotros p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 45px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.btn-glow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.btn-glow svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-glow:hover svg {
+    transform: translateX(5px);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .hero-content-nosotros h1 { font-size: 44px; }
+
+    .historia-grid,
+    .villarrica-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .historia-visual,
+    .villarrica-visual { order: -1; }
+
+    .empresa-grid { grid-template-columns: repeat(2, 1fr); }
+    .mision-grid { grid-template-columns: 1fr; }
+
+    .historia-content h2,
+    .villarrica-content h2,
+    .empresa-header h2,
+    .mision-header h2,
+    .cta-nosotros h2 { font-size: 34px; }
+
+    .floating-icon { display: none; }
+}
+
+@media (max-width: 768px) {
+    .nosotros-hero {
+        min-height: auto;
+        padding: 80px 20px 40px;
+    }
+
+    .hero-content-nosotros h1 { font-size: 32px; }
+    .hero-content-nosotros > p { font-size: 16px; margin-bottom: 30px; }
+    .hero-scroll-indicator { display: none; }
+
+    .shape { display: none; }
+
+    .historia-section,
+    .empresa-section,
+    .villarrica-section,
+    .mision-section,
+    .cta-nosotros { padding: 60px 0; }
+
+    .historia-content h2,
+    .villarrica-content h2 { font-size: 26px; }
+
+    .empresa-header h2,
+    .mision-header h2,
+    .cta-nosotros h2 { font-size: 28px; }
+
+    .historia-content,
+    .villarrica-content { padding: 0 15px; }
+
+    .historia-intro,
+    .villarrica-intro { font-size: 16px; }
+
+    .historia-content p,
+    .villarrica-content > p { font-size: 14px; }
+
+    .empresa-grid { grid-template-columns: 1fr; }
+
+    .villarrica-stats {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .stat-item {
+        min-width: auto;
+        padding: 12px 15px;
+        flex: 1;
+        max-width: 150px;
+        background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+        border: 1px solid rgba(49, 130, 206, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-top-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+    }
+
+    .stat-item .stat-icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0;
+        background: linear-gradient(135deg, var(--accent-color), #4299e1);
+        color: white;
+        border-radius: 8px;
+    }
+
+    .stat-item .stat-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .stat-item .stat-number {
+        font-size: 22px;
+    }
+
+    .stat-item .stat-label {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .mision-card { padding: 40px 30px; }
+}
+
+@media (max-width: 480px) {
+    .nosotros-hero {
+        padding: 70px 15px 30px;
+    }
+
+    .hero-content-nosotros h1 { font-size: 24px; }
+    .hero-content-nosotros > p { font-size: 13px; margin-bottom: 20px; }
+    .hero-badge { font-size: 11px; padding: 8px 16px; margin-bottom: 20px; }
+
+    .historia-section,
+    .empresa-section,
+    .villarrica-section,
+    .mision-section,
+    .cta-nosotros { padding: 50px 0; }
+
+    .historia-content h2,
+    .villarrica-content h2 { font-size: 22px; }
+
+    .empresa-header h2,
+    .mision-header h2,
+    .cta-nosotros h2 { font-size: 24px; }
+
+    .historia-content,
+    .villarrica-content { padding: 0 20px; }
+
+    .historia-intro,
+    .villarrica-intro { font-size: 14px; }
+
+    .historia-content p,
+    .villarrica-content > p { font-size: 13px; line-height: 1.8; }
+
+    .visual-card { padding: 35px 25px; transform: none; }
+    .empresa-card { padding: 35px 25px; }
+    .empresa-icon { width: 70px; height: 70px; }
+
+    .villarrica-map { width: 200px; height: 200px; }
+    .map-pin { width: 35px; height: 35px; }
+
+    .villarrica-stats {
+        gap: 8px;
+    }
+
+    .stat-item {
+        padding: 10px 8px;
+        max-width: 120px;
+        border-radius: 10px;
+    }
+
+    .stat-top-row {
+        gap: 6px;
+        margin-bottom: 4px;
+    }
+
+    .stat-item .stat-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+    }
+
+    .stat-item .stat-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .stat-item .stat-number {
+        font-size: 18px;
+    }
+
+    .stat-item .stat-label {
+        font-size: 10px;
+    }
+
+    .mision-icon { width: 80px; height: 80px; }
+    .mision-card h3 { font-size: 22px; }
+
+    .cta-nosotros h2 { font-size: 22px; }
+    .cta-nosotros p { font-size: 14px; }
+}

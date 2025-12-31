@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Apoderado - Portal Estudiantil</title>
+    <link rel="stylesheet" href="css_colegio/apoderado.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="logo">
+                        <span class="logo-icon">E</span>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Portal Estudiantil</h1>
+                        <span class="user-type">Panel de Apoderado</span>
+                    </div>
+                </div>
+                <div class="header-user">
+                    <div class="user-info">
+                        <span class="user-name">María González</span>
+                        <span class="user-role">Apoderado</span>
+                    </div>
+                    <button class="btn-logout" onclick="cerrarSesion()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Salir
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <div class="content-container">
+                <!-- Información del Pupilo (Card superior) -->
+                <div class="pupilo-card">
+                    <div class="pupilo-left">
+                        <div class="pupilo-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div class="pupilo-info">
+                            <h2 id="nombrePupilo">Juan Pablo González Muñoz</h2>
+                            <p id="cursoPupilo">8° Básico A</p>
+                        </div>
+                    </div>
+                    <div class="pupilo-actions">
+                        <!-- Selector de alumnos (aparece si hay más de uno) -->
+                        <div class="selector-alumnos-container" id="selectorAlumnosContainer" style="display: none;">
+                            <button class="btn-cambiar-alumno" onclick="toggleSelectorAlumnos()" id="btnCambiarAlumno">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                <span>Cambiar</span>
+                                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="dropdown-alumnos" id="dropdownAlumnos">
+                                <div class="dropdown-alumnos-header">
+                                    <span>Seleccionar Alumno</span>
+                                </div>
+                                <div class="dropdown-alumnos-lista" id="listaAlumnos">
+                                    <!-- Se llena dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-agregar-alumno" onclick="abrirModalAgregarAlumno()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Agregar Alumno</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sistema de Pestañas -->
+                <div class="tabs-container">
+                    <nav class="tabs-nav">
+                        <button class="tab-btn active" data-tab="informacion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>Información del Alumno</span>
+                        </button>
+                        <button class="tab-btn" data-tab="notas">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            <span>Notas</span>
+                        </button>
+                        <button class="tab-btn" data-tab="comunicados" id="tabComunicados">
+                            <div class="tab-icon-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                                <span class="notification-badge" id="notificationBadge"></span>
+                            </div>
+                            <span>Comunicados</span>
+                        </button>
+                        <button class="tab-btn" data-tab="progreso">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                            <span>Progreso</span>
+                        </button>
+                    </nav>
+
+                    <!-- Contenido de las Pestañas -->
+                    <div class="tabs-content">
+                        <!-- Pestaña: Información del Alumno -->
+                        <div id="informacion" class="tab-panel active">
+                            <div class="info-card">
+                                <h3>Datos Personales</h3>
+                                <div class="info-grid info-grid-4">
+                                    <div class="info-item">
+                                        <label>Nombres</label>
+                                        <p id="infoNombres">Juan Pablo</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Apellidos</label>
+                                        <p id="infoApellidos">González Muñoz</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>RUT</label>
+                                        <p id="infoRut">23.456.789-0</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Curso</label>
+                                        <p id="infoCurso">8° Básico A</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <h3>Datos del Apoderado</h3>
+                                <div class="info-grid info-grid-4 info-grid-apoderado">
+                                    <div class="info-item item-nombre-apoderado">
+                                        <label>Nombre Apoderado</label>
+                                        <p id="infoApoderado">María José González Pérez</p>
+                                    </div>
+                                    <div class="info-item item-parentesco">
+                                        <label>Parentesco</label>
+                                        <p id="infoParentesco">Madre</p>
+                                    </div>
+                                    <div class="info-item item-telefono">
+                                        <label>Teléfono</label>
+                                        <p id="infoTelefono">+56 9 1234 5678</p>
+                                    </div>
+                                    <div class="info-item item-correo">
+                                        <label>Correo</label>
+                                        <p id="infoCorreo">maria.gonzalez@correo.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pestaña: Notas -->
+                        <div id="notas" class="tab-panel">
+                            <div class="notas-header">
+                                <h3>Calificaciones del Año Académico 2024</h3>
+                            </div>
+
+                            <!-- Sub-pestañas de períodos -->
+                            <div class="sub-tabs-nav">
+                                <button class="sub-tab-btn active" data-subtab="trimestre1">1er Trimestre</button>
+                                <button class="sub-tab-btn" data-subtab="trimestre2">2do Trimestre</button>
+                                <button class="sub-tab-btn" data-subtab="trimestre3">3er Trimestre</button>
+                                <button class="sub-tab-btn" data-subtab="promedios">Promedios Finales</button>
+                            </div>
+
+                            <!-- Contenido: Primer Trimestre -->
+                            <div id="trimestre1" class="sub-tab-panel active">
+                                <div class="table-container">
+                                    <table class="notas-table" id="tablaNotas1">
+                                        <thead id="theadNotas1">
+                                        </thead>
+                                        <tbody id="tbodyNotas1">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="promedio-general">
+                                    <span>Promedio 1er Trimestre:</span>
+                                    <span id="promedioTrimestre1" class="promedio-valor">-</span>
+                                </div>
+                            </div>
+
+                            <!-- Contenido: Segundo Trimestre -->
+                            <div id="trimestre2" class="sub-tab-panel">
+                                <div class="table-container">
+                                    <table class="notas-table" id="tablaNotas2">
+                                        <thead id="theadNotas2">
+                                        </thead>
+                                        <tbody id="tbodyNotas2">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="promedio-general">
+                                    <span>Promedio 2do Trimestre:</span>
+                                    <span id="promedioTrimestre2" class="promedio-valor">-</span>
+                                </div>
+                            </div>
+
+                            <!-- Contenido: Tercer Trimestre -->
+                            <div id="trimestre3" class="sub-tab-panel">
+                                <div class="table-container">
+                                    <table class="notas-table" id="tablaNotas3">
+                                        <thead id="theadNotas3">
+                                        </thead>
+                                        <tbody id="tbodyNotas3">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="promedio-general">
+                                    <span>Promedio 3er Trimestre:</span>
+                                    <span id="promedioTrimestre3" class="promedio-valor">-</span>
+                                </div>
+                            </div>
+
+                            <!-- Contenido: Promedios Finales -->
+                            <div id="promedios" class="sub-tab-panel">
+                                <div class="table-container">
+                                    <table class="notas-table notas-table-promedios">
+                                        <thead>
+                                            <tr>
+                                                <th class="asignatura-col">Asignatura</th>
+                                                <th>1er Trim.</th>
+                                                <th>2do Trim.</th>
+                                                <th>3er Trim.</th>
+                                                <th class="promedio-col">Nota Final</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyPromedios">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="promedio-general">
+                                    <span>Promedio Final Anual:</span>
+                                    <span id="promedioFinal" class="promedio-valor">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pestaña: Comunicados -->
+                        <div id="comunicados" class="tab-panel">
+                            <!-- Filtros de Comunicados -->
+                            <div class="filtros-comunicados">
+                                <div class="filtro-grupo">
+                                    <label for="filtroFechaDesde">Desde</label>
+                                    <input type="date" id="filtroFechaDesde" class="form-control">
+                                </div>
+                                <div class="filtro-grupo">
+                                    <label for="filtroFechaHasta">Hasta</label>
+                                    <input type="date" id="filtroFechaHasta" class="form-control">
+                                </div>
+                                <div class="filtro-grupo">
+                                    <label for="filtroTipoComunicado">Tipo</label>
+                                    <select id="filtroTipoComunicado" class="form-control">
+                                        <option value="">Todos</option>
+                                        <option value="urgente">Urgente</option>
+                                        <option value="evento">Evento</option>
+                                        <option value="informativo">Informativo</option>
+                                    </select>
+                                </div>
+                                <div class="filtro-grupo filtro-acciones">
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="limpiarFiltrosComunicados()">Limpiar</button>
+                                </div>
+                            </div>
+
+                            <div class="comunicados-container">
+                                <!-- Columna Izquierda: Recientes -->
+                                <div class="comunicados-columna comunicados-recientes">
+                                    <div class="comunicados-header">
+                                        <h3>Comunicados Recientes</h3>
+                                    </div>
+                                    <div class="comunicados-lista" id="listaComunicadosRecientes">
+                                        <!-- Se genera dinámicamente -->
+                                    </div>
+                                </div>
+                                <!-- Columna Derecha: Anteriores -->
+                                <div class="comunicados-columna comunicados-anteriores">
+                                    <div class="comunicados-header">
+                                        <h3>Comunicados Anteriores</h3>
+                                    </div>
+                                    <div class="comunicados-lista comunicados-scroll" id="listaComunicadosAnteriores">
+                                        <!-- Se genera dinámicamente -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pestaña: Progreso -->
+                        <div id="progreso" class="tab-panel">
+                            <div class="progreso-container">
+                                <h3>Progreso Académico</h3>
+                                <p class="progreso-descripcion">Seguimiento del rendimiento académico del alumno.</p>
+
+                                <!-- KPIs -->
+                                <div class="kpis-grid">
+                                    <!-- Mejores promedios -->
+                                    <div class="kpi-card kpi-success">
+                                        <div class="kpi-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                        </div>
+                                        <span class="kpi-value kpi-value-mobile" id="kpiMejor1Mobile">-</span>
+                                        <div class="kpi-content">
+                                            <span class="kpi-label"><span class="label-desktop">Mejor Promedio</span><span class="label-mobile">Promedio + Alto</span></span>
+                                            <span class="kpi-value kpi-value-desktop" id="kpiMejor1">-</span>
+                                            <span class="kpi-asignatura" id="kpiMejorAsig1">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="kpi-card kpi-success">
+                                        <div class="kpi-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                        </div>
+                                        <span class="kpi-value kpi-value-mobile" id="kpiMejor2Mobile">-</span>
+                                        <div class="kpi-content">
+                                            <span class="kpi-label"><span class="label-desktop">2do Mejor Promedio</span><span class="label-mobile">Promedio + Alto</span></span>
+                                            <span class="kpi-value kpi-value-desktop" id="kpiMejor2">-</span>
+                                            <span class="kpi-asignatura" id="kpiMejorAsig2">-</span>
+                                        </div>
+                                    </div>
+                                    <!-- Promedios más bajos -->
+                                    <div class="kpi-card kpi-danger">
+                                        <div class="kpi-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                        </div>
+                                        <span class="kpi-value kpi-value-mobile" id="kpiBajo1Mobile">-</span>
+                                        <div class="kpi-content">
+                                            <span class="kpi-label"><span class="label-desktop">Promedio Más Bajo</span><span class="label-mobile">Promedio + Bajo</span></span>
+                                            <span class="kpi-value kpi-value-desktop" id="kpiBajo1">-</span>
+                                            <span class="kpi-asignatura" id="kpiBajoAsig1">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="kpi-card kpi-danger">
+                                        <div class="kpi-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                                        </div>
+                                        <span class="kpi-value kpi-value-mobile" id="kpiBajo2Mobile">-</span>
+                                        <div class="kpi-content">
+                                            <span class="kpi-label"><span class="label-desktop">2do Promedio Más Bajo</span><span class="label-mobile">Promedio + Bajo</span></span>
+                                            <span class="kpi-value kpi-value-desktop" id="kpiBajo2">-</span>
+                                            <span class="kpi-asignatura" id="kpiBajoAsig2">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Gráficos -->
+                                <div class="graficos-grid">
+                                    <!-- Gráfico de Barras -->
+                                    <div class="grafico-card">
+                                        <h4>Promedios por Asignatura</h4>
+                                        <div class="grafico-container">
+                                            <canvas id="graficoBarras"></canvas>
+                                        </div>
+                                    </div>
+                                    <!-- Gráfico Lineal -->
+                                    <div class="grafico-card">
+                                        <h4>Evolución del Rendimiento por Asignatura</h4>
+                                        <div class="selector-asignatura">
+                                            <label for="selectAsignatura">Seleccionar Asignatura:</label>
+                                            <select id="selectAsignatura" onchange="actualizarGraficoAsignatura()">
+                                                <!-- Opciones generadas dinámicamente -->
+                                            </select>
+                                        </div>
+                                        <div class="grafico-container">
+                                            <canvas id="graficoLineal"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>Portal Estudiantil © 2024 | Sistema de Gestión Académica</p>
+        </footer>
+    </div>
+
+    <!-- Modal Agregar Alumno -->
+    <div id="modalAgregarAlumno" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Agregar Nuevo Alumno</h3>
+                <button class="modal-close" onclick="cerrarModalAgregarAlumno()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formAgregarAlumno">
+                    <div class="modal-form-row">
+                        <div class="modal-form-group">
+                            <label for="nuevoNombreAlumno">Nombres del Alumno</label>
+                            <input type="text" id="nuevoNombreAlumno" class="form-control" placeholder="Ej: María José" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="nuevoApellidoAlumno">Apellidos del Alumno</label>
+                            <input type="text" id="nuevoApellidoAlumno" class="form-control" placeholder="Ej: González Muñoz" required>
+                        </div>
+                    </div>
+                    <div class="modal-form-row">
+                        <div class="modal-form-group">
+                            <label for="nuevoRutAlumno">RUT del Alumno</label>
+                            <input type="text" id="nuevoRutAlumno" class="form-control" placeholder="Ej: 24.567.890-1" required>
+                        </div>
+                        <div class="modal-form-group">
+                            <label for="nuevoCursoAlumno">Curso</label>
+                            <select id="nuevoCursoAlumno" class="form-control" required>
+                                <option value="">Seleccionar</option>
+                                <option value="1A">1° Básico A</option>
+                                <option value="1B">1° Básico B</option>
+                                <option value="2A">2° Básico A</option>
+                                <option value="2B">2° Básico B</option>
+                                <option value="3A">3° Básico A</option>
+                                <option value="3B">3° Básico B</option>
+                                <option value="4A">4° Básico A</option>
+                                <option value="4B">4° Básico B</option>
+                                <option value="5A">5° Básico A</option>
+                                <option value="5B">5° Básico B</option>
+                                <option value="6A">6° Básico A</option>
+                                <option value="6B">6° Básico B</option>
+                                <option value="7A">7° Básico A</option>
+                                <option value="7B">7° Básico B</option>
+                                <option value="8A">8° Básico A</option>
+                                <option value="8B">8° Básico B</option>
+                                <option value="1MA">1° Medio A</option>
+                                <option value="1MB">1° Medio B</option>
+                                <option value="2MA">2° Medio A</option>
+                                <option value="2MB">2° Medio B</option>
+                                <option value="3MA">3° Medio A</option>
+                                <option value="3MB">3° Medio B</option>
+                                <option value="4MA">4° Medio A</option>
+                                <option value="4MB">4° Medio B</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="cerrarModalAgregarAlumno()">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarNuevoAlumno()">Guardar Alumno</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Comentario Nota -->
+    <div id="modalComentario" class="modal-overlay modal-comentario-overlay">
+        <div class="modal-comentario-container">
+            <div class="modal-comentario-header">
+                <div class="modal-comentario-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="modal-comentario-titulo">
+                    <h3>Comentario del Docente</h3>
+                    <p id="modalComentarioAsignatura">-</p>
+                </div>
+                <button class="modal-comentario-close" onclick="cerrarModalComentario()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-comentario-body">
+                <div class="modal-comentario-nota-info">
+                    <span class="modal-comentario-label">Nota:</span>
+                    <span class="modal-comentario-nota" id="modalComentarioValor">-</span>
+                </div>
+                <div class="modal-comentario-contenido">
+                    <p id="modalComentarioTexto">No hay comentario</p>
+                </div>
+            </div>
+            <div class="modal-comentario-footer">
+                <button class="btn btn-primary" onclick="cerrarModalComentario()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js_colegio/apoderado.js"></script>
+</body>
+</html>

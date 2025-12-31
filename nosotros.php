@@ -1,0 +1,498 @@
+<?php
+// ============================================================
+// NOSOTROS - PORTAL ESTUDIANTIL
+// ============================================================
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Portal Estudiantil | CH SYSTEM</title>
+    <link rel="stylesheet" href="css_colegio/index.css">
+    <link rel="stylesheet" href="css_colegio/nosotros.css">
+    <link rel="stylesheet" href="css_colegio/modales-footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegacion -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.php" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <div class="nav-logo">
+                        <span class="logo-icon">E</span>
+                    </div>
+                    <span class="nav-title">Portal Estudiantil</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.php" class="btn btn-outline">Inicio</a>
+                <a href="login.php" class="btn btn-primary">Iniciar Sesion</a>
+                <a href="mailto:contacto@portalestudiantil.cl" class="btn btn-contact" title="Contacto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="nav-mobile" id="navMobile">
+            <a href="index.php" class="btn btn-outline">Inicio</a>
+            <a href="login.php" class="btn btn-primary">Iniciar Sesion</a>
+            <a href="mailto:contacto@portalestudiantil.cl" class="btn btn-contact" title="Contacto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="nosotros-hero">
+        <!-- Elementos decorativos flotantes -->
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="floating-icon floating-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="floating-icon floating-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+            </div>
+            <div class="floating-icon floating-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+        </div>
+        <div class="hero-content-nosotros">
+            <span class="hero-badge">
+                <span class="badge-dot"></span>
+                Conoce nuestra historia
+            </span>
+            <h1>Transformando la <span class="highlight">educacion digital</span> en Chile</h1>
+            <p>Somos CH SYSTEM, una empresa de informatica comprometida con desarrollar soluciones tecnologicas que generan impacto real.</p>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section class="historia-section">
+        <div class="section-decoration">
+            <div class="decoration-line"></div>
+        </div>
+        <div class="section-container">
+            <div class="historia-grid">
+                <div class="historia-content" data-aos="fade-right">
+                    <span class="section-badge">Nuestra Historia</span>
+                    <h2>De una necesidad nacio una solucion</h2>
+                    <p class="historia-intro">
+                        En <strong>CH SYSTEM</strong>, al observar de cerca la realidad de
+                        los establecimientos educacionales en Chile, identificamos una necesidad urgente:
+                        <strong>la falta de acceso a informacion academica en linea para las familias.</strong>
+                    </p>
+                    <p>
+                        Mientras las grandes ciudades contaban con sistemas digitales avanzados, muchas comunas
+                        del pais seguian dependiendo de metodos tradicionales para comunicar notas, asistencia
+                        y comunicados. Los apoderados debian acudir presencialmente a los colegios o esperar
+                        reuniones para conocer el rendimiento de sus hijos.
+                    </p>
+                    <p>
+                        Fue entonces cuando decidimos actuar. Combinando nuestra experiencia en tecnologia
+                        con nuestro compromiso social, desarrollamos el <strong>Portal Estudiantil</strong> con un objetivo claro:
+                        democratizar el acceso a la informacion educativa.
+                    </p>
+                </div>
+                <div class="historia-visual" data-aos="fade-left">
+                    <div class="visual-wrapper">
+                        <div class="visual-bg-shape"></div>
+                        <div class="visual-card">
+                            <div class="card-glow"></div>
+                            <div class="visual-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                            </div>
+                            <h4>Innovacion con Proposito</h4>
+                            <p>Tecnologia al servicio de la comunidad educativa</p>
+                            <div class="card-particles">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empresa Section -->
+    <section class="empresa-section">
+        <div class="bg-pattern"></div>
+        <div class="section-container">
+            <div class="empresa-header">
+                <span class="section-badge badge-light">CH SYSTEM</span>
+                <h2>Empresa de informatica con proposito</h2>
+                <p>Desarrollamos soluciones tecnologicas que resuelven problemas reales</p>
+            </div>
+            <div class="empresa-grid">
+                <div class="empresa-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-number">01</div>
+                    <div class="empresa-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3>Experiencia en Tecnologia</h3>
+                    <p>Contamos con amplia experiencia en desarrollo de soluciones informaticas. Esto nos permite crear sistemas robustos y adaptados a las necesidades reales de cada proyecto.</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+                <div class="empresa-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-number">02</div>
+                    <div class="empresa-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>Compromiso Local</h3>
+                    <p>Conocemos las realidades de las comunas chilenas. No desarrollamos desde un escritorio lejano, sino en contacto directo con las comunidades que servimos.</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+                <div class="empresa-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-number">03</div>
+                    <div class="empresa-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h3>Excelencia Tecnica</h3>
+                    <p>Aplicamos las mejores practicas de desarrollo de software para garantizar un sistema seguro, rapido y facil de usar para todos los usuarios.</p>
+                    <div class="card-hover-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presencia Section -->
+    <section class="villarrica-section">
+        <div class="wave-decoration">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="section-container">
+            <div class="villarrica-grid">
+                <div class="villarrica-visual">
+                    <div class="villarrica-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Presente en Chile</span>
+                    </div>
+                    <div class="map-container">
+                        <div class="map-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                        <div class="villarrica-map">
+                            <div class="map-pin">
+                                <div class="pin-shadow"></div>
+                            </div>
+                            <div class="map-pulse"></div>
+                            <div class="map-pulse map-pulse-2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="villarrica-content">
+                    <span class="section-badge">Nuestro Alcance</span>
+                    <h2>Creciendo junto a las comunidades</h2>
+                    <p class="villarrica-intro">
+                        El <strong>Portal Estudiantil</strong> ya se encuentra operativo y funcionando
+                        en diversas comunas del pais, conectando a establecimientos educacionales con sus familias.
+                    </p>
+                    <p>
+                        Nuestro compromiso es continuar expandiendonos, llevando esta solucion tecnologica
+                        a mas comunas de Chile que buscan modernizar la comunicacion entre colegios y apoderados.
+                    </p>
+                    <div class="villarrica-stats">
+                        <div class="stat-item">
+                            <div class="stat-top-row">
+                                <div class="stat-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <span class="stat-number" data-count="40">+40</span>
+                            </div>
+                            <span class="stat-label">Colegios conectados</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-top-row">
+                                <div class="stat-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                </div>
+                                <span class="stat-number" data-count="8000">+8.000</span>
+                            </div>
+                            <span class="stat-label">Cuentas activadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mision y Vision -->
+    <section class="mision-section">
+        <div class="section-container">
+            <div class="mision-header">
+                <span class="section-badge">Lo que nos define</span>
+                <h2>Mision y Vision</h2>
+            </div>
+            <div class="mision-grid">
+                <div class="mision-card">
+                    <div class="mision-card-bg"></div>
+                    <div class="mision-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    </div>
+                    <h3>Nuestra Mision</h3>
+                    <p>Desarrollar soluciones informaticas innovadoras que resuelvan problemas reales,
+                    facilitando procesos y mejorando la calidad de vida de las personas y organizaciones.</p>
+                    <div class="mision-decoration">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="mision-card">
+                    <div class="mision-card-bg"></div>
+                    <div class="mision-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </div>
+                    <h3>Nuestra Vision</h3>
+                    <p>Ser reconocidos como una empresa de informatica que transforma ideas en soluciones tecnologicas
+                    de alto impacto, accesibles para comunidades de todo Chile.</p>
+                    <div class="mision-decoration">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-nosotros">
+        <div class="cta-bg-elements">
+            <div class="cta-circle cta-circle-1"></div>
+            <div class="cta-circle cta-circle-2"></div>
+            <div class="cta-circle cta-circle-3"></div>
+        </div>
+        <div class="section-container">
+            <div class="cta-content">
+                <h2>Unete a la transformacion digital educativa</h2>
+                <p>Forma parte de la comunidad de establecimientos que ya confian en Portal Estudiantil</p>
+                <div class="cta-actions">
+                    <a href="mailto:contacto@portalestudiantil.cl" class="btn btn-white btn-lg btn-glow">
+                        <span>Contactanos</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-icon">E</span>
+                </div>
+                <span>Portal Estudiantil</span>
+            </div>
+            <div class="footer-links">
+                <div class="footer-links-row">
+                    <a href="index.php#caracteristicas">Caracteristicas</a>
+                    <a href="login.php">Iniciar Sesion</a>
+                    <a href="registro.php">Registrarse</a>
+                </div>
+                <div class="footer-links-row">
+                    <a href="nosotros.php">Nosotros</a>
+                    <a href="#" onclick="abrirModalPrivacidad(); return false;">Privacidad</a>
+                    <a href="#" onclick="abrirModalTerminos(); return false;">Condiciones y Términos</a>
+                </div>
+            </div>
+            <div class="footer-contacto">
+                <h4>Contacto</h4>
+                <div class="contacto-items">
+                    <a href="mailto:contacto@portalestudiantil.cl" class="contacto-item">
+                        <svg class="icon-email" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>contacto@portalestudiantil.cl</span>
+                    </a>
+                    <a href="https://wa.me/56912345678" target="_blank" class="contacto-item">
+                        <svg class="icon-whatsapp" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        <span>+56 9 1234 5678</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2024 CH SYSTEM - Portal Estudiantil. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu movil
+        const navToggle = document.getElementById('navToggle');
+        const navMobile = document.getElementById('navMobile');
+
+        navToggle.addEventListener('click', () => {
+            navMobile.classList.toggle('active');
+        });
+
+        // Animacion al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.historia-content, .historia-visual, .empresa-card, .villarrica-content, .villarrica-visual, .mision-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div id="modalTerminos" class="modal-footer-overlay" onclick="cerrarModalTerminos(event)">
+        <div class="modal-footer-contenido" onclick="event.stopPropagation()">
+            <div class="modal-footer-header">
+                <h2>Términos y Condiciones de Uso</h2>
+                <button class="modal-footer-cerrar" onclick="cerrarModalTerminos()">&times;</button>
+            </div>
+            <div class="modal-footer-body">
+                <h3>1. Aceptación de los Términos</h3>
+                <p>Al acceder y utilizar Portal Estudiantil, usted acepta estar sujeto a estos Términos y Condiciones de Uso y todas las leyes y regulaciones aplicables. Usted acepta que es responsable del cumplimiento de las leyes locales aplicables. Si no está de acuerdo con alguno de estos términos, tiene prohibido usar o acceder a este sitio.</p>
+
+                <h3>2. Definiciones</h3>
+                <ul>
+                    <li><strong>Plataforma:</strong> Sistema de Gestión Académica Portal Estudiantil.</li>
+                    <li><strong>Usuario:</strong> Toda persona que acceda y utilice la plataforma, incluyendo apoderados, docentes y administradores.</li>
+                    <li><strong>Establecimiento:</strong> Institución educacional que utiliza los servicios de la plataforma.</li>
+                    <li><strong>Contenido:</strong> Toda información, datos, textos y materiales disponibles en la plataforma.</li>
+                </ul>
+
+                <h3>3. Uso de la Plataforma</h3>
+                <p>El usuario se compromete a:</p>
+                <ul>
+                    <li>Utilizar la plataforma únicamente para los fines educativos y administrativos para los que fue diseñada.</li>
+                    <li>Mantener la confidencialidad de sus credenciales de acceso.</li>
+                    <li>No compartir su cuenta con terceros.</li>
+                    <li>Proporcionar información veraz y actualizada.</li>
+                    <li>No intentar acceder a información de otros usuarios sin autorización.</li>
+                    <li>No utilizar la plataforma para actividades ilegales o no autorizadas.</li>
+                </ul>
+
+                <h3>4. Registro y Cuentas de Usuario</h3>
+                <p>Para acceder a la plataforma, los usuarios deben registrarse proporcionando información personal válida. El usuario es responsable de mantener la confidencialidad de su contraseña y de todas las actividades que ocurran bajo su cuenta. Debe notificar inmediatamente cualquier uso no autorizado de su cuenta.</p>
+
+                <h3>5. Propiedad Intelectual</h3>
+                <p>Todos los contenidos de la plataforma, incluyendo pero no limitado a textos, gráficos, logotipos, iconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, son propiedad de Portal Estudiantil o sus proveedores de contenido y están protegidos por las leyes chilenas e internacionales de propiedad intelectual, conforme a la <strong>Ley N° 17.336</strong> sobre Propiedad Intelectual.</p>
+
+                <h3>6. Protección de Datos</h3>
+                <p>El tratamiento de datos personales se realiza conforme a nuestra Política de Privacidad y en cumplimiento de la <strong>Ley N° 19.628</strong> sobre Protección de la Vida Privada y la <strong>Ley N° 21.719</strong> que moderniza el marco de protección de datos personales en Chile.</p>
+
+                <h3>7. Responsabilidades del Usuario</h3>
+                <p>El usuario será responsable de:</p>
+                <ul>
+                    <li>El uso adecuado de la plataforma conforme a estos términos.</li>
+                    <li>La veracidad de la información proporcionada.</li>
+                    <li>Los daños y perjuicios que pudiera causar por el uso indebido de la plataforma.</li>
+                    <li>Mantener actualizada su información de contacto.</li>
+                </ul>
+
+                <h3>8. Limitación de Responsabilidad</h3>
+                <p>Portal Estudiantil no será responsable por:</p>
+                <ul>
+                    <li>Interrupciones del servicio por mantenimiento o causas de fuerza mayor.</li>
+                    <li>Pérdida de datos debido a fallos técnicos ajenos a nuestro control.</li>
+                    <li>El uso indebido de la plataforma por parte de los usuarios.</li>
+                    <li>Contenidos publicados por los usuarios que contravengan estos términos.</li>
+                </ul>
+
+                <h3>9. Modificaciones del Servicio</h3>
+                <p>Portal Estudiantil se reserva el derecho de modificar, suspender o discontinuar, temporal o permanentemente, el servicio o cualquier parte del mismo, con o sin previo aviso. No seremos responsables ante usted ni ante terceros por cualquier modificación, suspensión o interrupción del servicio.</p>
+
+                <h3>10. Modificaciones de los Términos</h3>
+                <p>Nos reservamos el derecho de actualizar estos Términos y Condiciones en cualquier momento. Cuando se realicen modificaciones, los usuarios serán notificados a través de la plataforma o mediante correo electrónico. Las modificaciones entrarán en vigor a partir de su publicación. El uso continuado de la plataforma después de recibir dicha notificación se entenderá como la aceptación de los nuevos términos por parte del usuario.</p>
+
+                <h3>11. Legislación Aplicable</h3>
+                <p>Estos Términos y Condiciones se regirán e interpretarán de acuerdo con las leyes de la República de Chile. Cualquier disputa que surja en relación con estos términos será sometida a la jurisdicción de los tribunales ordinarios de justicia de Chile.</p>
+
+                <h3>12. Contacto</h3>
+                <p>Para cualquier consulta relacionada con estos Términos y Condiciones, puede contactarnos a través de: <strong>contacto@portalestudiantil.cl</strong></p>
+            </div>
+            <div class="modal-footer-pie">
+                <p>Última actualización: Noviembre 2024 | Portal Estudiantil - Sistema de Gestión Académica</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Privacidad -->
+    <div id="modalPrivacidad" class="modal-footer-overlay" onclick="cerrarModalPrivacidad(event)">
+        <div class="modal-footer-contenido" onclick="event.stopPropagation()">
+            <div class="modal-footer-header">
+                <h2>Política de Privacidad</h2>
+                <button class="modal-footer-cerrar" onclick="cerrarModalPrivacidad()">&times;</button>
+            </div>
+            <div class="modal-footer-body">
+                <h3>1. Introducción</h3>
+                <p>En Portal Estudiantil nos comprometemos a proteger la privacidad y los datos personales de nuestros usuarios. Esta política de privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos su información personal, en cumplimiento con la legislación chilena vigente.</p>
+
+                <h3>2. Marco Legal Aplicable</h3>
+                <p>Nuestra política de privacidad se rige por las siguientes normativas chilenas:</p>
+                <ul>
+                    <li><strong>Ley N° 19.628</strong> sobre Protección de la Vida Privada (Ley de Protección de Datos Personales), que regula el tratamiento de datos personales en registros o bancos de datos.</li>
+                    <li><strong>Ley N° 21.096</strong> que consagra el derecho a la protección de datos personales como garantía constitucional.</li>
+                    <li><strong>Ley N° 21.719</strong> (Nueva Ley de Protección de Datos Personales) que moderniza el marco regulatorio estableciendo nuevos estándares de protección.</li>
+                    <li><strong>Ley N° 20.584</strong> sobre derechos y deberes de las personas en relación con acciones vinculadas a su atención de salud, en lo aplicable a datos sensibles.</li>
+                </ul>
+
+                <h3>3. Datos que Recopilamos</h3>
+                <p>Recopilamos los siguientes tipos de datos personales:</p>
+                <ul>
+                    <li><strong>Datos de identificación:</strong> nombre completo, RUT, dirección, teléfono y correo electrónico.</li>
+                    <li><strong>Datos académicos:</strong> calificaciones, asistencia, observaciones pedagógicas y reportes de rendimiento.</li>
+                    <li><strong>Datos de uso:</strong> información sobre cómo interactúa con nuestra plataforma.</li>
+                </ul>
+
+                <h3>4. Finalidad del Tratamiento</h3>
+                <p>Sus datos personales serán utilizados exclusivamente para:</p>
+                <ul>
+                    <li>Gestionar el registro académico de los estudiantes.</li>
+                    <li>Facilitar la comunicación entre el establecimiento educacional, docentes y apoderados.</li>
+                    <li>Generar reportes de rendimiento académico.</li>
+                    <li>Enviar comunicados y notificaciones relevantes.</li>
+                    <li>Mejorar nuestros servicios y la experiencia del usuario.</li>
+                </ul>
+
+                <h3>5. Derechos de los Titulares</h3>
+                <p>De acuerdo con la legislación chilena, usted tiene derecho a:</p>
+                <ul>
+                    <li><strong>Acceso:</strong> conocer qué datos personales suyos están siendo tratados.</li>
+                    <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+                    <li><strong>Cancelación:</strong> solicitar la eliminación de sus datos cuando corresponda.</li>
+                    <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos en determinadas circunstancias.</li>
+                    <li><strong>Portabilidad:</strong> recibir sus datos en un formato estructurado y de uso común.</li>
+                </ul>
+
+                <h3>6. Seguridad de los Datos</h3>
+                <p>Implementamos medidas técnicas y organizativas apropiadas para proteger sus datos personales contra el acceso no autorizado, la alteración, divulgación o destrucción. Estas medidas incluyen encriptación de datos, accesos restringidos y protocolos de seguridad actualizados.</p>
+
+                <h3>7. Conservación de Datos</h3>
+                <p>Los datos personales serán conservados durante el tiempo necesario para cumplir con las finalidades descritas y conforme a los plazos establecidos por la normativa educacional chilena.</p>
+
+                <h3>8. Contacto</h3>
+                <p>Para ejercer sus derechos o realizar consultas sobre esta política de privacidad, puede contactarnos a través de nuestros canales oficiales: <strong>contacto@portalestudiantil.cl</strong></p>
+            </div>
+            <div class="modal-footer-pie">
+                <p>Última actualización: Noviembre 2024 | Portal Estudiantil - Sistema de Gestión Académica</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js_colegio/modales-footer.js"></script>
+</body>
+</html>

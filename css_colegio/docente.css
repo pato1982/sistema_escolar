@@ -1,0 +1,3102 @@
+/* ==================== PORTAL DOCENTE - ESTILOS ==================== */
+
+:root {
+    --primary-color: #1e3a5f;
+    --primary-light: #2d5a87;
+    --primary-dark: #163050;
+    --accent-color: #3182ce;
+    --success-color: #38a169;
+    --success-light: #c6f6d5;
+    --warning-color: #d69e2e;
+    --warning-light: #fefcbf;
+    --danger-color: #e53e3e;
+    --danger-light: #fed7d7;
+    --info-color: #3182ce;
+    --info-light: #bee3f8;
+    --secondary-color: #718096;
+    --background-color: #f7fafc;
+    --card-background: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #a0aec0;
+    --header-height: 64px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ==================== LAYOUT PRINCIPAL ==================== */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================== HEADER ==================== */
+.main-header {
+    background: #1e3a5f;
+    color: white;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-text h1 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+    font-size: 12px;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+/* Header User Info */
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.user-role {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    width: 38px;
+    height: 38px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 0;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-left: 8px;
+}
+
+.btn-logout:hover {
+    background: var(--primary-light);
+}
+
+.btn-logout svg {
+    flex-shrink: 0;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ==================== CONTROL PANEL ==================== */
+.control-panel {
+    background: var(--card-background);
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #1e3a5f;
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 0;
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.arrow-icon {
+    font-size: 12px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* ==================== TABS NAVIGATION ==================== */
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs-nav {
+    display: flex;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.tab-btn:hover {
+    background: rgba(49, 130, 206, 0.05);
+    color: var(--accent-color);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    background: var(--card-background);
+    border-bottom-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.tab-btn:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    width: 1px;
+    background: var(--border-color);
+}
+
+/* ==================== TABS CONTENT ==================== */
+.tabs-content {
+    padding: 24px;
+    min-height: 400px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== SUB-PESTAÑAS (Solo responsive) ==================== */
+.sub-tabs-container {
+    display: none;
+}
+
+.sub-tabs-nav {
+    display: flex;
+    background: var(--background-color);
+    border-radius: var(--radius-md);
+    padding: 0;
+    margin-bottom: 16px;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.sub-tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    color: var(--text-secondary);
+    background: var(--surface-color);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sub-tab-btn:first-child {
+    border-right: 1px solid var(--border-color);
+}
+
+.sub-tab-btn:not(.active):hover {
+    background: var(--background-color);
+}
+
+.sub-tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+    margin-bottom: 20px;
+}
+
+.page-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.page-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ==================== TWO COLUMNS LAYOUT ==================== */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Columna últimas notas: misma altura que columna izquierda con scroll */
+#subtab-ultimas-notas .card {
+    max-height: var(--altura-columna-izquierda, 420px);
+    display: flex;
+    flex-direction: column;
+}
+
+#subtab-ultimas-notas .card-body {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#subtab-ultimas-notas .table-responsive {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#subtab-ultimas-notas .table-notas thead {
+    position: sticky;
+    top: 0;
+    background: #e0e0e0;
+    z-index: 1;
+}
+
+#subtab-ultimas-notas .table-notas thead th {
+    background: #e0e0e0;
+}
+
+/* ==================== CARDS ==================== */
+.card {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d5d5d5;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2d5a87;
+    color: white;
+}
+
+.card-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Botones outline dentro de card-header (fondo azul) */
+.card-header .btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.card-header .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.card-header .btn-outline svg {
+    stroke: white;
+}
+
+.card-body {
+    padding: 16px;
+}
+
+/* Permitir overflow visible solo en cards con filtros (para autocompletado) */
+/* Excluir chart-cards explícitamente */
+.card:has(.autocomplete-container):not(.chart-card),
+.card-filtros:not(.chart-card) {
+    overflow: visible;
+}
+
+.card:has(.autocomplete-container):not(.chart-card) .card-body,
+.card-filtros:not(.chart-card) .card-body {
+    overflow: visible;
+}
+
+.filtros-grid:has(.autocomplete-container),
+.card-filtros .filtros-grid {
+    overflow: visible;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* ==================== FORMULARIOS ==================== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+/* Fila de checkboxes */
+.form-row-checkboxes {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 12px;
+    padding: 10px 0;
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-text {
+    user-select: none;
+}
+
+/* Estilo para campo de nota pendiente */
+.nota-pendiente {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    font-weight: 600 !important;
+    text-align: center;
+    cursor: not-allowed;
+}
+
+/* Estilo para nota pendiente en tablas */
+.nota-pendiente-tabla {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    font-weight: 600 !important;
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+    border-radius: 3px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+/* Permitir overflow en form-group con autocompletado */
+.form-group:has(.autocomplete-container) {
+    overflow: visible;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-control {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-primary);
+    transition: var(--transition);
+    background: white;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 60px;
+}
+
+select.form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==================== AUTOCOMPLETADO ==================== */
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-input {
+    width: 100%;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0;
+    max-height: 204px; /* 6 items de 34px */
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.autocomplete-dropdown.show {
+    display: block;
+}
+
+.autocomplete-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Items de alumnos con tamaño de letra 11px en modo normal */
+.autocomplete-item-alumno {
+    font-size: 11px;
+    padding: 6px 12px;
+    line-height: 1.4;
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+    background: var(--primary-light);
+    color: white;
+}
+
+.autocomplete-item-empty {
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+}
+
+.autocomplete-highlight {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.autocomplete-item:hover .autocomplete-highlight,
+.autocomplete-item.selected .autocomplete-highlight {
+    color: white;
+}
+
+/* ==================== FLECHAS DESPLEGABLES ==================== */
+.autocomplete-container {
+    display: flex;
+    align-items: center;
+}
+
+.autocomplete-container .form-control {
+    padding-right: 32px;
+    flex: 1;
+}
+
+.autocomplete-arrow {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 30px;
+    background: var(--card-background);
+    border: none;
+    border-left: 1px solid var(--border-color);
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.autocomplete-arrow:hover {
+    background: var(--background-color);
+    color: var(--text-primary);
+}
+
+.autocomplete-arrow:active {
+    background: var(--border-color);
+}
+
+.autocomplete-arrow svg {
+    transition: transform 0.2s ease;
+}
+
+.autocomplete-arrow.active svg {
+    transform: rotate(180deg);
+}
+
+.autocomplete-arrow:disabled,
+.autocomplete-arrow[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==================== LISTAS DE SUGERENCIAS ==================== */
+.sugerencias-lista {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sugerencia-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.sugerencia-item:last-child {
+    border-bottom: none;
+}
+
+.sugerencia-item:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+.sugerencia-item.no-resultados {
+    color: var(--text-muted);
+    font-style: italic;
+    cursor: default;
+}
+
+.sugerencia-item.no-resultados:hover {
+    background: transparent;
+    color: var(--text-muted);
+}
+
+/* ==================== FILTROS ==================== */
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.filtro-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.filtro-actions .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ==================== BOTONES ==================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+}
+
+.btn-secondary {
+    background: var(--background-color);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c53030;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.btn-outline:hover {
+    background: var(--background-color);
+    border-color: var(--text-muted);
+}
+
+/* ==================== BADGES ==================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-info {
+    background: var(--info-light);
+    color: var(--info-color);
+}
+
+.badge-success {
+    background: var(--success-light);
+    color: var(--success-color);
+}
+
+.badge-danger {
+    background: var(--danger-light);
+    color: var(--danger-color);
+}
+
+.badge-warning {
+    background: var(--warning-light);
+    color: var(--warning-color);
+}
+
+/* Contador simple sin fondo */
+.contador-simple {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ==================== TABLAS ==================== */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table-notas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-notas th,
+.table-notas td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 11px;
+}
+
+.table-notas th {
+    background: var(--background-color);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+/* ==================== DATOS DEL SERVIDOR ==================== */
+/* Clase para datos que retornan del servidor: nombres, cursos, asignaturas, notas */
+.dato-servidor {
+    font-size: 11px;
+}
+
+.table-notas tbody tr:hover {
+    background: var(--background-color);
+}
+
+.table-notas .text-center {
+    text-align: center;
+}
+
+.table-notas .text-muted {
+    color: var(--text-muted);
+}
+
+/* ==================== FILTROS ÚLTIMAS NOTAS ==================== */
+.filtros-ultimas-notas {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filtros-ultimas-notas .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.filtros-ultimas-notas .form-row:last-child {
+    margin-bottom: 0;
+}
+
+.filtros-ultimas-notas .form-group {
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 0;
+}
+
+.filtros-ultimas-notas .form-control {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor de tabla con scroll fijo */
+.tabla-ultimas-notas-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 280px;
+    min-height: 150px;
+}
+
+.tabla-ultimas-notas-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.tabla-ultimas-notas-container::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.tabla-ultimas-notas-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.tabla-ultimas-notas-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Tabla Modificar Notas - nombre en una línea con scroll */
+.tabla-modificar-notas {
+    min-width: 600px;
+}
+
+.tabla-modificar-notas td:nth-child(2) {
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Tabla de Trimestres - 8 notas por trimestre */
+.tabla-trimestres {
+    font-size: 11px;
+    min-width: 1200px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tabla-trimestres th,
+.tabla-trimestres td {
+    padding: 5px 2px;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.tabla-trimestres th.th-trimestre {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 4px;
+    border-bottom: none;
+}
+
+.tabla-trimestres th.th-sub {
+    background: var(--primary-light);
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    padding: 4px 2px;
+    text-transform: none;
+    letter-spacing: 0;
+    min-width: 26px;
+    max-width: 30px;
+}
+
+.tabla-trimestres th.th-sub.th-prom {
+    background: var(--primary-dark);
+    font-weight: 600;
+    min-width: 32px;
+}
+
+/* Columnas fijas (N° y Alumno) */
+.tabla-trimestres th.th-fixed,
+.tabla-trimestres td.td-numero,
+.tabla-trimestres td.td-alumno {
+    position: sticky;
+    background: var(--primary-color);
+    color: white;
+    z-index: 2;
+}
+
+.tabla-trimestres th.th-fixed:first-child,
+.tabla-trimestres td.td-numero {
+    left: 0;
+    min-width: 28px;
+    max-width: 28px;
+}
+
+.tabla-trimestres th.th-alumno,
+.tabla-trimestres td.td-alumno {
+    left: 28px;
+    min-width: 120px;
+    max-width: 120px;
+    text-align: left;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-trimestres th.th-final {
+    background: var(--accent-color);
+    min-width: 38px;
+}
+
+.tabla-trimestres td.td-numero {
+    font-weight: 500;
+    font-size: 11px;
+    background: var(--card-background);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-trimestres td.td-alumno {
+    font-weight: 500;
+    padding-left: 6px;
+    font-size: 11px;
+    background: var(--card-background);
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabla-trimestres td.td-nota {
+    font-size: 11px;
+    min-width: 26px;
+    max-width: 30px;
+}
+
+.tabla-trimestres td.td-prom {
+    font-weight: 600;
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.03);
+    border-left: 1px solid var(--border-color);
+}
+
+.tabla-trimestres td.td-final {
+    font-weight: 700;
+    font-size: 11px;
+    background: rgba(49, 130, 206, 0.08);
+    border-left: 1px solid var(--accent-color);
+}
+
+.tabla-trimestres td.td-estado {
+    min-width: 60px;
+    font-size: 11px;
+}
+
+/* Hover en filas - ajustar para columnas fijas */
+.tabla-trimestres tbody tr:hover td {
+    background: rgba(49, 130, 206, 0.06);
+}
+
+.tabla-trimestres tbody tr:hover td.td-numero,
+.tabla-trimestres tbody tr:hover td.td-alumno {
+    background: rgba(49, 130, 206, 0.1);
+}
+
+/* Separadores visuales entre trimestres */
+.tabla-trimestres td:nth-child(11),
+.tabla-trimestres td:nth-child(20),
+.tabla-trimestres th.th-sub:nth-child(9),
+.tabla-trimestres th.th-sub:nth-child(18) {
+    border-right: 2px solid var(--primary-color);
+}
+
+/* Alternar colores de fondo en filas */
+.tabla-trimestres tbody tr:nth-child(even) td {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.tabla-trimestres tbody tr:nth-child(even) td.td-numero,
+.tabla-trimestres tbody tr:nth-child(even) td.td-alumno {
+    background: #f5f5f5;
+}
+
+/* Estados de aprobación - texto simple */
+.estado-aprobado {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.estado-reprobado {
+    color: var(--danger-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.estado-sinnotas {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.estado-encurso {
+    color: var(--warning-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+/* Notas con colores */
+.nota-excelente {
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.nota-buena {
+    color: var(--info-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.nota-suficiente {
+    color: var(--warning-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.nota-insuficiente {
+    color: var(--danger-color);
+    font-weight: 600;
+    font-size: 11px;
+}
+
+/* Acciones en tabla */
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-icon-edit {
+    background: var(--info-light);
+    color: var(--info-color);
+}
+
+.btn-icon-edit:hover {
+    background: var(--info-color);
+    color: white;
+}
+
+.btn-icon-delete {
+    background: var(--danger-light);
+    color: var(--danger-color);
+}
+
+.btn-icon-delete:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* ==================== KPIs ==================== */
+.kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.kpi-card {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 0;
+    padding: 10px 12px;
+    border: 1px solid #d5d5d5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.kpi-primary::before { background: var(--primary-color); }
+.kpi-success::before { background: var(--success-color); }
+.kpi-danger::before { background: var(--danger-color); }
+.kpi-warning::before { background: var(--warning-color); }
+.kpi-info::before { background: var(--info-color); }
+.kpi-secondary::before { background: var(--secondary-color); }
+
+.kpi-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kpi-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.kpi-primary .kpi-icon { background: rgba(26, 54, 93, 0.1); color: var(--primary-color); }
+.kpi-success .kpi-icon { background: var(--success-light); color: var(--success-color); }
+.kpi-danger .kpi-icon { background: var(--danger-light); color: var(--danger-color); }
+.kpi-warning .kpi-icon { background: var(--warning-light); color: var(--warning-color); }
+.kpi-info .kpi-icon { background: var(--info-light); color: var(--info-color); }
+.kpi-secondary .kpi-icon { background: #e2e8f0; color: var(--secondary-color); }
+
+.kpi-data {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.kpi-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.kpi-label-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kpi-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kpi-trend {
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.kpi-trend-up { color: var(--success-color); }
+.kpi-trend-down { color: var(--danger-color); }
+.kpi-trend-neutral { color: var(--text-muted); }
+
+/* ==================== GRÁFICOS ==================== */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.chart-card {
+    min-height: 320px;
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 0;
+    border: 1px solid #d5d5d5;
+    overflow: hidden !important;
+}
+
+.chart-card .card-body {
+    overflow: hidden !important;
+}
+
+.chart-card .card-header {
+    background: #2d5a87;
+    color: white;
+    padding: 12px 16px;
+    border-bottom: none;
+}
+
+.chart-card .card-header h4 {
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chart-card .card-header .btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.chart-card .card-header .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.chart-container {
+    padding: 16px;
+    height: 240px;
+    background: #fafbfc;
+    position: relative;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.chart-container-sm {
+    height: 220px;
+}
+
+/* ==================== MODALES ==================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* ==================== MODALES CORPORATIVOS ==================== */
+.modal-corporativo {
+    background: white;
+    border-radius: 0;
+    max-width: 650px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: modalCorpSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.modal-corp-sm {
+    max-width: 480px;
+}
+
+@keyframes modalCorpSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header Corporativo */
+.modal-corp-header {
+    padding: 20px 24px;
+    background: #1e3a5f;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+}
+
+.modal-corp-header-danger {
+    background: var(--danger-color);
+}
+
+.modal-corp-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modal-corp-icon.danger {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-corp-icon svg {
+    color: white;
+}
+
+.modal-corp-title {
+    flex: 1;
+    padding-top: 4px;
+}
+
+.modal-corp-title h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+}
+
+.modal-corp-title p {
+    font-size: 13px;
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+.modal-corp-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-corp-cerrar:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Body Corporativo */
+.modal-corp-body {
+    padding: 24px;
+    overflow-y: auto;
+    max-height: calc(90vh - 200px);
+    background: #fafbfc;
+}
+
+.modal-corp-section {
+    background: white;
+    border-radius: 0;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.modal-corp-section:last-child {
+    margin-bottom: 0;
+}
+
+.modal-corp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(26, 54, 93, 0.08);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+/* Grid de campos */
+.modal-corp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.modal-corp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-corp-field.full-width {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+.modal-corp-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.modal-corp-input {
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.modal-corp-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.12);
+}
+
+.modal-corp-input.readonly {
+    background: var(--background-color);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.modal-corp-input::placeholder {
+    color: var(--text-muted);
+}
+
+textarea.modal-corp-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+select.modal-corp-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+}
+
+/* Footer Corporativo */
+.modal-corp-footer {
+    padding: 16px 24px;
+    background: white;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Botones Corporativos */
+.btn-corp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-corp svg {
+    flex-shrink: 0;
+}
+
+.btn-corp-primary {
+    background: #1e3a5f;
+    color: white;
+    box-shadow: 0 2px 8px rgba(26, 54, 93, 0.25);
+}
+
+.btn-corp-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.35);
+}
+
+.btn-corp-secondary {
+    background: white;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-corp-secondary:hover {
+    background: var(--background-color);
+    border-color: var(--text-muted);
+}
+
+.btn-corp-danger {
+    background: var(--danger-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(229, 62, 62, 0.25);
+}
+
+.btn-corp-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.35);
+}
+
+/* Alert Box Corporativo */
+.modal-corp-alert {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 0;
+    background: white;
+    border: 1px solid var(--border-color);
+}
+
+.modal-corp-alert.danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+.modal-corp-alert .alert-icon {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.modal-corp-alert.danger .alert-icon {
+    color: var(--danger-color);
+}
+
+.modal-corp-alert .alert-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.modal-corp-alert .alert-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Estilos antiguos para compatibilidad */
+.modal-contenido {
+    background: white;
+    border-radius: 0;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: modalCorpSlideIn 0.3s ease;
+}
+
+.modal-sm {
+    max-width: 400px;
+}
+
+.modal-header {
+    padding: 18px 20px;
+    background: #1e3a5f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header-danger {
+    background: var(--danger-color);
+}
+
+.modal-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-cerrar {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 0;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-cerrar:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-body {
+    padding: 25px;
+    overflow-y: auto;
+    max-height: calc(90vh - 150px);
+}
+
+.modal-footer {
+    padding: 15px 25px;
+    background: var(--background-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-footer-center {
+    justify-content: center;
+}
+
+.modal-icon-warning {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--warning-light);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warning-color);
+}
+
+/* ==================== UTILIDADES ==================== */
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success-color); }
+.text-danger { color: var(--danger-color); }
+.text-warning { color: var(--warning-color); }
+
+/* ==================== RESPONSIVE ==================== */
+/* Breakpoints:
+   - Escritorio: 1101px+ (dos columnas lado a lado)
+   - Tablet: 768px - 1100px (pestañas horizontales, sub-pestañas para columnas)
+   - Móvil: 0 - 767px (pestañas colapsables, sub-pestañas para columnas)
+*/
+
+/* ==================== MODO TABLET Y MÓVIL (0 - 1100px) ==================== */
+@media (max-width: 1100px) {
+    /* Dos columnas en una sola */
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* KPIs */
+    .kpis-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Gráficos en 2x2 para tablet (se sobrescribe en móvil) */
+    .charts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* Header */
+    .main-header {
+        padding: 0 12px;
+    }
+
+    .header-content {
+        height: 56px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .logo-icon {
+        font-size: 18px;
+    }
+
+    .brand-text h1 {
+        font-size: 15px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+    }
+
+    .user-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .user-name {
+        font-size: 13px;
+    }
+
+    .user-role {
+        font-size: 11px;
+    }
+
+    .btn-logout {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .btn-logout span {
+        display: none;
+    }
+
+    .btn-logout svg {
+        margin: 0;
+    }
+
+    /* Main content */
+    .main-content {
+        padding: 12px;
+        margin: 0 auto;
+    }
+
+    /* Tabs content más compacto */
+    .tabs-content {
+        padding: 14px;
+    }
+
+    /* Control Panel */
+    .control-panel {
+        border-radius: 0;
+    }
+
+    .panel-header {
+        padding: 12px 16px;
+    }
+
+    .panel-header h2 {
+        font-size: 12px;
+    }
+
+    /* Sub-pestañas visibles en tablet y móvil */
+    .sub-tabs-container {
+        display: block;
+    }
+
+    .sub-tabs-nav {
+        margin-bottom: 12px;
+    }
+
+    .sub-tab-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Ocultar headers de cards (las sub-pestañas lo indican) */
+    .hide-responsive {
+        display: none;
+    }
+
+    /* Por defecto ocultar la segunda columna */
+    #subtab-ultimas-notas {
+        display: none;
+    }
+
+    #subtab-ultimas-notas.active {
+        display: block;
+    }
+
+    #subtab-registrar-nota {
+        display: block;
+    }
+
+    #subtab-registrar-nota.hidden {
+        display: none;
+    }
+
+    /* Pestañas horizontales en tablet (se mantienen visibles) */
+    .tabs-nav {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tab-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .page-header h3 {
+        font-size: 18px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+    }
+
+    /* Sub-pestañas visibles en responsive */
+    .sub-tabs-container {
+        display: block;
+    }
+
+    .sub-tabs-nav {
+        margin-bottom: 12px;
+    }
+
+    .sub-tab-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Ocultar headers de cards en responsive (ya que las sub-pestañas lo indican) */
+    .hide-responsive {
+        display: none;
+    }
+
+    /* Por defecto ocultar la segunda columna en responsive */
+    #subtab-ultimas-notas {
+        display: none;
+    }
+
+    #subtab-ultimas-notas.active {
+        display: block;
+    }
+
+    #subtab-registrar-nota {
+        display: block;
+    }
+
+    #subtab-registrar-nota.hidden {
+        display: none;
+    }
+
+    /* Form responsive - mantener pares de campos en la misma fila */
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    /* Formulario Agregar Nota - 3 filas de 2 campos iguales */
+    #formAgregarNota .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    #formAgregarNota .form-row-checkboxes {
+        display: flex;
+        gap: 16px;
+        padding: 8px 0;
+    }
+
+    .checkbox-label {
+        font-size: 12px;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+
+    #formAgregarNota .form-row .form-group {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #formAgregarNota .form-row .form-group .form-control,
+    #formAgregarNota .form-row .form-group .autocomplete-container {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .form-control {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* Cards más compactas */
+    .card-body {
+        padding: 14px;
+    }
+
+    .form-actions {
+        margin-top: 16px;
+        padding-top: 12px;
+    }
+
+    .filtros-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .filtro-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* KPIs responsive */
+    .kpis-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .kpi-card {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .kpi-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .kpi-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .kpi-value {
+        font-size: 18px;
+    }
+
+    .kpi-label {
+        font-size: 10px;
+    }
+
+    .kpi-trend {
+        font-size: 10px;
+    }
+
+    /* Cards responsive */
+    .card {
+        border-radius: 0;
+    }
+
+    .card-header {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-header h4 {
+        font-size: 13px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .card-body {
+        padding: 14px;
+    }
+
+    /* Filtros últimas notas responsive */
+    .filtros-ultimas-notas .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .filtros-ultimas-notas .form-group {
+        margin-bottom: 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .filtros-ultimas-notas .form-control {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tabla-ultimas-notas-container {
+        max-height: 605px; /* 11 filas visibles */
+    }
+
+    /* Tables responsive - 9px para todos los registros del servidor */
+    .table-notas th,
+    .table-notas td {
+        padding: 8px 6px;
+        font-size: 9px;
+    }
+
+    .table-notas th {
+        font-size: 9px;
+    }
+
+    /* Clase dato-servidor en responsive */
+    .dato-servidor {
+        font-size: 9px;
+    }
+
+    /* Tabla Alumnos que Requieren Atención - responsive */
+    .tabla-atencion th,
+    .tabla-atencion td {
+        padding: 6px 4px;
+        font-size: 9px;
+    }
+
+    .tabla-atencion th {
+        font-size: 8px;
+        letter-spacing: 0;
+    }
+
+    .tabla-atencion td:first-child {
+        max-width: 80px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Notas y estados en 9px responsive */
+    .nota-excelente,
+    .nota-buena,
+    .nota-suficiente,
+    .nota-insuficiente {
+        font-size: 9px;
+    }
+
+    /* Estados en 9px responsive */
+    .estado-aprobado,
+    .estado-reprobado,
+    .estado-sinnotas,
+    .estado-encurso {
+        font-size: 9px;
+    }
+
+    /* Ocultar columna Curso en tabla Últimas Notas */
+    .tabla-ultimas-notas .col-curso-hide,
+    .tabla-ultimas-notas td:nth-child(3) {
+        display: none;
+    }
+
+    /* Autocompletado responsive */
+    .autocomplete-dropdown {
+        max-height: 160px; /* 5 items más pequeños */
+    }
+
+    .autocomplete-item {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .autocomplete-item-empty {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    /* Items de alumnos con tamaño de letra 9px en responsive */
+    .autocomplete-item-alumno {
+        font-size: 9px;
+        padding: 5px 10px;
+    }
+
+    /* Filtros Ver Notas - layout responsive */
+    .filtros-ver-notas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "curso asignatura"
+            "alumno alumno"
+            "notamin notamax"
+            "actions actions";
+        gap: 10px;
+    }
+
+    .filtros-ver-notas .filtro-curso {
+        grid-area: curso;
+    }
+
+    .filtros-ver-notas .filtro-asignatura {
+        grid-area: asignatura;
+    }
+
+    .filtros-ver-notas .filtro-alumno {
+        grid-area: alumno;
+    }
+
+    .filtros-ver-notas .filtro-nota-min {
+        grid-area: notamin;
+    }
+
+    .filtros-ver-notas .filtro-nota-max {
+        grid-area: notamax;
+    }
+
+    .filtros-ver-notas .filtro-actions {
+        grid-area: actions;
+    }
+
+    /* Tabla trimestres responsive - columna nombre más angosta */
+    .tabla-trimestres th.th-alumno,
+    .tabla-trimestres td.td-alumno {
+        min-width: 95px;
+        max-width: 95px;
+        font-size: 9px;
+    }
+
+    .tabla-trimestres th,
+    .tabla-trimestres td {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres th.th-trimestre {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres th.th-sub {
+        font-size: 8px;
+    }
+
+    .tabla-trimestres td.td-numero {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres td.td-nota {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres td.td-prom {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres td.td-final {
+        font-size: 9px;
+    }
+
+    .tabla-trimestres th.th-fixed:first-child,
+    .tabla-trimestres td.td-numero {
+        min-width: 22px;
+        max-width: 22px;
+    }
+
+    .tabla-trimestres td.td-alumno {
+        left: 22px;
+    }
+
+    .tabla-trimestres th.th-alumno {
+        left: 22px;
+    }
+
+    /* Columna Estado responsive */
+    .tabla-trimestres td.td-estado {
+        font-size: 9px;
+        min-width: 50px;
+    }
+
+    /* Buttons responsive */
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .form-actions .btn {
+        flex: 1;
+    }
+
+    /* Tabla Modificar Notas - máximo 10 resultados visibles con scroll */
+    .tabla-modificar-notas-container {
+        max-height: 350px; /* Aproximadamente 10 filas */
+        overflow-y: auto;
+    }
+
+    .tabla-modificar-notas-container::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .tabla-modificar-notas-container::-webkit-scrollbar-track {
+        background: var(--background-color);
+    }
+
+    .tabla-modificar-notas-container::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 3px;
+    }
+
+    /* Header Ver Notas - título y botones en misma fila */
+    #ver-notas .card-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 12px;
+    }
+
+    #ver-notas .card-header h4 {
+        font-size: 11px;
+        margin: 0;
+    }
+
+    #ver-notas .card-header .header-actions {
+        width: auto;
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
+    #ver-notas .card-header .contador-simple {
+        font-size: 9px;
+    }
+
+    #ver-notas .card-header .btn-sm {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+
+    #ver-notas .card-header .btn-sm svg {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Charts responsive */
+    .chart-container {
+        height: 250px;
+    }
+
+    /* Modal Corporativo responsive */
+    .modal-corporativo {
+        border-radius: 0;
+        margin: 10px;
+    }
+
+    .modal-corp-header {
+        padding: 16px 18px;
+        padding-right: 50px;
+    }
+
+    .modal-corp-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .modal-corp-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .modal-corp-title h3 {
+        font-size: 16px;
+    }
+
+    .modal-corp-title p {
+        font-size: 12px;
+    }
+
+    .modal-corp-cerrar {
+        width: 32px;
+        height: 32px;
+        top: 14px;
+        right: 14px;
+    }
+
+    .modal-corp-body {
+        padding: 16px;
+    }
+
+    .modal-corp-section {
+        padding: 16px;
+    }
+
+    .modal-corp-section-title {
+        font-size: 13px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+    }
+
+    .section-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .section-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .modal-corp-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .modal-corp-field label {
+        font-size: 11px;
+    }
+
+    .modal-corp-input {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .modal-corp-footer {
+        padding: 14px 18px;
+    }
+
+    .btn-corp {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .modal-corp-alert {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .modal-corp-alert .alert-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    .modal-corp-alert .alert-content h4 {
+        font-size: 15px;
+    }
+
+    .modal-corp-alert .alert-content p {
+        font-size: 13px;
+    }
+}
+
+/* ==================== MODO TABLET (768px - 1100px) ==================== */
+@media (min-width: 768px) and (max-width: 1100px) {
+    /* Filtros de progreso en una sola fila con botón al final */
+    #progreso .filtros-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        gap: 12px;
+    }
+
+    #progreso .filtros-grid .form-group {
+        flex: 1;
+    }
+
+    #progreso .filtros-grid .filtro-actions {
+        flex: 0 0 auto;
+        margin-left: auto;
+    }
+}
+
+/* ==================== MODO MÓVIL (0 - 767px) - Pestañas colapsables ==================== */
+@media (max-width: 767px) {
+    /* Mostrar toggle del menú en móvil */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Tabs colapsables en móvil */
+    .tabs-nav {
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border: none;
+        background: transparent;
+    }
+
+    .tabs-nav.open {
+        max-height: 300px;
+        background: var(--card-background);
+        border: 1px solid var(--border-color);
+        border-top: none;
+    }
+
+    .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+        text-align: left;
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .tab-btn.active {
+        border-left-color: var(--accent-color);
+        border-bottom-color: transparent;
+    }
+
+    .tab-btn:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Panel header con menú */
+    .panel-header {
+        border-radius: 0 10px 0 0;
+    }
+
+    .panel-header.menu-open {
+        border-radius: 0 10px 0 0;
+    }
+
+    /* Gráficos en una columna en móvil */
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== MÓVIL PEQUEÑO (0 - 480px) - Ajustes adicionales ==================== */
+@media (max-width: 480px) {
+    /* Header extra small */
+    .main-header {
+        padding: 0 10px;
+    }
+
+    .header-content {
+        height: 50px;
+    }
+
+    .logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-icon {
+        font-size: 16px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-text h1 {
+        font-size: 14px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .user-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .btn-logout {
+        padding: 6px 10px;
+    }
+
+    /* Main content extra small - márgenes simétricos */
+    .main-content {
+        padding: 8px;
+        margin: 0 auto;
+    }
+
+    .panel-header {
+        padding: 10px 12px;
+    }
+
+    .panel-header h2 {
+        font-size: 11px;
+    }
+
+    .tabs-content {
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .page-header {
+        margin-bottom: 15px;
+    }
+
+    .page-header h3 {
+        font-size: 16px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    /* Cards extra small */
+    .card-header {
+        padding: 10px 14px;
+    }
+
+    .card-header h4 {
+        font-size: 12px;
+    }
+
+    .card-body {
+        padding: 14px;
+    }
+
+    /* Filtros últimas notas extra small */
+    .filtros-ultimas-notas {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .filtros-ultimas-notas .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .filtros-ultimas-notas .form-group {
+        margin-bottom: 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .filtros-ultimas-notas .form-control {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tabla-ultimas-notas-container {
+        max-height: 580px; /* 11 filas visibles en extra small */
+    }
+
+    /* Form extra small - mantener pares juntos y compactos */
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    /* Formulario Agregar Nota - mantener 2 columnas en extra small */
+    #formAgregarNota .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    #formAgregarNota .form-row .form-group {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #formAgregarNota .form-row .form-group .form-control,
+    #formAgregarNota .form-row .form-group .autocomplete-container {
+        width: 100%;
+    }
+
+    #formAgregarNota .form-row .form-group .autocomplete-input {
+        font-size: 11px;
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
+    .form-group label {
+        font-size: 10px;
+        margin-bottom: 3px;
+    }
+
+    .form-control {
+        padding: 7px 8px;
+        font-size: 11px;
+        border-radius: 0;
+    }
+
+    select.form-control {
+        background-position: right 8px center;
+        padding-right: 28px;
+    }
+
+    .form-actions {
+        margin-top: 12px;
+        padding-top: 10px;
+        gap: 8px;
+    }
+
+    .form-actions .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    /* Filtros extra small */
+    .filtros-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .filtro-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .filtro-actions .btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    /* Autocompletado extra small */
+    .autocomplete-dropdown {
+        max-height: 140px; /* 5 items aún más pequeños */
+    }
+
+    .autocomplete-item {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+
+    .autocomplete-item-empty {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+
+    /* Items de alumnos con tamaño de letra 9px en extra small */
+    .autocomplete-item-alumno {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+
+    /* Tabla trimestres extra small - columna nombre aún más angosta */
+    .tabla-trimestres th.th-alumno,
+    .tabla-trimestres td.td-alumno {
+        min-width: 80px;
+        max-width: 80px;
+        font-size: 8px;
+    }
+
+    .tabla-trimestres th.th-fixed:first-child,
+    .tabla-trimestres td.td-numero {
+        min-width: 18px;
+        max-width: 18px;
+        font-size: 7px;
+    }
+
+    .tabla-trimestres td.td-alumno {
+        left: 18px;
+    }
+
+    .tabla-trimestres th.th-alumno {
+        left: 18px;
+    }
+
+    .tabla-trimestres td.td-nota,
+    .tabla-trimestres th.th-sub {
+        font-size: 7px;
+        min-width: 20px;
+        max-width: 24px;
+    }
+
+    /* Columna Estado extra small */
+    .tabla-trimestres td.td-estado {
+        font-size: 9px;
+        min-width: 45px;
+    }
+
+    /* KPIs extra small */
+    .kpis-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .kpi-card {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+
+    .kpi-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .kpi-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .kpi-value {
+        font-size: 15px;
+    }
+
+    .kpi-label {
+        font-size: 8px;
+    }
+
+    .kpi-trend {
+        font-size: 8px;
+    }
+
+    .kpi-label-row {
+        gap: 4px;
+    }
+
+    /* Charts extra small */
+    .charts-grid {
+        gap: 15px;
+    }
+
+    .chart-card {
+        min-height: 300px;
+    }
+
+    .chart-container {
+        height: 220px;
+        padding: 15px;
+    }
+
+    /* Modal extra small */
+    .modal-contenido {
+        border-radius: 0;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-header h3 {
+        font-size: 15px;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
+    .modal-footer {
+        padding: 12px 15px;
+    }
+
+    /* Tables extra small - mantener 9px */
+    .table-notas th,
+    .table-notas td {
+        padding: 6px 4px;
+        font-size: 9px;
+    }
+
+    .table-notas th {
+        font-size: 9px;
+    }
+
+    /* Clase dato-servidor en extra small */
+    .dato-servidor {
+        font-size: 9px;
+    }
+
+    /* Tabla Alumnos que Requieren Atención - extra small */
+    .tabla-atencion th,
+    .tabla-atencion td {
+        padding: 5px 3px;
+        font-size: 9px;
+    }
+
+    .tabla-atencion th {
+        font-size: 8px;
+    }
+
+    .tabla-atencion td:first-child {
+        max-width: 65px;
+    }
+
+    /* Notas y estados en 9px extra small */
+    .nota-excelente,
+    .nota-buena,
+    .nota-suficiente,
+    .nota-insuficiente,
+    .estado-aprobado,
+    .estado-reprobado,
+    .estado-encurso,
+    .estado-sinnotas {
+        font-size: 9px;
+    }
+
+    .btn-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .badge {
+        padding: 3px 8px;
+        font-size: 9px;
+    }
+
+    /* Modal Corporativo extra small */
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-corporativo {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .modal-corp-header {
+        padding: 14px 16px;
+        padding-right: 46px;
+        gap: 12px;
+    }
+
+    .modal-corp-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .modal-corp-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .modal-corp-title h3 {
+        font-size: 15px;
+    }
+
+    .modal-corp-title p {
+        font-size: 11px;
+    }
+
+    .modal-corp-cerrar {
+        width: 30px;
+        height: 30px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal-corp-cerrar svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .modal-corp-body {
+        padding: 12px;
+        max-height: calc(85vh - 180px);
+    }
+
+    .modal-corp-section {
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .modal-corp-section-title {
+        font-size: 12px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        gap: 8px;
+    }
+
+    .section-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .modal-corp-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .modal-corp-field label {
+        font-size: 10px;
+    }
+
+    .modal-corp-input {
+        padding: 10px;
+        font-size: 13px;
+        border-radius: 0;
+    }
+
+    .modal-corp-footer {
+        padding: 12px 16px;
+        flex-direction: column;
+    }
+
+    .btn-corp {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 13px;
+        justify-content: center;
+    }
+
+    .modal-corp-alert {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .modal-corp-alert .alert-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .modal-corp-alert .alert-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .modal-corp-alert .alert-content h4 {
+        font-size: 14px;
+    }
+
+    .modal-corp-alert .alert-content p {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Académica</title>
+    <link rel="stylesheet" href="css_colegio/colegio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix sub-tabs responsive - Pestaña Alumnos */
+        @media screen and (max-width: 768px) {
+            #columna-listado-alumnos {
+                display: none !important;
+            }
+            #columna-gestion-alumnos {
+                display: block !important;
+            }
+            #columna-gestion-alumnos.hidden {
+                display: none !important;
+            }
+            #columna-listado-alumnos.active {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="logo">
+                        <span class="logo-icon">E</span>
+                    </div>
+                    <div class="brand-text">
+                        <h1>Sistema de Gestión Académica</h1>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <span class="current-date" id="currentDate"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Panel de Control -->
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2>Panel de Control</h2>
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                        <span class="arrow-icon">&#9660;</span>
+                    </button>
+                </div>
+
+                <!-- Sistema de Pestañas -->
+                <div class="tabs-container">
+                    <nav class="tabs-nav">
+                        <button class="tab-btn active" data-tab="alumnos">Alumnos</button>
+                        <button class="tab-btn" data-tab="docentes">Docentes</button>
+                        <button class="tab-btn" data-tab="asignacion-cursos">Curso/Asignaturas</button>
+                        <button class="tab-btn" data-tab="notas-por-curso">Notas por Curso</button>
+                        <button class="tab-btn" data-tab="comunicados">Comunicados</button>
+                        <button class="tab-btn" data-tab="estadisticas">Estadísticas</button>
+                    </nav>
+
+                    <!-- Contenido de las Pestañas -->
+                    <div class="tabs-content">
+                        <div id="docentes" class="tab-panel">
+                            <!-- Sub-pestañas para móvil -->
+                            <div class="sub-tabs-mobile sub-tabs-docentes">
+                                <button class="sub-tab-btn active" data-subtab="agregar-docente">Agregar Docente</button>
+                                <button class="sub-tab-btn" data-subtab="listado-docentes">Listado Docentes</button>
+                            </div>
+
+                            <div class="two-columns">
+                                <!-- Columna Izquierda: Gestión de Docentes -->
+                                <div class="column" id="columna-agregar-docente">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Agregar Docente</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="formGestionDocente">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="inputNombreDocente">Nombres</label>
+                                                        <input type="text" id="inputNombreDocente" class="form-control" placeholder="Ej: María José" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputApellidoDocente">Apellidos</label>
+                                                        <input type="text" id="inputApellidoDocente" class="form-control" placeholder="Ej: González Pérez" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="inputRutDocente">RUT</label>
+                                                        <input type="text" id="inputRutDocente" class="form-control" placeholder="Ej: 12.345.678-9">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputEmailDocente">Email</label>
+                                                        <input type="email" id="inputEmailDocente" class="form-control" placeholder="Ej: docente@colegio.cl">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="label-con-boton">
+                                                        <label>Especialidades</label>
+                                                        <button type="button" class="btn-agregar-asignatura" onclick="abrirModalAgregarAsignatura()">
+                                                            <span>+</span> Agregar
+                                                        </button>
+                                                    </div>
+                                                    <div id="checkboxEspecialidades" class="checkbox-group checkbox-4-columnas">
+                                                        <!-- Se genera dinámicamente -->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions">
+                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioDocente()">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary" id="btnGuardarDocente">Agregar Docente</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna Derecha: Listado de Docentes -->
+                                <div class="column" id="columna-listado-docentes">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Listado de Docentes</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="filtros-docentes">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="filtroNombreDocente">Docente</label>
+                                                        <div class="autocomplete-container">
+                                                            <input type="text" id="filtroNombreDocente" class="form-control" placeholder="Buscar docente..." autocomplete="off">
+                                                            <div id="sugerenciasDocentes" class="sugerencias-lista"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="filtroAsignaturaDocente">Asignatura</label>
+                                                        <div class="autocomplete-container">
+                                                            <input type="text" id="filtroAsignaturaDocente" class="form-control" placeholder="Buscar asignatura..." autocomplete="off">
+                                                            <div id="sugerenciasAsignaturas" class="sugerencias-lista"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive table-scroll">
+                                                <table class="data-table" id="tablaDocentes">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre Completo</th>
+                                                            <th>Especialidad</th>
+                                                            <th>Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbodyDocentes">
+                                                        <tr>
+                                                            <td colspan="3" class="text-center text-muted">No hay docentes registrados</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal para Editar Docente -->
+                            <div id="modalEditarDocente" class="modal-overlay" style="display: none;">
+                                <div class="modal" onclick="event.stopPropagation()">
+                                    <div class="modal-header">
+                                        <h3>Editar Docente</h3>
+                                        <button class="modal-close" onclick="cerrarModalEditarDocente()">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="formEditarDocente">
+                                            <input type="hidden" id="editDocenteId">
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="editDocenteNombres">Nombres</label>
+                                                    <input type="text" id="editDocenteNombres" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editDocenteApellidos">Apellidos</label>
+                                                    <input type="text" id="editDocenteApellidos" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="editDocenteRut">RUT</label>
+                                                    <input type="text" id="editDocenteRut" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editDocenteEmail">Email</label>
+                                                    <input type="email" id="editDocenteEmail" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Especialidades</label>
+                                                <div id="checkboxEspecialidadesEdit" class="checkbox-group">
+                                                    <!-- Se genera dinámicamente -->
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalEditarDocente()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" onclick="guardarEdicionDocente()">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal para Agregar Asignatura -->
+                            <div id="modalAgregarAsignatura" class="modal-overlay" style="display: none;">
+                                <div class="modal" onclick="event.stopPropagation()">
+                                    <div class="modal-header">
+                                        <h3>Agregar Nueva Asignatura</h3>
+                                        <button class="modal-close" onclick="cerrarModalAgregarAsignatura()">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="formAgregarAsignaturaModal">
+                                            <div class="form-group">
+                                                <label for="inputNuevaAsignatura">Nombre de la Asignatura</label>
+                                                <input type="text" id="inputNuevaAsignatura" class="form-control" placeholder="Ej: Filosofía" required>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalAgregarAsignatura()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" onclick="guardarNuevaAsignatura()">Agregar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="asignacion-cursos" class="tab-panel">
+                            <!-- Sub-pestañas para móvil -->
+                            <div class="sub-tabs-mobile sub-tabs-asignaciones">
+                                <button class="sub-tab-btn active" data-subtab="asignar-docente">Asignar Docente</button>
+                                <button class="sub-tab-btn" data-subtab="asignaciones-actuales">Asignaciones Actuales</button>
+                            </div>
+
+                            <div class="two-columns">
+                                <!-- Columna Izquierda: Asignar Docente a Curso -->
+                                <div class="column" id="columna-asignar-docente">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Asignar Docente a Curso</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="formAsignacionCurso">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="selectDocenteAsignacion">Docente</label>
+                                                        <select id="selectDocenteAsignacion" class="form-control" required>
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="selectCursoAsignacion">Curso</label>
+                                                        <select id="selectCursoAsignacion" class="form-control" required>
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Asignaturas del Docente</label>
+                                                    <div id="checkboxAsignaturasAsignacion" class="checkbox-group">
+                                                        <p class="text-muted">Seleccione un docente para ver sus asignaturas</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions">
+                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioAsignacion()">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary">Asignar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna Derecha: Asignaciones Actuales -->
+                                <div class="column" id="columna-asignaciones-actuales">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Asignaciones Actuales</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="filtros-asignaciones">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="filtroAsignacionCurso">Filtrar por Curso</label>
+                                                        <select id="filtroAsignacionCurso" class="form-control">
+                                                            <option value="">Todos los cursos</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="filtroAsignacionDocente">Filtrar por Docente</label>
+                                                        <select id="filtroAsignacionDocente" class="form-control">
+                                                            <option value="">Todos los docentes</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="data-table" id="tablaAsignaciones">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Docente</th>
+                                                            <th>Curso</th>
+                                                            <th>Asignatura</th>
+                                                            <th>Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbodyAsignaciones">
+                                                        <tr>
+                                                            <td colspan="4" class="text-center text-muted">No hay asignaciones registradas</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="alumnos" class="tab-panel active">
+                            <!-- Sub-pestañas para móvil -->
+                            <div class="sub-tabs-mobile sub-tabs-alumnos">
+                                <button class="sub-tab-btn active" data-subtab="gestion-alumnos">Gestión de Alumnos</button>
+                                <button class="sub-tab-btn" data-subtab="listado-alumnos">Listado de Alumnos</button>
+                            </div>
+
+                            <div class="two-columns">
+                                <!-- Columna Izquierda: Gestión de Alumnos -->
+                                <div class="column" id="columna-gestion-alumnos">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Gestión de Alumnos</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="formGestionAlumno">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="selectCursoAlumno">Curso</label>
+                                                        <select id="selectCursoAlumno" class="form-control" required>
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="inputRutAlumno">RUT</label>
+                                                        <input type="text" id="inputRutAlumno" class="form-control" placeholder="Ej: 12.345.678-9" required>
+                                                    </div>
+                                                </div>
+
+                                                <div id="seccionNuevoAlumno">
+                                                    <div class="form-row">
+                                                        <div class="form-group">
+                                                            <label for="inputNombreAlumno">Nombres</label>
+                                                            <input type="text" id="inputNombreAlumno" class="form-control" placeholder="Ej: Juan Pablo" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputApellidoAlumno">Apellidos</label>
+                                                            <input type="text" id="inputApellidoAlumno" class="form-control" placeholder="Ej: Pérez González" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group">
+                                                            <label for="inputFechaNacAlumno">Fecha de Nacimiento</label>
+                                                            <input type="date" id="inputFechaNacAlumno" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="selectSexoAlumno">Sexo</label>
+                                                            <select id="selectSexoAlumno" class="form-control" required>
+                                                                <option value="">Seleccionar...</option>
+                                                                <option value="Femenino">Femenino</option>
+                                                                <option value="Masculino">Masculino</option>
+                                                                <option value="Otro">Otro</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions">
+                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioAlumno()">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary" id="btnGuardarAlumno">Agregar Alumno</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna Derecha: Listado de Alumnos -->
+                                <div class="column" id="columna-listado-alumnos">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Listado de Alumnos</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="filtros-alumnos">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label for="filtroCursoAlumnos">Curso</label>
+                                                        <select id="filtroCursoAlumnos" class="form-control">
+                                                            <option value="">Seleccionar...</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="filtroNombreAlumno">Alumno</label>
+                                                        <div class="autocomplete-container">
+                                                            <input type="text" id="filtroNombreAlumno" class="form-control" placeholder="Buscar alumno..." autocomplete="off">
+                                                            <div id="sugerenciasAlumnos" class="sugerencias-lista"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive table-scroll">
+                                                <table class="data-table" id="tablaAlumnos">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre Completo</th>
+                                                            <th>RUT</th>
+                                                            <th>Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbodyAlumnos">
+                                                        <tr>
+                                                            <td colspan="3" class="text-center text-muted">Seleccione un curso para ver alumnos</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal para Editar Alumno -->
+                            <div id="modalEditarAlumno" class="modal-overlay" style="display: none;">
+                                <div class="modal" onclick="event.stopPropagation()">
+                                    <div class="modal-header">
+                                        <h3>Editar Alumno</h3>
+                                        <button class="modal-close" onclick="cerrarModalEditarAlumno()">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="formEditarAlumno">
+                                            <input type="hidden" id="editAlumnoId">
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="editAlumnoCurso">Curso</label>
+                                                    <select id="editAlumnoCurso" class="form-control" required>
+                                                        <option value="">Seleccionar...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editAlumnoRut">RUT</label>
+                                                    <input type="text" id="editAlumnoRut" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="editAlumnoNombres">Nombres</label>
+                                                    <input type="text" id="editAlumnoNombres" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editAlumnoApellidos">Apellidos</label>
+                                                    <input type="text" id="editAlumnoApellidos" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="editAlumnoFechaNac">Fecha de Nacimiento</label>
+                                                    <input type="date" id="editAlumnoFechaNac" class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editAlumnoSexo">Sexo</label>
+                                                    <select id="editAlumnoSexo" class="form-control" required>
+                                                        <option value="">Seleccionar...</option>
+                                                        <option value="Femenino">Femenino</option>
+                                                        <option value="Masculino">Masculino</option>
+                                                        <option value="Otro">Otro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalEditarAlumno()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary" onclick="guardarEdicionAlumno()">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="notas-por-curso" class="tab-panel">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Notas por Curso y Asignatura</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="filtros-notas-curso">
+                                        <div class="form-row form-row-tres">
+                                            <div class="form-group">
+                                                <label for="selectCursoNotasPorCurso">Curso</label>
+                                                <select id="selectCursoNotasPorCurso" class="form-control">
+                                                    <option value="">Seleccionar...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="selectAsignaturaNotasCurso">Asignatura</label>
+                                                <select id="selectAsignaturaNotasCurso" class="form-control" disabled>
+                                                    <option value="">Seleccionar...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="selectTrimestreNotasCurso">Trimestre</label>
+                                                <select id="selectTrimestreNotasCurso" class="form-control">
+                                                    <option value="">Todos</option>
+                                                    <option value="1">Trimestre 1</option>
+                                                    <option value="2">Trimestre 2</option>
+                                                    <option value="3">Trimestre 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tabla-notas-curso-container" id="tablaNotasCursoContainer" style="display: none;">
+                                        <div class="table-responsive">
+                                            <table class="data-table tabla-notas-amplia" id="tablaNotasCurso">
+                                                <thead id="theadNotasCurso">
+                                                    <!-- Se genera dinámicamente -->
+                                                </thead>
+                                                <tbody id="tbodyNotasCurso">
+                                                    <!-- Se genera dinámicamente -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="mensajeSeleccion" class="text-center text-muted" style="padding: 40px;">
+                                        Seleccione un curso y una asignatura para ver las notas
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="comunicados" class="tab-panel">
+                            <div class="two-columns">
+                                <!-- Columna Izquierda: Opciones del Comunicado -->
+                                <div class="column">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Opciones del Comunicado</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label for="selectTipoComunicado">Tipo de Comunicado</label>
+                                                    <select id="selectTipoComunicado" class="form-control">
+                                                        <option value="">Seleccionar...</option>
+                                                        <option value="informativo">Informativo</option>
+                                                        <option value="urgente">Urgente</option>
+                                                        <option value="reunion">Reunión</option>
+                                                        <option value="evento">Evento</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="selectModoCurso">Curso</label>
+                                                    <select id="selectModoCurso" class="form-control" onchange="toggleSelectorCursos()">
+                                                        <option value="">Seleccionar...</option>
+                                                        <option value="todos">Todos los cursos</option>
+                                                        <option value="seleccionar">Seleccionar cursos</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div id="contenedorCursosEspecificos" class="cursos-grid-container" style="display: none;">
+                                                <!-- Se genera dinámicamente -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Columna Derecha: Redactar Comunicado -->
+                                <div class="column">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Redactar Comunicado</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="textareaComunicado">Mensaje</label>
+                                                <textarea id="textareaComunicado" class="form-control" rows="10" placeholder="Escriba el comunicado aquí..."></textarea>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="button" class="btn btn-secondary" onclick="limpiarComunicado()">Limpiar</button>
+                                                <button type="button" class="btn btn-primary" onclick="enviarComunicado()">Enviar Comunicado</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pestaña: Estadísticas -->
+                        <div id="estadisticas" class="tab-panel">
+                            <div class="estadisticas-container">
+                                <!-- Panel de Filtros -->
+                                <div class="stats-filtros-panel">
+                                    <div class="stats-filtros-header">
+                                        <h3>Panel de Estadísticas</h3>
+                                        <p>Seleccione el tipo de vista para analizar el rendimiento</p>
+                                    </div>
+                                    <div class="stats-filtros-grid">
+                                        <div class="stats-filtro-grupo">
+                                            <label>Tipo de Vista</label>
+                                            <select id="statsVistaSelector" onchange="cambiarVistaEstadisticas()">
+                                                <option value="general">Vista General</option>
+                                                <option value="curso">Por Curso</option>
+                                                <option value="docente">Por Docente</option>
+                                                <option value="asignatura">Por Asignatura</option>
+                                            </select>
+                                        </div>
+                                        <div class="stats-filtro-grupo" id="filtroCursoContainer" style="display: none;">
+                                            <label>Seleccionar Curso</label>
+                                            <select id="statsCursoSelector" onchange="actualizarEstadisticasCurso()">
+                                                <option value="">Seleccione un curso...</option>
+                                            </select>
+                                        </div>
+                                        <div class="stats-filtro-grupo" id="filtroDocenteContainer" style="display: none;">
+                                            <label>Seleccionar Docente</label>
+                                            <select id="statsDocenteSelector" onchange="actualizarEstadisticasDocente()">
+                                                <option value="">Seleccione un docente...</option>
+                                            </select>
+                                        </div>
+                                        <div class="stats-filtro-grupo" id="filtroAsignaturaContainer" style="display: none;">
+                                            <label>Seleccionar Asignatura</label>
+                                            <select id="statsAsignaturaSelector" onchange="actualizarEstadisticasAsignatura()">
+                                                <option value="">Seleccione una asignatura...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Título dinámico -->
+                                <div class="stats-titulo-seccion">
+                                    <h4 id="statsTituloActual">Estadísticas Generales del Establecimiento</h4>
+                                </div>
+
+                                <!-- KPIs Ejecutivos -->
+                                <div class="stats-kpis-executive">
+                                    <!-- KPI Principal con Gauge -->
+                                    <div class="stats-kpi-main">
+                                        <div class="kpi-gauge-container">
+                                            <canvas id="gaugePromedioGeneral" width="180" height="100"></canvas>
+                                            <div class="kpi-gauge-value">
+                                                <span class="gauge-number" id="statsPromedioGeneral">-</span>
+                                                <span class="gauge-label">Promedio General</span>
+                                            </div>
+                                        </div>
+                                        <div class="kpi-gauge-footer">
+                                            <span class="stats-kpi-trend" id="statsTrendGeneral"></span>
+                                        </div>
+                                    </div>
+
+                                    <!-- KPIs Secundarios -->
+                                    <div class="stats-kpis-secondary">
+                                        <div class="stats-kpi-exec-card kpi-success">
+                                            <div class="kpi-exec-header">
+                                                <span class="kpi-exec-label">Mejor Curso</span>
+                                                <div class="kpi-exec-badge">TOP</div>
+                                            </div>
+                                            <div class="kpi-exec-body">
+                                                <span class="kpi-exec-value" id="statsMejorCurso">-</span>
+                                                <span class="kpi-exec-subtext" id="statsMejorCursoNota">-</span>
+                                            </div>
+                                            <div class="kpi-exec-bar">
+                                                <div class="kpi-exec-bar-fill" id="barMejorCurso" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stats-kpi-exec-card kpi-danger">
+                                            <div class="kpi-exec-header">
+                                                <span class="kpi-exec-label">Necesita Apoyo</span>
+                                                <div class="kpi-exec-badge">ALERTA</div>
+                                            </div>
+                                            <div class="kpi-exec-body">
+                                                <span class="kpi-exec-value" id="statsCursoApoyo">-</span>
+                                                <span class="kpi-exec-subtext" id="statsCursoApoyoNota">-</span>
+                                            </div>
+                                            <div class="kpi-exec-bar">
+                                                <div class="kpi-exec-bar-fill" id="barCursoApoyo" style="width: 45%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stats-kpi-exec-card kpi-info">
+                                            <div class="kpi-exec-header">
+                                                <span class="kpi-exec-label">Mejor Asignatura</span>
+                                                <div class="kpi-exec-badge">DESTACADA</div>
+                                            </div>
+                                            <div class="kpi-exec-body">
+                                                <span class="kpi-exec-value" id="statsMejorAsig">-</span>
+                                                <span class="kpi-exec-subtext" id="statsMejorAsigNota">-</span>
+                                            </div>
+                                            <div class="kpi-exec-bar">
+                                                <div class="kpi-exec-bar-fill" id="barMejorAsig" style="width: 80%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="stats-kpi-exec-card kpi-warning">
+                                            <div class="kpi-exec-header">
+                                                <span class="kpi-exec-label">Asignatura Crítica</span>
+                                                <div class="kpi-exec-badge">REVISAR</div>
+                                            </div>
+                                            <div class="kpi-exec-body">
+                                                <span class="kpi-exec-value" id="statsAsigCritica">-</span>
+                                                <span class="kpi-exec-subtext" id="statsAsigCriticaNota">-</span>
+                                            </div>
+                                            <div class="kpi-exec-bar">
+                                                <div class="kpi-exec-bar-fill" id="barAsigCritica" style="width: 50%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- KPI Tasa de Aprobación -->
+                                    <div class="stats-kpi-approval">
+                                        <div class="approval-ring-container">
+                                            <canvas id="ringAprobacion" width="140" height="140"></canvas>
+                                            <div class="approval-ring-center">
+                                                <span class="approval-percent" id="statsTasaAprobacion">-</span>
+                                                <span class="approval-label">Aprobación</span>
+                                            </div>
+                                        </div>
+                                        <div class="approval-details">
+                                            <span class="approval-subtext" id="statsTasaAprobacionAlumnos">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Gráficos Fila 1 -->
+                                <div class="stats-graficos-row">
+                                    <div class="stats-grafico-card stats-grafico-wide">
+                                        <div class="stats-grafico-header">
+                                            <h4>Indicadores por Curso</h4>
+                                            <div class="grafico-header-actions">
+                                                <span class="stats-grafico-badge">KPI</span>
+                                            </div>
+                                        </div>
+                                        <div class="stats-grafico-body stats-grafico-body-lg">
+                                            <canvas id="graficoPromedioCursos"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="stats-grafico-card">
+                                        <div class="stats-grafico-header">
+                                            <h4>Segmentación de Resultados</h4>
+                                            <span class="stats-grafico-badge">Análisis</span>
+                                        </div>
+                                        <div class="stats-grafico-body">
+                                            <canvas id="graficoDistribucion"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Gráficos Fila 2 -->
+                                <div class="stats-graficos-row">
+                                    <div class="stats-grafico-card">
+                                        <div class="stats-grafico-header">
+                                            <h4>Tendencia Trimestral</h4>
+                                            <span class="stats-grafico-badge">Evolución</span>
+                                        </div>
+                                        <div class="stats-grafico-body">
+                                            <canvas id="graficoEvolucion"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="stats-grafico-card stats-grafico-wide">
+                                        <div class="stats-grafico-header">
+                                            <h4>Benchmark por Asignatura</h4>
+                                            <span class="stats-grafico-badge">Métricas</span>
+                                        </div>
+                                        <div class="stats-grafico-body stats-grafico-body-lg">
+                                            <canvas id="graficoAsignaturas"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>Sistema de Gestión Académica &copy; 2024 | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js_colegio/colegio.js"></script>
+</body>
+</html>

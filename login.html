@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Portal Estudiantil</title>
+    <link rel="stylesheet" href="css_colegio/colegio.css">
+    <link rel="stylesheet" href="css_colegio/registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .login-card {
+            max-width: 420px;
+        }
+
+        .login-card .registro-card-header {
+            padding: 20px 30px;
+        }
+
+        .login-card .paso-contenido {
+            padding: 25px 35px 30px;
+        }
+
+        .login-card .form-group {
+            margin-bottom: 15px;
+        }
+
+        .login-card .form-actions {
+            margin-top: 20px;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .login-card .btn-primary {
+            width: 100%;
+        }
+
+        .login-footer {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .login-footer p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .login-footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .login-card .registro-card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .login-card .registro-card-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .login-card .registro-card-header .logo {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card .registro-card-header .logo-icon {
+            color: var(--primary-color);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .login-card .registro-card-header .brand-text h1 {
+            font-size: 20px;
+            color: white;
+            margin: 0;
+        }
+
+        .login-card .registro-card-header h2 {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .login-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .btn-volver-lateral {
+            width: 40px;
+            height: 40px;
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 20px;
+        }
+
+        .registro-header {
+            padding: 10px 0 !important;
+        }
+
+        .registro-main {
+            padding-top: 0 !important;
+        }
+
+        .btn-volver-lateral:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .forgot-password a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Recuperar Contraseña */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 0;
+            max-width: 400px;
+            width: 90%;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+            background: #1e3a5f;
+            margin: -30px -30px 20px -30px;
+            padding: 25px 30px;
+            border-radius: 0;
+        }
+
+        .modal-header h3 {
+            font-size: 16px;
+            color: white;
+            margin: 0;
+            font-weight: 600;
+            float: left;
+            margin-right: 10px;
+            line-height: 1.5;
+        }
+
+        .modal-header p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body .form-group {
+            margin-bottom: 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .btn-secondary {
+            background: var(--background-color);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        .modal-body label {
+            color: var(--text-primary);
+        }
+
+        /* Responsive para centrar el formulario de login */
+        @media (max-width: 768px) {
+            .login-wrapper {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                min-height: calc(100vh - 80px);
+                justify-content: center;
+            }
+
+            .btn-volver-lateral {
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                margin-top: 0;
+            }
+
+            .registro-main {
+                align-items: center;
+                justify-content: center;
+                min-height: calc(100vh - 50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registro-container">
+        <!-- Header -->
+        <header class="registro-header">
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="registro-main">
+            <div class="login-wrapper">
+                <a href="index.html" class="btn-volver-lateral">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </a>
+                <div class="registro-card login-card">
+                    <div class="registro-card-header">
+                        <div class="brand">
+                            <div class="logo">
+                                <span class="logo-icon">E</span>
+                            </div>
+                            <div class="brand-text">
+                                <h1>Portal Estudiantil</h1>
+                            </div>
+                        </div>
+                        <h2>Iniciar Sesión</h2>
+                    </div>
+
+                    <div class="paso-contenido active">
+                        <form id="formLogin">
+                            <div class="form-group">
+                                <label for="correoLogin">Correo Electrónico</label>
+                                <input type="email" id="correoLogin" class="form-control" placeholder="correo@ejemplo.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordLogin">Contraseña</label>
+                                <input type="password" id="passwordLogin" class="form-control" placeholder="Ingrese su contraseña" required>
+                            </div>
+                            <div class="forgot-password">
+                                <a href="#" onclick="abrirModalRecuperar(event)">¿Olvidó su contraseña?</a>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary" onclick="iniciarSesion()">Ingresar</button>
+                            </div>
+                        </form>
+
+                        <div class="login-footer">
+                            <p>¿No tiene una cuenta? <a href="registro.html">Regístrese aquí</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="registro-footer">
+            <p>Sistema de Gestión Académica © 2024 | Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <!-- Modal Recuperar Contraseña -->
+    <div class="modal-overlay" id="modalRecuperar">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Recuperar Contraseña</h3>
+                <p>Ingrese su correo electrónico registrado. Le enviaremos una clave provisoria que podrá usar para ingresar y luego cambiarla.</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="correoRecuperar">Correo Electrónico</label>
+                    <input type="email" id="correoRecuperar" class="form-control" placeholder="correo@ejemplo.com">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="cerrarModalRecuperar()">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="enviarRecuperacion()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function iniciarSesion() {
+            const correo = document.getElementById('correoLogin').value.trim();
+            const password = document.getElementById('passwordLogin').value;
+
+            if (!correo || !password) {
+                alert('Por favor complete todos los campos');
+                return;
+            }
+
+            // Validar formato de correo
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(correo)) {
+                alert('Por favor ingrese un correo electrónico válido');
+                return;
+            }
+
+            // Aquí iría la lógica de autenticación real
+            // Por ahora, simulamos el login y redirigimos según el tipo de usuario
+
+            // Simulación: redirigir al panel principal
+            alert('Iniciando sesión...');
+            window.location.href = 'colegio.html';
+        }
+
+        // Permitir enviar con Enter
+        document.getElementById('formLogin').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                iniciarSesion();
+            }
+        });
+
+        // Funciones del modal de recuperar contraseña
+        function abrirModalRecuperar(event) {
+            event.preventDefault();
+            document.getElementById('modalRecuperar').classList.add('active');
+            document.getElementById('correoRecuperar').value = '';
+            document.getElementById('correoRecuperar').focus();
+        }
+
+        function cerrarModalRecuperar() {
+            document.getElementById('modalRecuperar').classList.remove('active');
+        }
+
+        function enviarRecuperacion() {
+            const correo = document.getElementById('correoRecuperar').value.trim();
+
+            if (!correo) {
+                alert('Por favor ingrese su correo electrónico');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(correo)) {
+                alert('Por favor ingrese un correo electrónico válido');
+                return;
+            }
+
+            // Aquí iría la lógica real de envío de correo
+            alert('Se ha enviado una clave provisoria a su correo electrónico. Revise su bandeja de entrada.');
+            cerrarModalRecuperar();
+        }
+
+        // Cerrar modal al hacer clic fuera
+        document.getElementById('modalRecuperar').addEventListener('click', function(e) {
+            if (e.target === this) {
+                cerrarModalRecuperar();
+            }
+        });
+
+        // Cerrar modal con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                cerrarModalRecuperar();
+            }
+        });
+    </script>
+</body>
+</html>

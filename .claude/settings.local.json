@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -r:*)",
+      "Bash(php -l:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(xargs:*)",
+      "WebFetch(domain:grupoprominente.com)",
+      "WebSearch",
+      "WebFetch(domain:www.pexels.com)",
+      "Bash(/mnt/c/xampp/php/php.exe -r \"\n$conn = new mysqli(''190.114.252.5'', ''root'', ''vpsroot123'', ''portal_estudiantil'', 3306);\nif ($conn->connect_error) { die(''Error: '' . $conn->connect_error); }\n$conn->set_charset(''utf8mb4'');\n\necho \"\"=== USUARIOS TIPO APODERADO ===\\n\\n\"\";\n$result = $conn->query(\"\"SELECT u.id, u.email, u.tipo_usuario, a.nombres, a.apellidos, a.rut \n                         FROM tb_usuarios u \n                         LEFT JOIN tb_apoderados a ON u.id = a.usuario_id \n                         WHERE u.tipo_usuario = ''apoderado'' AND u.activo = TRUE\n                         LIMIT 10\"\");\nif ($result && $result->num_rows > 0) {\n    while ($row = $result->fetch_assoc()) {\n        echo ''ID: '' . $row[''id''] . \"\"\\n\"\";\n        echo ''Email: '' . $row[''email''] . \"\"\\n\"\";\n        echo ''Nombre: '' . $row[''nombres''] . '' '' . $row[''apellidos''] . \"\"\\n\"\";\n        echo ''RUT: '' . $row[''rut''] . \"\"\\n\"\";\n        echo \"\"-------------------\\n\"\";\n    }\n} else {\n    echo \"\"No se encontraron apoderados\\n\"\";\n}\n$conn->close();\n\")",
+      "Bash(grep:*)",
+      "Bash(tree:*)",
+      "Bash(sudo apt update:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(php:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

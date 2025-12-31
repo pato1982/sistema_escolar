@@ -1,0 +1,1216 @@
+/* ==================== REGISTRO - ESTILOS ESPECÍFICOS ==================== */
+
+.registro-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #1e3a5f;
+}
+
+.registro-header {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.registro-main {
+    padding-top: 0;
+}
+
+.registro-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.registro-header .logo {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registro-header .logo-icon {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.registro-header .brand-text h1 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.registro-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.registro-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.btn-volver-lateral {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+
+.btn-volver-lateral:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.registro-card {
+    background: white;
+    border-radius: 0;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 700px;
+    overflow: hidden;
+}
+
+.registro-card-header {
+    background: #1e3a5f;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.registro-card-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.registro-card-header .logo {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registro-card-header .logo-icon {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.registro-card-header .brand-text h1 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.registro-card-header h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Indicador de Pasos */
+.pasos-indicador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 30px;
+    background: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.paso-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.paso-numero {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    background: var(--border-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.paso-item.active .paso-numero {
+    background: var(--primary-color);
+    color: white;
+}
+
+.paso-item.completed .paso-numero {
+    background: var(--success-color);
+    color: white;
+}
+
+.paso-texto {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.paso-item.active .paso-texto {
+    color: var(--primary-color);
+}
+
+.paso-linea {
+    width: 80px;
+    height: 3px;
+    background: var(--border-color);
+    margin: 0 15px;
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+
+/* Contenido de los Pasos */
+.paso-contenido {
+    display: none;
+    padding: 30px;
+}
+
+.paso-contenido.active {
+    display: block;
+}
+
+.paso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.paso-header h3 {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* Selección de Tipo de Usuario */
+#paso-tipo h3 {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+}
+
+.tipo-usuario-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tipo-usuario-card {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 2px solid #d5d5d5;
+    border-radius: 0;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tipo-usuario-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tipo-usuario-card.selected {
+    border-color: #1e3a5f;
+    background: rgba(30, 58, 95, 0.1);
+}
+
+.tipo-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: var(--accent-color);
+}
+
+.tipo-icono svg {
+    width: 40px;
+    height: 40px;
+}
+
+.tipo-usuario-card h4 {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+.tipo-usuario-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Sección Título */
+.seccion-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 20px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.seccion-titulo:first-of-type {
+    margin-top: 0;
+}
+
+/* Formularios */
+.paso-contenido .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.paso-contenido .form-group {
+    margin-bottom: 0;
+}
+
+/* Fila con un solo elemento que ocupa todo el ancho */
+.form-row-single {
+    grid-template-columns: 1fr !important;
+}
+
+.form-group-full {
+    width: 100%;
+}
+
+.paso-contenido .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Registro Exitoso */
+.registro-exitoso {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.icono-exito {
+    width: 80px;
+    height: 80px;
+    background: var(--success-color);
+    color: white;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 25px auto;
+}
+
+.registro-exitoso h3 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+}
+
+.registro-exitoso p {
+    color: var(--text-secondary);
+    margin: 0 0 10px 0;
+}
+
+.registro-exitoso .btn {
+    margin-top: 25px;
+}
+
+/* Tooltip para contraseña */
+.tooltip-trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.tooltip-trigger svg {
+    display: block;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e3a5f;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.tooltip-content::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #1e3a5f;
+}
+
+.tooltip-trigger.active .tooltip-content,
+.tooltip-trigger:hover .tooltip-content {
+    display: block;
+}
+
+/* Tooltip más ancho para mensajes largos */
+.tooltip-content-wide {
+    width: 280px;
+}
+
+/* Trigger para modal de información */
+.info-trigger {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 6px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.info-trigger svg {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.info-trigger:hover svg {
+    transform: scale(1.1);
+}
+
+/* Modal de Información */
+.modal-info-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-info-overlay.active {
+    display: flex;
+}
+
+.modal-info-contenido {
+    background: white;
+    border-radius: 0;
+    max-width: 400px;
+    width: 90%;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-info-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.modal-info-cerrar:hover {
+    color: #333;
+}
+
+.modal-info-body {
+    padding-top: 10px;
+}
+
+.modal-info-body p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    text-align: justify;
+    margin: 0;
+}
+
+/* Tarjetas de Alumnos */
+.alumno-card {
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border: 1px solid #d5d5d5;
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.alumno-card:first-child {
+    margin-top: 0;
+}
+
+.alumno-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alumno-titulo {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.btn-eliminar-alumno {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-eliminar-alumno:hover {
+    background: #dc2626;
+}
+
+/* Sección agregar otro alumno */
+.agregar-alumno-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: linear-gradient(145deg, #e8e8e8 0%, #d0d0d0 100%);
+    border-radius: 0;
+    border: 1px dashed #d5d5d5;
+}
+
+/* Checkbox personalizado */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    gap: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-color);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-container:hover .checkmark {
+    border-color: var(--accent-color);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Footer */
+.registro-footer {
+    padding: 15px;
+    text-align: center;
+}
+
+.registro-footer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin: 0;
+}
+
+/* Labels cortos/largos - Por defecto mostrar versión completa */
+.label-full {
+    display: inline;
+}
+
+.label-short {
+    display: none;
+}
+
+/* ==================== RESPONSIVE MÓVIL (699px y menos) ==================== */
+@media (max-width: 699px) {
+    .registro-header {
+        display: none;
+    }
+
+    .registro-main {
+        position: relative;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 50px);
+    }
+
+    .registro-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn-volver-lateral {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        margin-top: 0;
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-volver-lateral svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .registro-card {
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .registro-card-header {
+        padding: 12px 15px;
+        gap: 4px;
+    }
+
+    .registro-card-header .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .registro-card-header .logo-icon {
+        font-size: 16px;
+    }
+
+    .registro-card-header .brand-text h1 {
+        font-size: 10px;
+    }
+
+    .registro-card-header h2 {
+        font-size: 9px;
+    }
+
+    .pasos-indicador {
+        padding: 12px 10px;
+    }
+
+    .paso-numero {
+        width: 28px;
+        height: 28px;
+        font-size: 9px;
+    }
+
+    .paso-texto {
+        font-size: 9px;
+    }
+
+    .paso-linea {
+        width: 25px;
+        margin: 0 5px;
+        margin-bottom: 16px;
+    }
+
+    .paso-contenido {
+        padding: 15px;
+    }
+
+    .paso-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .paso-header h3 {
+        font-size: 10px;
+    }
+
+    .paso-header .btn-sm {
+        font-size: 9px;
+        padding: 5px 10px;
+    }
+
+    .tipo-usuario-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .tipo-usuario-card {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+    }
+
+    .tipo-icono {
+        margin-bottom: 0;
+    }
+
+    .tipo-icono svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .tipo-usuario-card h4 {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .tipo-usuario-card p {
+        font-size: 9px;
+    }
+
+    .paso-contenido .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Paso 1: mantener 2 columnas en responsive */
+    #paso-1 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-1 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-1 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-1 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-1 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-1 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* Paso 2: mantener 2 columnas en responsive para todos los form-row */
+    #paso-2 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-2 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-2 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-2 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-2 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-2 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* Tarjetas de alumnos responsive */
+    .alumno-card {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .alumno-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    .alumno-titulo {
+        font-size: 10px;
+    }
+
+    .btn-eliminar-alumno {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+
+    .agregar-alumno-section {
+        margin: 15px 0;
+        padding: 12px;
+    }
+
+    .checkmark {
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkbox-label {
+        font-size: 9px;
+    }
+
+    .agregar-alumno-section {
+        margin: 12px 0;
+        padding: 10px;
+    }
+
+    .checkmark {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Paso 3: mantener 2 columnas en responsive */
+    #paso-3 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-3 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-3 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-3 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-3 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-3 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    .paso-contenido .form-actions {
+        flex-direction: column-reverse;
+        gap: 6px;
+    }
+
+    .paso-contenido .form-actions .btn {
+        width: 100%;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    .registro-exitoso {
+        padding: 30px 15px;
+    }
+
+    .icono-exito {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .registro-exitoso h3 {
+        font-size: 10px;
+    }
+
+    .registro-exitoso p {
+        font-size: 9px;
+    }
+
+    .registro-exitoso .btn {
+        padding: 6px 12px;
+        font-size: 9px;
+    }
+
+    /* Tooltip responsive */
+    .tooltip-trigger svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .tooltip-content {
+        width: 180px;
+        font-size: 9px;
+        padding: 8px 10px;
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .tooltip-content::after {
+        left: 12px;
+        transform: none;
+    }
+
+    /* ==================== DOCENTE RESPONSIVE ==================== */
+
+    /* Labels cortos/largos para responsive */
+    .label-full {
+        display: none;
+    }
+
+    .label-short {
+        display: inline;
+    }
+
+    /* Paso Docente 1: mantener 2 columnas en responsive */
+    #paso-docente-1 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-docente-1 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-docente-1 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-docente-1 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-docente-1 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-docente-1 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* Paso Docente 2: mantener 2 columnas en responsive */
+    #paso-docente-2 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-docente-2 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-docente-2 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-docente-2 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-docente-2 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-docente-2 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* ==================== ADMINISTRADOR RESPONSIVE ==================== */
+
+    /* Paso Administrador 1: mantener 2 columnas en responsive */
+    #paso-admin-1 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-admin-1 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-admin-1 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-admin-1 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-admin-1 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-admin-1 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* Paso Administrador 2: mantener 2 columnas en responsive */
+    #paso-admin-2 .form-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #paso-admin-2 .form-group label {
+        font-size: 10px;
+    }
+
+    #paso-admin-2 .form-control {
+        padding: 8px 10px;
+        font-size: 9px;
+    }
+
+    #paso-admin-2 .form-control::placeholder {
+        font-size: 9px;
+    }
+
+    #paso-admin-2 .form-actions {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #paso-admin-2 .form-actions .btn {
+        flex: 1;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    /* Tooltip ancho en responsive */
+    .tooltip-content-wide {
+        width: 220px;
+    }
+
+    /* Modal de información responsive */
+    .modal-info-contenido {
+        max-width: 320px;
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .modal-info-cerrar {
+        font-size: 22px;
+        top: 8px;
+        right: 10px;
+    }
+
+    .modal-info-body p {
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    /* Modal de error responsive */
+    .modal-error-contenido {
+        max-width: 320px;
+        padding: 25px 20px;
+        margin: 15px;
+    }
+
+    .modal-error-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .modal-error-titulo {
+        font-size: 10px;
+    }
+
+    .modal-error-mensaje {
+        font-size: 9px;
+    }
+
+    .modal-error-btn {
+        padding: 10px 25px;
+        font-size: 9px;
+    }
+}
+
+/* ==================== MODAL DE ERROR DE VALIDACIÓN ==================== */
+
+.modal-error-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-error-overlay.active {
+    display: flex;
+}
+
+.modal-error-contenido {
+    background: white;
+    border-radius: 0;
+    max-width: 420px;
+    width: 90%;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    animation: modalErrorFadeIn 0.3s ease;
+    text-align: center;
+}
+
+@keyframes modalErrorFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-error-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.modal-error-cerrar:hover {
+    color: #333;
+}
+
+.modal-error-icon {
+    margin-bottom: 20px;
+}
+
+.modal-error-titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #dc2626;
+    margin: 0 0 15px 0;
+}
+
+.modal-error-mensaje {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 25px 0;
+}
+
+.modal-error-btn {
+    padding: 12px 30px;
+    font-size: 14px;
+}
