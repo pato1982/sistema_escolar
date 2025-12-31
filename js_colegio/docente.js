@@ -81,17 +81,26 @@ async function mostrarTodosAlumnos(inputId, dropdownId) {
     if (alumnos.length === 0) {
         dropdown.innerHTML = '<div class="autocomplete-item-empty">No hay alumnos en este curso</div>';
     } else {
-        dropdown.innerHTML = alumnos.map(alumno => {
+        let optionsHtml = '';
+
+        // Agregar opción "Ver todos" si es para búsqueda/filtro
+        if (inputId === 'buscarAlumno' || inputId === 'filtrarAlumnoVer') {
+            optionsHtml += `<div class="autocomplete-item autocomplete-item-all" data-id="" data-nombre="">-- Todos los alumnos --</div>`;
+        }
+
+        optionsHtml += alumnos.map(alumno => {
             const nombreFormateado = formatearNombreCompleto(alumno.nombre_completo || alumno.nombre);
             return `<div class="autocomplete-item autocomplete-item-alumno" data-id="${alumno.id}" data-nombre="${nombreFormateado}">${nombreFormateado}</div>`;
         }).join('');
+
+        dropdown.innerHTML = optionsHtml;
 
         // Agregar eventos de clic
         dropdown.querySelectorAll('.autocomplete-item').forEach(item => {
             item.addEventListener('click', function () {
                 input.value = this.dataset.nombre;
                 // Guardar ID en campo hidden
-                const hiddenId = inputId + 'Value';
+                const hiddenId = inputId === 'alumnoNuevaNota' ? 'alumnoNuevaNotaValue' : (inputId === 'buscarAlumno' ? 'buscarAlumnoValue' : 'filtrarAlumnoVerValue');
                 const hidden = document.getElementById(hiddenId);
                 if (hidden) hidden.value = this.dataset.id;
                 dropdown.classList.remove('show');
@@ -273,13 +282,23 @@ function mostrarDropdownAlumnos(dropdown, alumnos, busqueda, onSelect) {
     if (alumnos.length === 0) {
         dropdown.innerHTML = '<div class="autocomplete-item-empty">No se encontraron alumnos</div>';
     } else {
-        dropdown.innerHTML = alumnos.map(alumno => {
+        let optionsHtml = '';
+
+        // Agregar opción "Ver todos" si no estamos en "Agregar Nota"
+        const isFilter = !dropdown.id.includes('NuevaNota');
+        if (isFilter) {
+            optionsHtml += `<div class="autocomplete-item autocomplete-item-all" data-id="" data-value="">-- Todos los alumnos --</div>`;
+        }
+
+        optionsHtml += alumnos.map(alumno => {
             const nombreFormateado = formatearNombreAlumno(alumno);
             return `<div class="autocomplete-item autocomplete-item-alumno" data-id="${alumno.id}" data-value="${nombreFormateado}">
                 ${resaltarCoincidencias(nombreFormateado, busqueda)}
                 ${alumno.curso ? `<small class="text-muted"> - ${alumno.curso}</small>` : ''}
             </div>`;
         }).join('');
+
+        dropdown.innerHTML = optionsHtml;
 
         dropdown.querySelectorAll('.autocomplete-item').forEach(item => {
             item.addEventListener('click', function () {
