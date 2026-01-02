@@ -163,23 +163,23 @@ function initFiltrosCursoAsignatura() {
         });
     }
 
-    // Ver Notas: filtroCursoVerNotas -> filtroAsignaturaVerNotas
-    const filtroCursoVerNotas = document.getElementById('filtroCursoVerNotas');
-    const filtroAsignaturaVerNotas = document.getElementById('filtroAsignaturaVerNotas');
+    // Ver Notas: verCurso -> verAsignatura
+    const verCurso = document.getElementById('verCurso');
+    const verAsignatura = document.getElementById('verAsignatura');
 
-    if (filtroCursoVerNotas && filtroAsignaturaVerNotas) {
-        filtroCursoVerNotas.addEventListener('change', function () {
-            cargarAsignaturasEnSelect(filtroAsignaturaVerNotas, this.value);
+    if (verCurso && verAsignatura) {
+        verCurso.addEventListener('change', function () {
+            cargarAsignaturasEnSelect(verAsignatura, this.value);
         });
     }
 
-    // Progreso: filtroCursoProgreso -> filtroAsignaturaProgreso
-    const filtroCursoProgreso = document.getElementById('filtroCursoProgreso');
-    const filtroAsignaturaProgreso = document.getElementById('filtroAsignaturaProgreso');
+    // Progreso: progresoCurso -> progresoAsignatura
+    const progresoCurso = document.getElementById('progresoCurso');
+    const progresoAsignatura = document.getElementById('progresoAsignatura');
 
-    if (filtroCursoProgreso && filtroAsignaturaProgreso) {
-        filtroCursoProgreso.addEventListener('change', function () {
-            cargarAsignaturasEnSelect(filtroAsignaturaProgreso, this.value);
+    if (progresoCurso && progresoAsignatura) {
+        progresoCurso.addEventListener('change', function () {
+            cargarAsignaturasEnSelect(progresoAsignatura, this.value);
         });
     }
 
