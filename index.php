@@ -553,7 +553,8 @@ $conn->close();
 
                 <h3>12. Contacto</h3>
                 <p>Para cualquier consulta relacionada con estos Términos y Condiciones, puede contactarnos a través de:
-                    <strong>contacto@portalestudiantil.cl</strong></p>
+                    <strong>contacto@portalestudiantil.cl</strong>
+                </p>
             </div>
             <div class="modal-footer-pie">
                 <p>Última actualización: Noviembre 2024 | Portal Estudiantil - Sistema de Gestión Académica</p>
@@ -639,7 +640,6 @@ $conn->close();
 
     <script src="js_colegio/index.js"></script>
     <script src="js_colegio/modales-footer.js"></script>
-    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>

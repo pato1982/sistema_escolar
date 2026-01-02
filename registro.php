@@ -215,7 +215,8 @@ $conn->close();
                                         <option value="">Seleccionar</option>
                                         <?php foreach ($establecimientos as $est): ?>
                                             <option value="<?php echo $est['id']; ?>">
-                                                <?php echo htmlspecialchars($est['nombre']); ?></option>
+                                                <?php echo htmlspecialchars($est['nombre']); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -428,7 +429,8 @@ $conn->close();
                                         <option value="">Seleccionar</option>
                                         <?php foreach ($establecimientos as $est): ?>
                                             <option value="<?php echo $est['id']; ?>">
-                                                <?php echo htmlspecialchars($est['nombre']); ?></option>
+                                                <?php echo htmlspecialchars($est['nombre']); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -549,7 +551,8 @@ $conn->close();
                                         <option value="">Seleccionar</option>
                                         <?php foreach ($establecimientos as $est): ?>
                                             <option value="<?php echo $est['id']; ?>">
-                                                <?php echo htmlspecialchars($est['nombre']); ?></option>
+                                                <?php echo htmlspecialchars($est['nombre']); ?>
+                                            </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -663,7 +666,6 @@ $conn->close();
         const cursosDB = <?php echo json_encode($cursos); ?>;
     </script>
     <script src="js_colegio/registro.js"></script>
-    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>

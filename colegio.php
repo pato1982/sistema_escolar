@@ -2649,7 +2649,6 @@ $conn->close();
         setInterval(actualizarBadgeTotal, 3000);
         actualizarBadgeTotal();
     </script>
-    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>

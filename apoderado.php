@@ -1031,7 +1031,6 @@ $nombre_apoderado = $apoderado['nombres'] . ' ' . $apoderado['apellidos'];
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js_colegio/apoderado.js"></script>
-    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>
