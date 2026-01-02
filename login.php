@@ -1099,6 +1099,7 @@ $conn->close();
             }
         });
     </script>
+    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>

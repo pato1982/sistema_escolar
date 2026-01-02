@@ -14,7 +14,11 @@
       "Bash(tree:*)",
       "Bash(sudo apt update:*)",
       "Bash(sudo apt install:*)",
-      "Bash(php:*)"
+      "Bash(php:*)",
+      "Bash(wc:*)",
+      "Bash(npm install:*)",
+      "Bash(cmd.exe /c \"where php\")",
+      "Bash(powershell.exe -Command \"Get-Command php -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")"
     ],
     "deny": [],
     "ask": []

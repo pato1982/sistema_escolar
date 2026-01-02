@@ -418,7 +418,8 @@ $nombre_apoderado = $apoderado['nombres'] . ' ' . $apoderado['apellidos'];
                                                     <?php echo htmlspecialchars($al['nombres'] . ' ' . $al['apellidos']); ?>
                                                 </div>
                                                 <div class="dropdown-alumno-curso">
-                                                    <?php echo htmlspecialchars($al['curso_nombre']); ?></div>
+                                                    <?php echo htmlspecialchars($al['curso_nombre']); ?>
+                                                </div>
                                             </div>
                                             <div class="dropdown-alumno-check">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -527,22 +528,26 @@ $nombre_apoderado = $apoderado['nombres'] . ' ' . $apoderado['apellidos'];
                                     <div class="info-item item-nombre-apoderado">
                                         <label>Nombre Apoderado</label>
                                         <p id="infoApoderado">
-                                            <?php echo htmlspecialchars($datos_apoderado['nombre']); ?></p>
+                                            <?php echo htmlspecialchars($datos_apoderado['nombre']); ?>
+                                        </p>
                                     </div>
                                     <div class="info-item item-parentesco">
                                         <label>Parentesco</label>
                                         <p id="infoParentesco">
-                                            <?php echo htmlspecialchars($datos_apoderado['parentesco']); ?></p>
+                                            <?php echo htmlspecialchars($datos_apoderado['parentesco']); ?>
+                                        </p>
                                     </div>
                                     <div class="info-item item-telefono">
                                         <label>Teléfono</label>
                                         <p id="infoTelefono">
-                                            <?php echo htmlspecialchars($datos_apoderado['telefono'] ?: '-'); ?></p>
+                                            <?php echo htmlspecialchars($datos_apoderado['telefono'] ?: '-'); ?>
+                                        </p>
                                     </div>
                                     <div class="info-item item-correo">
                                         <label>Correo</label>
                                         <p id="infoCorreo">
-                                            <?php echo htmlspecialchars($datos_apoderado['correo'] ?: '-'); ?></p>
+                                            <?php echo htmlspecialchars($datos_apoderado['correo'] ?: '-'); ?>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1026,6 +1031,7 @@ $nombre_apoderado = $apoderado['nombres'] . ' ' . $apoderado['apellidos'];
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js_colegio/apoderado.js"></script>
+    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
 
 </html>

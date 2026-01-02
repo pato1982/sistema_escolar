@@ -182,6 +182,7 @@ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -194,6 +195,7 @@ $conn->close();
         .logout-icon {
             display: none;
         }
+
         .logout-text {
             display: inline;
         }
@@ -204,83 +206,104 @@ $conn->close();
                 padding: 6px 3px !important;
                 font-size: 11px !important;
             }
+
             /* Botón cerrar sesión: solo icono */
             .logout-text {
                 display: none !important;
             }
+
             .logout-icon {
                 display: block !important;
             }
+
             .btn-logout {
                 padding: 6px !important;
                 min-width: auto !important;
             }
+
             /* Títulos Datos del Apoderado y Apoderado ya Existe */
             .titulo-apoderado-bar {
                 font-size: 9px !important;
             }
+
             #seccionDatosApoderado,
             #seccionApoderadoExiste {
                 padding: 8px 12px !important;
             }
+
             /* Botones Agregar Alumno/Docente y Limpiar */
             #formGestionAlumno .form-actions,
             #formGestionDocente .form-actions {
                 justify-content: center !important;
             }
+
             #formGestionAlumno .form-actions .btn,
             #formGestionDocente .form-actions .btn {
                 font-size: 9px !important;
             }
+
             /* Labels e inputs de todos los formularios */
             .form-group label {
                 font-size: 11px !important;
             }
+
             .form-control {
                 font-size: 11px !important;
             }
+
             /* Especialidades en 3 columnas */
             .checkbox-4-columnas {
                 grid-template-columns: repeat(3, 1fr) !important;
             }
+
             .checkbox-4-columnas .checkbox-item label {
                 font-size: 9px !important;
             }
+
             /* Tabla listado alumnos - encabezados y datos */
             #tablaAlumnos th {
                 font-size: 9px !important;
             }
+
             #tablaAlumnos td {
                 font-size: 9px !important;
             }
+
             /* Sugerencias autocomplete alumnos */
             #sugerenciasAlumnos .sugerencia-item {
                 font-size: 9px !important;
             }
+
             /* Sugerencias autocomplete docentes y asignaturas */
             #sugerenciasDocentes .sugerencia-item,
             #sugerenciasAsignaturas .sugerencia-item {
                 font-size: 9px !important;
             }
+
             /* Tabla listado docentes - encabezados y datos */
             #tablaDocentes th {
                 font-size: 9px !important;
             }
+
             #tablaDocentes td {
                 font-size: 9px !important;
             }
+
             /* Tabla asignaciones actuales - encabezados y datos */
             #tablaAsignaciones th {
                 font-size: 9px !important;
             }
+
             #tablaAsignaciones td {
                 font-size: 9px !important;
             }
+
             /* Texto "Seleccione un docente para ver sus asignaturas" */
             #checkboxAsignaturasAsignacion .text-muted {
                 font-size: 9px !important;
                 white-space: nowrap !important;
             }
+
             /* KPIs Estadísticas - Promedio y Aprobación lado a lado */
             .stats-kpis-executive {
                 display: grid !important;
@@ -289,6 +312,7 @@ $conn->close();
                 gap: 12px !important;
                 align-items: stretch !important;
             }
+
             .stats-kpi-main,
             .stats-kpi-approval {
                 display: flex !important;
@@ -298,19 +322,23 @@ $conn->close();
                 min-height: 200px !important;
                 padding: 20px !important;
             }
+
             .stats-kpi-main {
                 grid-column: 1 !important;
                 grid-row: 1 !important;
             }
+
             .stats-kpi-approval {
                 grid-column: 2 !important;
                 grid-row: 1 !important;
             }
+
             /* Ocultar footers para alinear círculos */
             .gauge-footer,
             .approval-footer {
                 display: none !important;
             }
+
             .stats-kpis-secondary {
                 grid-column: 1 / -1 !important;
                 grid-row: 2 !important;
@@ -319,6 +347,7 @@ $conn->close();
 
         /* ===== RESPONSIVE MÓVIL - KPIs ===== */
         @media (max-width: 699px) {
+
             /* KPIs Estadísticas - Promedio y Aprobación lado a lado */
             .stats-kpis-executive {
                 display: grid !important;
@@ -327,6 +356,7 @@ $conn->close();
                 gap: 12px !important;
                 align-items: stretch !important;
             }
+
             .stats-kpi-main,
             .stats-kpi-approval {
                 display: flex !important;
@@ -336,19 +366,23 @@ $conn->close();
                 min-height: 200px !important;
                 padding: 20px !important;
             }
+
             .stats-kpi-main {
                 grid-column: 1 !important;
                 grid-row: 1 !important;
             }
+
             .stats-kpi-approval {
                 grid-column: 2 !important;
                 grid-row: 1 !important;
             }
+
             /* Ocultar footers para alinear círculos */
             .gauge-footer,
             .approval-footer {
                 display: none !important;
             }
+
             .stats-kpis-secondary {
                 grid-column: 1 / -1 !important;
                 grid-row: 2 !important;
@@ -357,14 +391,17 @@ $conn->close();
 
         /* ===== HEADER RESPONSIVE ===== */
         @media (max-width: 699px) {
+
             /* Ocultar el texto del brand, solo mostrar logo E */
             .brand-text {
                 display: none !important;
             }
+
             /* Header con position relative para el título centrado */
             .main-header {
                 position: relative;
             }
+
             /* Título Admin centrado */
             .main-header::after {
                 content: 'Admin';
@@ -376,20 +413,24 @@ $conn->close();
                 font-weight: 600;
                 color: #ffffff;
             }
+
             /* Ocultar nombre de usuario y fecha en responsive */
             .user-info,
             .current-date {
                 display: none !important;
             }
+
             /* Botón cerrar sesión: solo icono más pequeño */
             .logout-text {
                 display: none !important;
             }
+
             .logout-icon {
                 display: block !important;
                 width: 14px !important;
                 height: 14px !important;
             }
+
             .btn-logout {
                 padding: 6px !important;
                 min-width: auto !important;
@@ -405,13 +446,16 @@ $conn->close();
             #columna-gestion-alumnos {
                 display: block !important;
             }
+
             #columna-listado-alumnos {
                 display: none !important;
             }
+
             /* Cuando se hace clic en "Listado de Alumnos" */
             #columna-gestion-alumnos.hidden {
                 display: none !important;
             }
+
             #columna-listado-alumnos.active {
                 display: block !important;
             }
@@ -420,12 +464,15 @@ $conn->close();
             #columna-agregar-docente {
                 display: block !important;
             }
+
             #columna-listado-docentes {
                 display: none !important;
             }
+
             #columna-agregar-docente.hidden {
                 display: none !important;
             }
+
             #columna-listado-docentes.active {
                 display: block !important;
             }
@@ -434,16 +481,20 @@ $conn->close();
             #columna-asignar-docente {
                 display: block !important;
             }
+
             #columna-asignaciones-actuales {
                 display: none !important;
             }
+
             #columna-asignar-docente.hidden {
                 display: none !important;
             }
+
             #columna-asignaciones-actuales.active {
                 display: block !important;
             }
         }
+
         @media (max-width: 480px) {
             .titulo-apoderado-bar {
                 font-size: 9px !important;
@@ -460,6 +511,7 @@ $conn->close();
             width: 100% !important;
             height: 100% !important;
         }
+
         .kpi-circle-bg {
             width: 160px !important;
             height: 160px !important;
@@ -471,41 +523,51 @@ $conn->close();
             background: transparent !important;
             gap: 5px !important;
         }
+
         .kpi-circle-azul {
             border: 5px solid #74c0fc !important;
         }
+
         .kpi-circle-blanco {
             border: 5px solid #ffffff !important;
         }
+
         /* Fondo verde para KPIs */
         .kpi-main-verde,
         .kpi-approval-verde {
             background: linear-gradient(145deg, #40c057, #2f9e44) !important;
         }
+
         .kpi-approval-verde {
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
         }
+
         .kpi-main-verde .gauge-number,
         .kpi-main-verde .gauge-label {
             color: #ffffff !important;
         }
+
         .kpi-approval-verde .approval-percent {
             color: #ffffff !important;
             font-size: 28px !important;
         }
+
         .kpi-approval-verde .approval-label {
             color: #ffffff !important;
         }
+
         .approval-footer {
             text-align: center !important;
             padding: 10px 0 5px 0 !important;
         }
+
         .kpi-approval-verde .approval-subtext {
             color: #ffffff !important;
             font-weight: 600 !important;
         }
+
         .gauge-number,
         .approval-percent {
             color: #fff !important;
@@ -514,9 +576,10 @@ $conn->close();
             line-height: 1 !important;
             text-align: center !important;
         }
+
         .gauge-label,
         .approval-label {
-            color: rgba(255,255,255,0.85) !important;
+            color: rgba(255, 255, 255, 0.85) !important;
             font-size: 10px !important;
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
@@ -524,20 +587,24 @@ $conn->close();
             text-align: center !important;
             line-height: 1.2 !important;
         }
+
         .approval-subtext {
             font-size: 11px !important;
             text-align: center !important;
         }
+
         @media (max-width: 699px) {
             .kpi-circle-bg {
                 width: 120px !important;
                 height: 120px !important;
                 border-width: 4px !important;
             }
+
             .gauge-number,
             .approval-percent {
                 font-size: 26px !important;
             }
+
             .gauge-label,
             .approval-label {
                 font-size: 8px !important;
@@ -545,6 +612,7 @@ $conn->close();
         }
     </style>
 </head>
+
 <body>
     <!-- Variables PHP para JavaScript -->
     <script>
@@ -578,7 +646,12 @@ $conn->close();
                     <span class="user-info"><?php echo htmlspecialchars($nombres . ' ' . $apellidos); ?></span>
                     <span class="current-date" id="currentDate"></span>
                     <button class="btn-logout" onclick="cerrarSesion()" title="Cerrar Sesión">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -611,8 +684,10 @@ $conn->close();
                         <div id="docentes" class="tab-panel">
                             <!-- Sub-pestañas para móvil -->
                             <div class="sub-tabs-mobile sub-tabs-docentes">
-                                <button type="button" class="sub-tab-btn active" data-subtab="agregar-docente">Agregar Docente</button>
-                                <button type="button" class="sub-tab-btn" data-subtab="listado-docentes">Listado Docentes</button>
+                                <button type="button" class="sub-tab-btn active" data-subtab="agregar-docente">Agregar
+                                    Docente</button>
+                                <button type="button" class="sub-tab-btn" data-subtab="listado-docentes">Listado
+                                    Docentes</button>
                             </div>
 
                             <div class="two-columns">
@@ -627,22 +702,27 @@ $conn->close();
                                                 <div class="form-row">
                                                     <div class="form-group">
                                                         <label for="inputNombreDocente">Nombres</label>
-                                                        <input type="text" id="inputNombreDocente" class="form-control" placeholder="Ej: María José" required>
+                                                        <input type="text" id="inputNombreDocente" class="form-control"
+                                                            placeholder="Ej: María José" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputApellidoDocente">Apellidos</label>
-                                                        <input type="text" id="inputApellidoDocente" class="form-control" placeholder="Ej: González Pérez" required>
+                                                        <input type="text" id="inputApellidoDocente"
+                                                            class="form-control" placeholder="Ej: González Pérez"
+                                                            required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-row">
                                                     <div class="form-group">
                                                         <label for="inputRutDocente">RUT</label>
-                                                        <input type="text" id="inputRutDocente" class="form-control" placeholder="Ej: 12.345.678-9">
+                                                        <input type="text" id="inputRutDocente" class="form-control"
+                                                            placeholder="Ej: 12.345.678-9">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputCorreoDocente">Correo Electrónico</label>
-                                                        <input type="email" id="inputCorreoDocente" class="form-control" placeholder="Ej: docente@correo.com">
+                                                        <input type="email" id="inputCorreoDocente" class="form-control"
+                                                            placeholder="Ej: docente@correo.com">
                                                     </div>
                                                 </div>
 
@@ -650,22 +730,27 @@ $conn->close();
                                                     <div class="label-con-boton">
                                                         <label>Especialidades</label>
                                                         <div class="botones-asignatura">
-                                                            <button type="button" class="btn-agregar-asignatura" onclick="abrirModalAgregarAsignatura()">
+                                                            <button type="button" class="btn-agregar-asignatura"
+                                                                onclick="abrirModalAgregarAsignatura()">
                                                                 <span>+</span> Agregar
                                                             </button>
-                                                            <button type="button" class="btn-eliminar-asignatura" onclick="abrirModalEliminarAsignatura()">
+                                                            <button type="button" class="btn-eliminar-asignatura"
+                                                                onclick="abrirModalEliminarAsignatura()">
                                                                 <span>-</span> Eliminar
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    <div id="checkboxEspecialidades" class="checkbox-group checkbox-4-columnas">
+                                                    <div id="checkboxEspecialidades"
+                                                        class="checkbox-group checkbox-4-columnas">
                                                         <!-- Se genera dinámicamente -->
                                                     </div>
                                                 </div>
 
                                                 <div class="form-actions">
-                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioDocente()">Limpiar</button>
-                                                    <button type="submit" class="btn btn-primary" id="btnGuardarDocente">Agregar Docente</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        onclick="limpiarFormularioDocente()">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        id="btnGuardarDocente">Agregar Docente</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -684,21 +769,37 @@ $conn->close();
                                                     <div class="form-group">
                                                         <label for="filtroNombreDocente">Docente</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroNombreDocente" class="form-control" placeholder="Buscar docente..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasDocentes" data-input="filtroNombreDocente">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroNombreDocente"
+                                                                class="form-control" placeholder="Buscar docente..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasDocentes"
+                                                                data-input="filtroNombreDocente">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasDocentes" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasDocentes" class="sugerencias-lista">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filtroAsignaturaDocente">Asignatura</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroAsignaturaDocente" class="form-control" placeholder="Buscar asignatura..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasAsignaturas" data-input="filtroAsignaturaDocente">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroAsignaturaDocente"
+                                                                class="form-control" placeholder="Buscar asignatura..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasAsignaturas"
+                                                                data-input="filtroAsignaturaDocente">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasAsignaturas" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasAsignaturas" class="sugerencias-lista">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -714,7 +815,8 @@ $conn->close();
                                                     </thead>
                                                     <tbody id="tbodyDocentes">
                                                         <tr>
-                                                            <td colspan="3" class="text-center text-muted">No hay docentes registrados</td>
+                                                            <td colspan="3" class="text-center text-muted">No hay
+                                                                docentes registrados</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -729,7 +831,8 @@ $conn->close();
                                 <div class="modal" onclick="event.stopPropagation()">
                                     <div class="modal-header">
                                         <h3>Editar Docente</h3>
-                                        <button class="modal-close" onclick="cerrarModalEditarDocente()">&times;</button>
+                                        <button class="modal-close"
+                                            onclick="cerrarModalEditarDocente()">&times;</button>
                                     </div>
                                     <div class="modal-body">
                                         <form id="formEditarDocente">
@@ -737,11 +840,13 @@ $conn->close();
                                             <div class="form-row">
                                                 <div class="form-group">
                                                     <label for="editDocenteNombres">Nombres</label>
-                                                    <input type="text" id="editDocenteNombres" class="form-control" required>
+                                                    <input type="text" id="editDocenteNombres" class="form-control"
+                                                        required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="editDocenteApellidos">Apellidos</label>
-                                                    <input type="text" id="editDocenteApellidos" class="form-control" required>
+                                                    <input type="text" id="editDocenteApellidos" class="form-control"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -763,8 +868,10 @@ $conn->close();
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalEditarDocente()">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" onclick="guardarEdicionDocente()">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="cerrarModalEditarDocente()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="guardarEdicionDocente()">Guardar Cambios</button>
                                     </div>
                                 </div>
                             </div>
@@ -774,19 +881,23 @@ $conn->close();
                                 <div class="modal" onclick="event.stopPropagation()">
                                     <div class="modal-header">
                                         <h3>Agregar Nueva Asignatura</h3>
-                                        <button class="modal-close" onclick="cerrarModalAgregarAsignatura()">&times;</button>
+                                        <button class="modal-close"
+                                            onclick="cerrarModalAgregarAsignatura()">&times;</button>
                                     </div>
                                     <div class="modal-body">
                                         <form id="formAgregarAsignaturaModal">
                                             <div class="form-group">
                                                 <label for="inputNuevaAsignatura">Nombre de la Asignatura</label>
-                                                <input type="text" id="inputNuevaAsignatura" class="form-control" placeholder="Ej: Filosofía" required>
+                                                <input type="text" id="inputNuevaAsignatura" class="form-control"
+                                                    placeholder="Ej: Filosofía" required>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalAgregarAsignatura()">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" onclick="guardarNuevaAsignatura()">Agregar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="cerrarModalAgregarAsignatura()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="guardarNuevaAsignatura()">Agregar</button>
                                     </div>
                                 </div>
                             </div>
@@ -796,22 +907,28 @@ $conn->close();
                                 <div class="modal" onclick="event.stopPropagation()">
                                     <div class="modal-header">
                                         <h3>Eliminar Asignatura</h3>
-                                        <button class="modal-close" onclick="cerrarModalEliminarAsignatura()">&times;</button>
+                                        <button class="modal-close"
+                                            onclick="cerrarModalEliminarAsignatura()">&times;</button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="selectEliminarAsignatura">Seleccione la asignatura a eliminar</label>
+                                            <label for="selectEliminarAsignatura">Seleccione la asignatura a
+                                                eliminar</label>
                                             <select id="selectEliminarAsignatura" class="form-control">
                                                 <option value="">Seleccione una asignatura...</option>
                                             </select>
                                         </div>
-                                        <p class="text-warning" style="font-size: 12px; color: #d97706; margin-top: 10px;">
-                                            <strong>Advertencia:</strong> Solo se pueden eliminar asignaturas que no tengan notas ni asignaciones activas.
+                                        <p class="text-warning"
+                                            style="font-size: 12px; color: #d97706; margin-top: 10px;">
+                                            <strong>Advertencia:</strong> Solo se pueden eliminar asignaturas que no
+                                            tengan notas ni asignaciones activas.
                                         </p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalEliminarAsignatura()">Cancelar</button>
-                                        <button type="button" class="btn btn-danger" onclick="confirmarEliminarAsignatura()">Eliminar</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="cerrarModalEliminarAsignatura()">Cancelar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="confirmarEliminarAsignatura()">Eliminar</button>
                                     </div>
                                 </div>
                             </div>
@@ -820,8 +937,10 @@ $conn->close();
                         <div id="asignacion-cursos" class="tab-panel">
                             <!-- Sub-pestañas para móvil -->
                             <div class="sub-tabs-mobile sub-tabs-asignaciones">
-                                <button type="button" class="sub-tab-btn active" data-subtab="asignar-docente">Asignar Docente</button>
-                                <button type="button" class="sub-tab-btn" data-subtab="asignaciones-actuales">Asignaciones Actuales</button>
+                                <button type="button" class="sub-tab-btn active" data-subtab="asignar-docente">Asignar
+                                    Docente</button>
+                                <button type="button" class="sub-tab-btn"
+                                    data-subtab="asignaciones-actuales">Asignaciones Actuales</button>
                             </div>
 
                             <div class="two-columns">
@@ -837,21 +956,37 @@ $conn->close();
                                                     <div class="form-group">
                                                         <label for="selectDocenteAsignacion">Docente</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="selectDocenteAsignacion" class="form-control" placeholder="Seleccionar..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasDocenteAsignar" data-input="selectDocenteAsignacion">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="selectDocenteAsignacion"
+                                                                class="form-control" placeholder="Seleccionar..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasDocenteAsignar"
+                                                                data-input="selectDocenteAsignacion">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasDocenteAsignar" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasDocenteAsignar"
+                                                                class="sugerencias-lista"></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="selectCursoAsignacion">Curso</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="selectCursoAsignacion" class="form-control" placeholder="Seleccionar..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasCursoAsignar" data-input="selectCursoAsignacion">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="selectCursoAsignacion"
+                                                                class="form-control" placeholder="Seleccionar..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasCursoAsignar"
+                                                                data-input="selectCursoAsignacion">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasCursoAsignar" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasCursoAsignar" class="sugerencias-lista">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -859,12 +994,14 @@ $conn->close();
                                                 <div class="form-group">
                                                     <label>Asignaturas del Docente</label>
                                                     <div id="checkboxAsignaturasAsignacion" class="checkbox-group">
-                                                        <p class="text-muted">Seleccione un docente para ver sus asignaturas</p>
+                                                        <p class="text-muted">Seleccione un docente para ver sus
+                                                            asignaturas</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-actions">
-                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioAsignacion()">Limpiar</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        onclick="limpiarFormularioAsignacion()">Limpiar</button>
                                                     <button type="submit" class="btn btn-primary">Asignar</button>
                                                 </div>
                                             </form>
@@ -884,21 +1021,37 @@ $conn->close();
                                                     <div class="form-group">
                                                         <label for="filtroAsignacionCurso">Filtrar por Curso</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroAsignacionCurso" class="form-control" placeholder="Todos los cursos" autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasCursosAsignacion" data-input="filtroAsignacionCurso">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroAsignacionCurso"
+                                                                class="form-control" placeholder="Todos los cursos"
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasCursosAsignacion"
+                                                                data-input="filtroAsignacionCurso">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasCursosAsignacion" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasCursosAsignacion"
+                                                                class="sugerencias-lista"></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filtroAsignacionDocente">Filtrar por Docente</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroAsignacionDocente" class="form-control" placeholder="Todos los docentes" autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasDocentesAsignacion" data-input="filtroAsignacionDocente">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroAsignacionDocente"
+                                                                class="form-control" placeholder="Todos los docentes"
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasDocentesAsignacion"
+                                                                data-input="filtroAsignacionDocente">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasDocentesAsignacion" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasDocentesAsignacion"
+                                                                class="sugerencias-lista"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -915,7 +1068,8 @@ $conn->close();
                                                     </thead>
                                                     <tbody id="tbodyAsignaciones">
                                                         <tr>
-                                                            <td colspan="4" class="text-center text-muted">No hay asignaciones registradas</td>
+                                                            <td colspan="4" class="text-center text-muted">No hay
+                                                                asignaciones registradas</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -929,8 +1083,10 @@ $conn->close();
                         <div id="alumnos" class="tab-panel active">
                             <!-- Sub-pestañas para móvil -->
                             <div class="sub-tabs-mobile sub-tabs-alumnos">
-                                <button type="button" class="sub-tab-btn active" data-subtab="gestion-alumnos">Gestión de Alumnos</button>
-                                <button type="button" class="sub-tab-btn" data-subtab="listado-alumnos">Listado de Alumnos</button>
+                                <button type="button" class="sub-tab-btn active" data-subtab="gestion-alumnos">Gestión
+                                    de Alumnos</button>
+                                <button type="button" class="sub-tab-btn" data-subtab="listado-alumnos">Listado de
+                                    Alumnos</button>
                             </div>
 
                             <div class="two-columns">
@@ -951,7 +1107,8 @@ $conn->close();
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="inputRutAlumno">RUT</label>
-                                                        <input type="text" id="inputRutAlumno" class="form-control" placeholder="Ej: 12.345.678-9" required>
+                                                        <input type="text" id="inputRutAlumno" class="form-control"
+                                                            placeholder="Ej: 12.345.678-9" required>
                                                     </div>
                                                 </div>
 
@@ -959,17 +1116,22 @@ $conn->close();
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputNombreAlumno">Nombres</label>
-                                                            <input type="text" id="inputNombreAlumno" class="form-control" placeholder="Ej: Juan Pablo" required>
+                                                            <input type="text" id="inputNombreAlumno"
+                                                                class="form-control" placeholder="Ej: Juan Pablo"
+                                                                required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputApellidoAlumno">Apellidos</label>
-                                                            <input type="text" id="inputApellidoAlumno" class="form-control" placeholder="Ej: Pérez González" required>
+                                                            <input type="text" id="inputApellidoAlumno"
+                                                                class="form-control" placeholder="Ej: Pérez González"
+                                                                required>
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputFechaNacAlumno">Fecha de Nacimiento</label>
-                                                            <input type="date" id="inputFechaNacAlumno" class="form-control" required>
+                                                            <input type="date" id="inputFechaNacAlumno"
+                                                                class="form-control" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="selectSexoAlumno">Sexo</label>
@@ -986,46 +1148,67 @@ $conn->close();
                                                 <!-- Contenedor de ambas barras de título en la misma fila -->
                                                 <div style="margin-top: 20px; display: flex; gap: 10px;">
                                                     <!-- Barra: Datos del Apoderado -->
-                                                    <div id="seccionDatosApoderado" onclick="toggleApoderadoSection()" style="flex: 1; background-color: #2d5a87; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid #e2e8f0;">
-                                                        <h4 class="titulo-apoderado-bar" style="margin: 0; font-size: 13px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 0.03em;">Datos del Apoderado</h4>
-                                                        <span id="apoderadoToggleIcon" style="font-size: 12px; color: #ffffff;">&#9660;</span>
+                                                    <div id="seccionDatosApoderado" onclick="toggleApoderadoSection()"
+                                                        style="flex: 1; background-color: #2d5a87; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid #e2e8f0;">
+                                                        <h4 class="titulo-apoderado-bar"
+                                                            style="margin: 0; font-size: 13px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 0.03em;">
+                                                            Datos del Apoderado</h4>
+                                                        <span id="apoderadoToggleIcon"
+                                                            style="font-size: 12px; color: #ffffff;">&#9660;</span>
                                                     </div>
 
                                                     <!-- Barra: ¿Apoderado ya Existe? -->
-                                                    <div id="seccionApoderadoExiste" onclick="toggleApoderadoExisteCheckbox(event)" style="flex: 1; background-color: #2d5a87; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid #e2e8f0;">
-                                                        <h4 class="titulo-apoderado-bar" style="margin: 0; font-size: 13px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 0.03em;">¿Apoderado ya Existe?</h4>
-                                                        <div id="checkboxApoderadoExiste" onclick="event.stopPropagation(); toggleApoderadoExisteCheckbox(event);" style="width: 20px; height: 20px; border: 2px solid #ffffff; background-color: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-                                                            <span id="checkmarkApoderadoExiste" style="display: none; color: #ffffff; font-size: 14px; font-weight: bold;">✓</span>
+                                                    <div id="seccionApoderadoExiste"
+                                                        onclick="toggleApoderadoExisteCheckbox(event)"
+                                                        style="flex: 1; background-color: #2d5a87; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid #e2e8f0;">
+                                                        <h4 class="titulo-apoderado-bar"
+                                                            style="margin: 0; font-size: 13px; font-weight: 600; color: #ffffff; text-transform: uppercase; letter-spacing: 0.03em;">
+                                                            ¿Apoderado ya Existe?</h4>
+                                                        <div id="checkboxApoderadoExiste"
+                                                            onclick="event.stopPropagation(); toggleApoderadoExisteCheckbox(event);"
+                                                            style="width: 20px; height: 20px; border: 2px solid #ffffff; background-color: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                                            <span id="checkmarkApoderadoExiste"
+                                                                style="display: none; color: #ffffff; font-size: 14px; font-weight: bold;">✓</span>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <!-- Contenido expandible: Datos del Apoderado -->
-                                                <div id="apoderadoContent" style="display: none; background-color: #ffffff; padding: 18px; border: 1px solid #e2e8f0; border-top: none;">
+                                                <div id="apoderadoContent"
+                                                    style="display: none; background-color: #ffffff; padding: 18px; border: 1px solid #e2e8f0; border-top: none;">
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputNombresApoderado">Nombres</label>
-                                                            <input type="text" id="inputNombresApoderado" class="form-control" placeholder="Ej: María José" oninput="verificarDatosApoderado()">
+                                                            <input type="text" id="inputNombresApoderado"
+                                                                class="form-control" placeholder="Ej: María José"
+                                                                oninput="verificarDatosApoderado()">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputApellidosApoderado">Apellidos</label>
-                                                            <input type="text" id="inputApellidosApoderado" class="form-control" placeholder="Ej: González Pérez" oninput="verificarDatosApoderado()">
+                                                            <input type="text" id="inputApellidosApoderado"
+                                                                class="form-control" placeholder="Ej: González Pérez"
+                                                                oninput="verificarDatosApoderado()">
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputRutApoderado">RUT</label>
-                                                            <input type="text" id="inputRutApoderado" class="form-control" placeholder="Ej: 12.345.678-9" oninput="verificarDatosApoderado()">
+                                                            <input type="text" id="inputRutApoderado"
+                                                                class="form-control" placeholder="Ej: 12.345.678-9"
+                                                                oninput="verificarDatosApoderado()">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputCorreoApoderado">Correo</label>
-                                                            <input type="email" id="inputCorreoApoderado" class="form-control" placeholder="Ej: correo@ejemplo.com">
+                                                            <input type="email" id="inputCorreoApoderado"
+                                                                class="form-control"
+                                                                placeholder="Ej: correo@ejemplo.com">
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputTelefonoApoderado">Teléfono</label>
-                                                            <input type="tel" id="inputTelefonoApoderado" class="form-control" placeholder="Ej: +56 9 1234 5678">
+                                                            <input type="tel" id="inputTelefonoApoderado"
+                                                                class="form-control" placeholder="Ej: +56 9 1234 5678">
                                                         </div>
                                                         <div class="form-group">
                                                             <!-- Espacio vacío para mantener alineación -->
@@ -1034,21 +1217,25 @@ $conn->close();
                                                 </div>
 
                                                 <!-- Contenido expandible: Apoderado Ya Existe -->
-                                                <div id="apoderadoExisteContent" style="display: none; background-color: #ffffff; padding: 18px; border: 1px solid #e2e8f0; border-top: none;">
+                                                <div id="apoderadoExisteContent"
+                                                    style="display: none; background-color: #ffffff; padding: 18px; border: 1px solid #e2e8f0; border-top: none;">
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputNombresApoderadoExiste">Nombres</label>
-                                                            <input type="text" id="inputNombresApoderadoExiste" class="form-control" placeholder="Ej: María José">
+                                                            <input type="text" id="inputNombresApoderadoExiste"
+                                                                class="form-control" placeholder="Ej: María José">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputApellidosApoderadoExiste">Apellidos</label>
-                                                            <input type="text" id="inputApellidosApoderadoExiste" class="form-control" placeholder="Ej: González Pérez">
+                                                            <input type="text" id="inputApellidosApoderadoExiste"
+                                                                class="form-control" placeholder="Ej: González Pérez">
                                                         </div>
                                                     </div>
                                                     <div class="form-row">
                                                         <div class="form-group">
                                                             <label for="inputRutApoderadoExiste">RUT</label>
-                                                            <input type="text" id="inputRutApoderadoExiste" class="form-control" placeholder="Ej: 12.345.678-9">
+                                                            <input type="text" id="inputRutApoderadoExiste"
+                                                                class="form-control" placeholder="Ej: 12.345.678-9">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="selectParentescoExiste">Parentesco</label>
@@ -1066,8 +1253,10 @@ $conn->close();
                                                 </div>
 
                                                 <div class="form-actions">
-                                                    <button type="button" class="btn btn-secondary" onclick="limpiarFormularioAlumno()">Limpiar</button>
-                                                    <button type="submit" class="btn btn-primary" id="btnGuardarAlumno">Agregar Alumno</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        onclick="limpiarFormularioAlumno()">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary"
+                                                        id="btnGuardarAlumno">Agregar Alumno</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -1086,21 +1275,37 @@ $conn->close();
                                                     <div class="form-group">
                                                         <label for="filtroCursoAlumnos">Curso</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroCursoAlumnos" class="form-control" placeholder="Seleccionar curso..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasCursosAlumnos" data-input="filtroCursoAlumnos">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroCursoAlumnos"
+                                                                class="form-control" placeholder="Seleccionar curso..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasCursosAlumnos"
+                                                                data-input="filtroCursoAlumnos">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasCursosAlumnos" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasCursosAlumnos"
+                                                                class="sugerencias-lista"></div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filtroNombreAlumno">Alumno</label>
                                                         <div class="autocomplete-container">
-                                                            <input type="text" id="filtroNombreAlumno" class="form-control" placeholder="Buscar alumno..." autocomplete="off">
-                                                            <button type="button" class="autocomplete-arrow" data-target="sugerenciasAlumnos" data-input="filtroNombreAlumno">
-                                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                            <input type="text" id="filtroNombreAlumno"
+                                                                class="form-control" placeholder="Buscar alumno..."
+                                                                autocomplete="off">
+                                                            <button type="button" class="autocomplete-arrow"
+                                                                data-target="sugerenciasAlumnos"
+                                                                data-input="filtroNombreAlumno">
+                                                                <svg width="12" height="12" viewBox="0 0 24 24"
+                                                                    fill="none" stroke="currentColor" stroke-width="2">
+                                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                                </svg>
                                                             </button>
-                                                            <div id="sugerenciasAlumnos" class="sugerencias-lista"></div>
+                                                            <div id="sugerenciasAlumnos" class="sugerencias-lista">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1117,7 +1322,8 @@ $conn->close();
                                                     </thead>
                                                     <tbody id="tbodyAlumnos">
                                                         <tr>
-                                                            <td colspan="4" class="text-center text-muted">Cargando alumnos...</td>
+                                                            <td colspan="4" class="text-center text-muted">Cargando
+                                                                alumnos...</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -1152,17 +1358,20 @@ $conn->close();
                                             <div class="form-row">
                                                 <div class="form-group">
                                                     <label for="editAlumnoNombres">Nombres</label>
-                                                    <input type="text" id="editAlumnoNombres" class="form-control" required>
+                                                    <input type="text" id="editAlumnoNombres" class="form-control"
+                                                        required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="editAlumnoApellidos">Apellidos</label>
-                                                    <input type="text" id="editAlumnoApellidos" class="form-control" required>
+                                                    <input type="text" id="editAlumnoApellidos" class="form-control"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group">
                                                     <label for="editAlumnoFechaNac">Fecha de Nacimiento</label>
-                                                    <input type="date" id="editAlumnoFechaNac" class="form-control" required>
+                                                    <input type="date" id="editAlumnoFechaNac" class="form-control"
+                                                        required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="editAlumnoSexo">Sexo</label>
@@ -1177,8 +1386,10 @@ $conn->close();
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" onclick="cerrarModalEditarAlumno()">Cancelar</button>
-                                        <button type="button" class="btn btn-primary" onclick="guardarEdicionAlumno()">Guardar Cambios</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            onclick="cerrarModalEditarAlumno()">Cancelar</button>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="guardarEdicionAlumno()">Guardar Cambios</button>
                                     </div>
                                 </div>
                             </div>
@@ -1195,36 +1406,61 @@ $conn->close();
                                             <div class="form-group">
                                                 <label for="selectCursoNotasPorCurso">Curso</label>
                                                 <div class="autocomplete-container">
-                                                    <input type="text" id="selectCursoNotasPorCurso" class="form-control" placeholder="Seleccionar..." autocomplete="off">
-                                                    <button type="button" class="autocomplete-arrow" data-target="sugerenciasCursoNotas" data-input="selectCursoNotasPorCurso">
-                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                    <input type="text" id="selectCursoNotasPorCurso"
+                                                        class="form-control" placeholder="Seleccionar..."
+                                                        autocomplete="off">
+                                                    <button type="button" class="autocomplete-arrow"
+                                                        data-target="sugerenciasCursoNotas"
+                                                        data-input="selectCursoNotasPorCurso">
+                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2">
+                                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                                        </svg>
                                                     </button>
                                                     <div id="sugerenciasCursoNotas" class="sugerencias-lista"></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group" id="filtroAsignaturaContainer" style="display: none;">
+                                            <div class="form-group" id="filtroAsignaturaContainer"
+                                                style="display: none;">
                                                 <label for="selectAsignaturaNotasCurso">Asignatura</label>
                                                 <div class="autocomplete-container">
-                                                    <input type="text" id="selectAsignaturaNotasCurso" class="form-control" placeholder="Seleccionar..." autocomplete="off">
-                                                    <button type="button" class="autocomplete-arrow" data-target="sugerenciasAsignaturaNotas" data-input="selectAsignaturaNotasCurso">
-                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                    <input type="text" id="selectAsignaturaNotasCurso"
+                                                        class="form-control" placeholder="Seleccionar..."
+                                                        autocomplete="off">
+                                                    <button type="button" class="autocomplete-arrow"
+                                                        data-target="sugerenciasAsignaturaNotas"
+                                                        data-input="selectAsignaturaNotasCurso">
+                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2">
+                                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                                        </svg>
                                                     </button>
-                                                    <div id="sugerenciasAsignaturaNotas" class="sugerencias-lista"></div>
+                                                    <div id="sugerenciasAsignaturaNotas" class="sugerencias-lista">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group" id="filtroTrimestreContainer" style="display: none;">
+                                            <div class="form-group" id="filtroTrimestreContainer"
+                                                style="display: none;">
                                                 <label for="selectTrimestreNotasCurso">Trimestre</label>
                                                 <div class="autocomplete-container">
-                                                    <input type="text" id="selectTrimestreNotasCurso" class="form-control" placeholder="Seleccionar..." autocomplete="off">
-                                                    <button type="button" class="autocomplete-arrow" data-target="sugerenciasTrimestreNotas" data-input="selectTrimestreNotasCurso">
-                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                    <input type="text" id="selectTrimestreNotasCurso"
+                                                        class="form-control" placeholder="Seleccionar..."
+                                                        autocomplete="off">
+                                                    <button type="button" class="autocomplete-arrow"
+                                                        data-target="sugerenciasTrimestreNotas"
+                                                        data-input="selectTrimestreNotasCurso">
+                                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2">
+                                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                                        </svg>
                                                     </button>
                                                     <div id="sugerenciasTrimestreNotas" class="sugerencias-lista"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tabla-notas-curso-container" id="tablaNotasCursoContainer" style="display: none;">
+                                    <div class="tabla-notas-curso-container" id="tablaNotasCursoContainer"
+                                        style="display: none;">
                                         <div class="table-responsive">
                                             <table class="data-table tabla-notas-amplia" id="tablaNotasCurso">
                                                 <thead id="theadNotasCurso">
@@ -1256,25 +1492,40 @@ $conn->close();
                                                 <div class="form-group">
                                                     <label for="selectTipoComunicado">Tipo de Comunicado</label>
                                                     <div class="autocomplete-container">
-                                                        <input type="text" id="selectTipoComunicado" class="form-control" placeholder="Seleccionar..." autocomplete="off" readonly>
-                                                        <button type="button" class="autocomplete-arrow" data-target="sugerenciasTipoComunicado" data-input="selectTipoComunicado">
-                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                        <input type="text" id="selectTipoComunicado"
+                                                            class="form-control" placeholder="Seleccionar..."
+                                                            autocomplete="off" readonly>
+                                                        <button type="button" class="autocomplete-arrow"
+                                                            data-target="sugerenciasTipoComunicado"
+                                                            data-input="selectTipoComunicado">
+                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2">
+                                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                                            </svg>
                                                         </button>
-                                                        <div id="sugerenciasTipoComunicado" class="sugerencias-lista"></div>
+                                                        <div id="sugerenciasTipoComunicado" class="sugerencias-lista">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="selectModoCurso">Curso</label>
                                                     <div class="autocomplete-container">
-                                                        <input type="text" id="selectModoCurso" class="form-control" placeholder="Seleccionar..." autocomplete="off" readonly>
-                                                        <button type="button" class="autocomplete-arrow" data-target="sugerenciasModoCurso" data-input="selectModoCurso">
-                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                                        <input type="text" id="selectModoCurso" class="form-control"
+                                                            placeholder="Seleccionar..." autocomplete="off" readonly>
+                                                        <button type="button" class="autocomplete-arrow"
+                                                            data-target="sugerenciasModoCurso"
+                                                            data-input="selectModoCurso">
+                                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                                stroke="currentColor" stroke-width="2">
+                                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                                            </svg>
                                                         </button>
                                                         <div id="sugerenciasModoCurso" class="sugerencias-lista"></div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="contenedorCursosEspecificos" class="cursos-grid-container" style="display: none;">
+                                            <div id="contenedorCursosEspecificos" class="cursos-grid-container"
+                                                style="display: none;">
                                                 <!-- Se genera dinámicamente -->
                                             </div>
                                         </div>
@@ -1290,15 +1541,19 @@ $conn->close();
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="inputTituloComunicado">Título</label>
-                                                <input type="text" id="inputTituloComunicado" class="form-control" placeholder="Ej: Reunión de apoderados">
+                                                <input type="text" id="inputTituloComunicado" class="form-control"
+                                                    placeholder="Ej: Reunión de apoderados">
                                             </div>
                                             <div class="form-group">
                                                 <label for="textareaComunicado">Mensaje</label>
-                                                <textarea id="textareaComunicado" class="form-control" rows="8" placeholder="Escriba el comunicado aquí..."></textarea>
+                                                <textarea id="textareaComunicado" class="form-control" rows="8"
+                                                    placeholder="Escriba el comunicado aquí..."></textarea>
                                             </div>
                                             <div class="form-actions">
-                                                <button type="button" class="btn btn-secondary" onclick="limpiarComunicado()">Limpiar</button>
-                                                <button type="button" class="btn btn-primary" onclick="enviarComunicado()">Enviar Comunicado</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    onclick="limpiarComunicado()">Limpiar</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="enviarComunicado()">Enviar Comunicado</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1325,21 +1580,26 @@ $conn->close();
                                                 <option value="asignatura">Por Asignatura</option>
                                             </select>
                                         </div>
-                                        <div class="stats-filtro-grupo" id="statsFiltroCursoContainer" style="display: none;">
+                                        <div class="stats-filtro-grupo" id="statsFiltroCursoContainer"
+                                            style="display: none;">
                                             <label>Seleccionar Curso</label>
                                             <select id="statsCursoSelector" onchange="actualizarEstadisticasCurso()">
                                                 <option value="">Seleccione un curso...</option>
                                             </select>
                                         </div>
-                                        <div class="stats-filtro-grupo" id="statsFiltroDocenteContainer" style="display: none;">
+                                        <div class="stats-filtro-grupo" id="statsFiltroDocenteContainer"
+                                            style="display: none;">
                                             <label>Seleccionar Docente</label>
-                                            <select id="statsDocenteSelector" onchange="actualizarEstadisticasDocente()">
+                                            <select id="statsDocenteSelector"
+                                                onchange="actualizarEstadisticasDocente()">
                                                 <option value="">Seleccione un docente...</option>
                                             </select>
                                         </div>
-                                        <div class="stats-filtro-grupo" id="statsFiltroAsignaturaContainer" style="display: none;">
+                                        <div class="stats-filtro-grupo" id="statsFiltroAsignaturaContainer"
+                                            style="display: none;">
                                             <label>Seleccionar Asignatura</label>
-                                            <select id="statsAsignaturaSelector" onchange="actualizarEstadisticasAsignatura()">
+                                            <select id="statsAsignaturaSelector"
+                                                onchange="actualizarEstadisticasAsignatura()">
                                                 <option value="">Seleccione una asignatura...</option>
                                             </select>
                                         </div>
@@ -1370,7 +1630,8 @@ $conn->close();
                                     <div class="stats-kpis-secondary">
                                         <div class="stats-kpi-exec-card kpi-success">
                                             <div class="kpi-exec-header">
-                                                <span class="kpi-exec-label" id="labelMejorCurso">Mejor Curso Evaluado</span>
+                                                <span class="kpi-exec-label" id="labelMejorCurso">Mejor Curso
+                                                    Evaluado</span>
                                                 <div class="kpi-exec-badge">TOP</div>
                                             </div>
                                             <div class="kpi-exec-body">
@@ -1378,13 +1639,15 @@ $conn->close();
                                                 <span class="kpi-exec-subtext" id="statsMejorCursoNota">-</span>
                                             </div>
                                             <div class="kpi-exec-bar">
-                                                <div class="kpi-exec-bar-fill" id="barMejorCurso" style="width: 85%"></div>
+                                                <div class="kpi-exec-bar-fill" id="barMejorCurso" style="width: 85%">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="stats-kpi-exec-card kpi-danger">
                                             <div class="kpi-exec-header">
-                                                <span class="kpi-exec-label" id="labelNecesitaApoyo">Necesita Apoyo</span>
+                                                <span class="kpi-exec-label" id="labelNecesitaApoyo">Necesita
+                                                    Apoyo</span>
                                                 <div class="kpi-exec-badge">ALERTA</div>
                                             </div>
                                             <div class="kpi-exec-body">
@@ -1392,13 +1655,15 @@ $conn->close();
                                                 <span class="kpi-exec-subtext" id="statsCursoApoyoNota">-</span>
                                             </div>
                                             <div class="kpi-exec-bar">
-                                                <div class="kpi-exec-bar-fill" id="barCursoApoyo" style="width: 45%"></div>
+                                                <div class="kpi-exec-bar-fill" id="barCursoApoyo" style="width: 45%">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="stats-kpi-exec-card kpi-info">
                                             <div class="kpi-exec-header">
-                                                <span class="kpi-exec-label" id="labelMejorAsignatura">Mejor Asignatura</span>
+                                                <span class="kpi-exec-label" id="labelMejorAsignatura">Mejor
+                                                    Asignatura</span>
                                                 <div class="kpi-exec-badge" id="badgeMejorAsignatura">DESTACADA</div>
                                             </div>
                                             <div class="kpi-exec-body">
@@ -1406,13 +1671,15 @@ $conn->close();
                                                 <span class="kpi-exec-subtext" id="statsMejorAsigNota">-</span>
                                             </div>
                                             <div class="kpi-exec-bar">
-                                                <div class="kpi-exec-bar-fill" id="barMejorAsig" style="width: 80%"></div>
+                                                <div class="kpi-exec-bar-fill" id="barMejorAsig" style="width: 80%">
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="stats-kpi-exec-card kpi-warning">
                                             <div class="kpi-exec-header">
-                                                <span class="kpi-exec-label" id="labelAsigCritica">Asignatura Crítica</span>
+                                                <span class="kpi-exec-label" id="labelAsigCritica">Asignatura
+                                                    Crítica</span>
                                                 <div class="kpi-exec-badge" id="badgeAsigCritica">REVISAR</div>
                                             </div>
                                             <div class="kpi-exec-body">
@@ -1420,7 +1687,8 @@ $conn->close();
                                                 <span class="kpi-exec-subtext" id="statsAsigCriticaNota">-</span>
                                             </div>
                                             <div class="kpi-exec-bar">
-                                                <div class="kpi-exec-bar-fill" id="barAsigCritica" style="width: 50%"></div>
+                                                <div class="kpi-exec-bar-fill" id="barAsigCritica" style="width: 50%">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1516,616 +1784,616 @@ $conn->close();
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js_colegio/colegio.js?v=<?php echo time(); ?>"></script>
     <script>
-    // Variable para controlar el estado del checkbox (global)
-    window.apoderadoExisteMarcado = false;
-    window.datosApoderadoLlenos = false;
-
-    // Función para expandir/colapsar sección de apoderado nuevo
-    function toggleApoderadoSection() {
-        // Verificar si "Apoderado ya existe" está marcado
-        if (window.apoderadoExisteMarcado) {
-            alert('No puede agregar datos de apoderado nuevo si ya marcó que el apoderado existe.');
-            return;
-        }
-
-        var content = document.getElementById('apoderadoContent');
-        var icon = document.getElementById('apoderadoToggleIcon');
-
-        if (content.style.display === 'none' || content.style.display === '') {
-            content.style.display = 'block';
-            icon.innerHTML = '&#9650;'; // Flecha arriba
-        } else {
-            content.style.display = 'none';
-            icon.innerHTML = '&#9660;'; // Flecha abajo
-        }
-    }
-
-    // Función para toggle del checkbox "Apoderado ya existe"
-    function toggleApoderadoExisteCheckbox(event) {
-        // Verificar si hay datos en "Datos del Apoderado"
-        if (window.datosApoderadoLlenos && !window.apoderadoExisteMarcado) {
-            alert('No puede marcar esta opción si ya ingresó datos del apoderado nuevo.');
-            return;
-        }
-
-        var checkmark = document.getElementById('checkmarkApoderadoExiste');
-        var content = document.getElementById('apoderadoExisteContent');
-        var seccionDatos = document.getElementById('seccionDatosApoderado');
-
-        if (!window.apoderadoExisteMarcado) {
-            // Marcar checkbox
-            window.apoderadoExisteMarcado = true;
-            checkmark.style.display = 'block';
-            content.style.display = 'block';
-            // Cerrar la sección "Datos del Apoderado" si estaba abierta
-            var contentDatos = document.getElementById('apoderadoContent');
-            var iconDatos = document.getElementById('apoderadoToggleIcon');
-            if (contentDatos) contentDatos.style.display = 'none';
-            if (iconDatos) iconDatos.innerHTML = '&#9660;';
-            // Deshabilitar visualmente la otra sección
-            seccionDatos.style.opacity = '0.5';
-            seccionDatos.style.pointerEvents = 'none';
-        } else {
-            // Desmarcar checkbox
-            window.apoderadoExisteMarcado = false;
-            checkmark.style.display = 'none';
-            content.style.display = 'none';
-            // Limpiar campos
-            document.getElementById('inputNombresApoderadoExiste').value = '';
-            document.getElementById('inputApellidosApoderadoExiste').value = '';
-            document.getElementById('inputRutApoderadoExiste').value = '';
-            document.getElementById('selectParentescoExiste').value = '';
-            // Habilitar la otra sección
-            seccionDatos.style.opacity = '1';
-            seccionDatos.style.pointerEvents = 'auto';
-        }
-    }
-
-    // Función para verificar si hay datos en "Datos del Apoderado"
-    function verificarDatosApoderado() {
-        var nombres = document.getElementById('inputNombresApoderado').value.trim();
-        var apellidos = document.getElementById('inputApellidosApoderado').value.trim();
-        var rut = document.getElementById('inputRutApoderado').value.trim();
-
-        var seccionExiste = document.getElementById('seccionApoderadoExiste');
-
-        if (nombres !== '' || apellidos !== '' || rut !== '') {
-            window.datosApoderadoLlenos = true;
-            // Deshabilitar visualmente la sección "Apoderado ya existe"
-            seccionExiste.style.opacity = '0.5';
-            seccionExiste.style.pointerEvents = 'none';
-        } else {
-            window.datosApoderadoLlenos = false;
-            // Habilitar la sección "Apoderado ya existe"
-            seccionExiste.style.opacity = '1';
-            seccionExiste.style.pointerEvents = 'auto';
-        }
-    }
-
-    // Modificar limpiarFormularioAlumno para resetear todo
-    var originalLimpiarFormularioAlumno = window.limpiarFormularioAlumno;
-    window.limpiarFormularioAlumno = function() {
-        if (typeof originalLimpiarFormularioAlumno === 'function') {
-            originalLimpiarFormularioAlumno();
-        }
-
-        // Resetear sección apoderado nuevo
-        var content = document.getElementById('apoderadoContent');
-        var icon = document.getElementById('apoderadoToggleIcon');
-        if (content) content.style.display = 'none';
-        if (icon) icon.innerHTML = '&#9660;';
-
-        // Resetear sección apoderado existe
-        var checkmark = document.getElementById('checkmarkApoderadoExiste');
-        var contentExiste = document.getElementById('apoderadoExisteContent');
-        if (checkmark) checkmark.style.display = 'none';
-        if (contentExiste) contentExiste.style.display = 'none';
-
-        // Limpiar campos de apoderado existe
-        var nombresExiste = document.getElementById('inputNombresApoderadoExiste');
-        var apellidosExiste = document.getElementById('inputApellidosApoderadoExiste');
-        var rutExiste = document.getElementById('inputRutApoderadoExiste');
-        var parentescoExiste = document.getElementById('selectParentescoExiste');
-        if (nombresExiste) nombresExiste.value = '';
-        if (apellidosExiste) apellidosExiste.value = '';
-        if (rutExiste) rutExiste.value = '';
-        if (parentescoExiste) parentescoExiste.value = '';
-
-        // Resetear estados
+        // Variable para controlar el estado del checkbox (global)
         window.apoderadoExisteMarcado = false;
         window.datosApoderadoLlenos = false;
 
-        // Habilitar ambas secciones
-        var seccionDatos = document.getElementById('seccionDatosApoderado');
-        var seccionExiste = document.getElementById('seccionApoderadoExiste');
-        if (seccionDatos) {
-            seccionDatos.style.opacity = '1';
-            seccionDatos.style.pointerEvents = 'auto';
+        // Función para expandir/colapsar sección de apoderado nuevo
+        function toggleApoderadoSection() {
+            // Verificar si "Apoderado ya existe" está marcado
+            if (window.apoderadoExisteMarcado) {
+                alert('No puede agregar datos de apoderado nuevo si ya marcó que el apoderado existe.');
+                return;
+            }
+
+            var content = document.getElementById('apoderadoContent');
+            var icon = document.getElementById('apoderadoToggleIcon');
+
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                icon.innerHTML = '&#9650;'; // Flecha arriba
+            } else {
+                content.style.display = 'none';
+                icon.innerHTML = '&#9660;'; // Flecha abajo
+            }
         }
-        if (seccionExiste) {
-            seccionExiste.style.opacity = '1';
-            seccionExiste.style.pointerEvents = 'auto';
+
+        // Función para toggle del checkbox "Apoderado ya existe"
+        function toggleApoderadoExisteCheckbox(event) {
+            // Verificar si hay datos en "Datos del Apoderado"
+            if (window.datosApoderadoLlenos && !window.apoderadoExisteMarcado) {
+                alert('No puede marcar esta opción si ya ingresó datos del apoderado nuevo.');
+                return;
+            }
+
+            var checkmark = document.getElementById('checkmarkApoderadoExiste');
+            var content = document.getElementById('apoderadoExisteContent');
+            var seccionDatos = document.getElementById('seccionDatosApoderado');
+
+            if (!window.apoderadoExisteMarcado) {
+                // Marcar checkbox
+                window.apoderadoExisteMarcado = true;
+                checkmark.style.display = 'block';
+                content.style.display = 'block';
+                // Cerrar la sección "Datos del Apoderado" si estaba abierta
+                var contentDatos = document.getElementById('apoderadoContent');
+                var iconDatos = document.getElementById('apoderadoToggleIcon');
+                if (contentDatos) contentDatos.style.display = 'none';
+                if (iconDatos) iconDatos.innerHTML = '&#9660;';
+                // Deshabilitar visualmente la otra sección
+                seccionDatos.style.opacity = '0.5';
+                seccionDatos.style.pointerEvents = 'none';
+            } else {
+                // Desmarcar checkbox
+                window.apoderadoExisteMarcado = false;
+                checkmark.style.display = 'none';
+                content.style.display = 'none';
+                // Limpiar campos
+                document.getElementById('inputNombresApoderadoExiste').value = '';
+                document.getElementById('inputApellidosApoderadoExiste').value = '';
+                document.getElementById('inputRutApoderadoExiste').value = '';
+                document.getElementById('selectParentescoExiste').value = '';
+                // Habilitar la otra sección
+                seccionDatos.style.opacity = '1';
+                seccionDatos.style.pointerEvents = 'auto';
+            }
         }
-    };
+
+        // Función para verificar si hay datos en "Datos del Apoderado"
+        function verificarDatosApoderado() {
+            var nombres = document.getElementById('inputNombresApoderado').value.trim();
+            var apellidos = document.getElementById('inputApellidosApoderado').value.trim();
+            var rut = document.getElementById('inputRutApoderado').value.trim();
+
+            var seccionExiste = document.getElementById('seccionApoderadoExiste');
+
+            if (nombres !== '' || apellidos !== '' || rut !== '') {
+                window.datosApoderadoLlenos = true;
+                // Deshabilitar visualmente la sección "Apoderado ya existe"
+                seccionExiste.style.opacity = '0.5';
+                seccionExiste.style.pointerEvents = 'none';
+            } else {
+                window.datosApoderadoLlenos = false;
+                // Habilitar la sección "Apoderado ya existe"
+                seccionExiste.style.opacity = '1';
+                seccionExiste.style.pointerEvents = 'auto';
+            }
+        }
+
+        // Modificar limpiarFormularioAlumno para resetear todo
+        var originalLimpiarFormularioAlumno = window.limpiarFormularioAlumno;
+        window.limpiarFormularioAlumno = function () {
+            if (typeof originalLimpiarFormularioAlumno === 'function') {
+                originalLimpiarFormularioAlumno();
+            }
+
+            // Resetear sección apoderado nuevo
+            var content = document.getElementById('apoderadoContent');
+            var icon = document.getElementById('apoderadoToggleIcon');
+            if (content) content.style.display = 'none';
+            if (icon) icon.innerHTML = '&#9660;';
+
+            // Resetear sección apoderado existe
+            var checkmark = document.getElementById('checkmarkApoderadoExiste');
+            var contentExiste = document.getElementById('apoderadoExisteContent');
+            if (checkmark) checkmark.style.display = 'none';
+            if (contentExiste) contentExiste.style.display = 'none';
+
+            // Limpiar campos de apoderado existe
+            var nombresExiste = document.getElementById('inputNombresApoderadoExiste');
+            var apellidosExiste = document.getElementById('inputApellidosApoderadoExiste');
+            var rutExiste = document.getElementById('inputRutApoderadoExiste');
+            var parentescoExiste = document.getElementById('selectParentescoExiste');
+            if (nombresExiste) nombresExiste.value = '';
+            if (apellidosExiste) apellidosExiste.value = '';
+            if (rutExiste) rutExiste.value = '';
+            if (parentescoExiste) parentescoExiste.value = '';
+
+            // Resetear estados
+            window.apoderadoExisteMarcado = false;
+            window.datosApoderadoLlenos = false;
+
+            // Habilitar ambas secciones
+            var seccionDatos = document.getElementById('seccionDatosApoderado');
+            var seccionExiste = document.getElementById('seccionApoderadoExiste');
+            if (seccionDatos) {
+                seccionDatos.style.opacity = '1';
+                seccionDatos.style.pointerEvents = 'auto';
+            }
+            if (seccionExiste) {
+                seccionExiste.style.opacity = '1';
+                seccionExiste.style.pointerEvents = 'auto';
+            }
+        };
     </script>
 
     <!-- ==================== CHAT FLOTANTE ==================== -->
     <style>
-    /* Botón flotante del chat */
-    .chat-fab {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-        z-index: 9998;
-    }
-
-    .chat-fab:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
-    }
-
-    .chat-fab svg {
-        width: 28px;
-        height: 28px;
-        color: white;
-    }
-
-    .chat-fab-badge {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: #ef4444;
-        color: white;
-        font-size: 12px;
-        font-weight: 600;
-        min-width: 22px;
-        height: 22px;
-        border-radius: 11px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid white;
-    }
-
-    .chat-fab-badge.hidden {
-        display: none;
-    }
-
-    /* Modal del chat */
-    .chat-modal {
-        position: fixed;
-        bottom: 100px;
-        right: 30px;
-        width: 420px;
-        height: 520px;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 9999;
-    }
-
-    .chat-modal.active {
-        display: flex;
-    }
-
-    /* Header del chat */
-    .chat-header {
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        padding: 16px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .chat-header-title {
-        color: white;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .chat-header-title svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .chat-close-btn {
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s;
-    }
-
-    .chat-close-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-    }
-
-    .chat-close-btn svg {
-        width: 18px;
-        height: 18px;
-        color: white;
-    }
-
-    /* Contenido del chat */
-    .chat-body {
-        display: flex;
-        flex: 1;
-        overflow: hidden;
-    }
-
-    /* Lista de contactos */
-    .chat-contacts {
-        width: 140px;
-        background: #f8fafc;
-        border-right: 1px solid #e2e8f0;
-        overflow-y: auto;
-        flex-shrink: 0;
-    }
-
-    .chat-contact-item {
-        padding: 12px 10px;
-        cursor: pointer;
-        border-bottom: 1px solid #e2e8f0;
-        transition: background 0.2s;
-        position: relative;
-    }
-
-    .chat-contact-item:hover {
-        background: #f1f5f9;
-    }
-
-    .chat-contact-item.active {
-        background: #fff7ed;
-        border-left: 3px solid #f97316;
-    }
-
-    .chat-contact-item.es-admin {
-        background: #fef3c7;
-    }
-
-    .chat-contact-item.es-admin.active {
-        background: #fde68a;
-    }
-
-    .chat-contact-name {
-        font-size: 12px;
-        font-weight: 500;
-        color: #334155;
-        line-height: 1.3;
-    }
-
-    .chat-contact-tipo {
-        font-size: 10px;
-        color: #94a3b8;
-        margin-top: 2px;
-    }
-
-    .chat-contact-badge {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: #ef4444;
-        color: white;
-        font-size: 10px;
-        min-width: 18px;
-        height: 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .chat-contact-badge.hidden {
-        display: none;
-    }
-
-    /* Área de conversación */
-    .chat-conversation {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        background: white;
-    }
-
-    .chat-messages {
-        flex: 1;
-        padding: 15px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .chat-message {
-        max-width: 80%;
-        padding: 10px 14px;
-        border-radius: 12px;
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    .chat-message.enviado {
-        align-self: flex-end;
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        color: white;
-        border-bottom-right-radius: 4px;
-    }
-
-    .chat-message.recibido {
-        align-self: flex-start;
-        background: #f1f5f9;
-        color: #334155;
-        border-bottom-left-radius: 4px;
-    }
-
-    .chat-message-time {
-        font-size: 10px;
-        opacity: 0.7;
-        margin-top: 4px;
-    }
-
-    .chat-no-messages {
-        text-align: center;
-        color: #94a3b8;
-        font-size: 13px;
-        padding: 40px 20px;
-    }
-
-    .chat-select-contact {
-        text-align: center;
-        color: #94a3b8;
-        font-size: 13px;
-        padding: 40px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-
-    .chat-select-contact svg {
-        width: 48px;
-        height: 48px;
-        margin-bottom: 10px;
-        opacity: 0.5;
-    }
-
-    /* Input de mensaje */
-    .chat-input-area {
-        padding: 12px 15px;
-        border-top: 1px solid #e2e8f0;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .chat-input {
-        flex: 1;
-        border: 1px solid #e2e8f0;
-        border-radius: 20px;
-        padding: 10px 16px;
-        font-size: 13px;
-        outline: none;
-        transition: border-color 0.2s;
-    }
-
-    .chat-input:focus {
-        border-color: #f97316;
-    }
-
-    .chat-send-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.2s;
-    }
-
-    .chat-send-btn:hover {
-        transform: scale(1.1);
-    }
-
-    .chat-send-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        transform: none;
-    }
-
-    .chat-send-btn svg {
-        width: 18px;
-        height: 18px;
-        color: white;
-    }
-
-    /* Responsive Tablet */
-    @media (max-width: 1024px) {
+        /* Botón flotante del chat */
         .chat-fab {
-            width: 45px;
-            height: 45px;
-            right: 15px;
-            bottom: 20px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 9998;
+        }
+
+        .chat-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
         }
 
         .chat-fab svg {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
+            color: white;
         }
 
         .chat-fab-badge {
-            min-width: 18px;
-            height: 18px;
-            font-size: 10px;
-            top: -3px;
-            right: -3px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
         }
 
+        .chat-fab-badge.hidden {
+            display: none;
+        }
+
+        /* Modal del chat */
         .chat-modal {
-            bottom: 75px;
-            right: 15px;
-        }
-    }
-
-    /* Responsive Móvil */
-    @media (max-width: 500px) {
-        .chat-fab {
-            width: 40px;
-            height: 40px;
-            right: 10px;
-            bottom: 15px;
-        }
-
-        .chat-fab svg {
-            width: 18px;
-            height: 18px;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 420px;
+            height: 520px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 9999;
         }
 
-        .chat-fab-badge {
-            min-width: 16px;
-            height: 16px;
-            font-size: 9px;
-            top: -2px;
-            right: -2px;
+        .chat-modal.active {
+            display: flex;
         }
 
-        /* Modal más compacto */
-        .chat-modal {
-            width: 300px;
-            right: 8px;
-            bottom: 60px;
-            height: 60vh;
-            max-height: 400px;
-            border-radius: 12px;
-        }
-
-        /* Header más pequeño */
+        /* Header del chat */
         .chat-header {
-            padding: 10px 12px;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .chat-header-title {
-            font-size: 13px;
-            gap: 6px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .chat-header-title svg {
-            width: 16px;
-            height: 16px;
+            width: 22px;
+            height: 22px;
         }
 
         .chat-close-btn {
-            width: 26px;
-            height: 26px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .chat-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .chat-close-btn svg {
-            width: 14px;
-            height: 14px;
+            width: 18px;
+            height: 18px;
+            color: white;
         }
 
-        /* Lista de contactos más compacta */
+        /* Contenido del chat */
+        .chat-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Lista de contactos */
         .chat-contacts {
-            width: 70px;
+            width: 140px;
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            flex-shrink: 0;
         }
 
         .chat-contact-item {
-            padding: 8px 6px;
+            padding: 12px 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .chat-contact-item:hover {
+            background: #f1f5f9;
+        }
+
+        .chat-contact-item.active {
+            background: #fff7ed;
+            border-left: 3px solid #f97316;
+        }
+
+        .chat-contact-item.es-admin {
+            background: #fef3c7;
+        }
+
+        .chat-contact-item.es-admin.active {
+            background: #fde68a;
         }
 
         .chat-contact-name {
-            font-size: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #334155;
+            line-height: 1.3;
         }
 
         .chat-contact-tipo {
-            font-size: 8px;
-        }
-
-        .chat-contact-badge {
-            min-width: 14px;
-            height: 14px;
-            font-size: 8px;
-            top: 4px;
-            right: 4px;
-        }
-
-        /* Mensajes más compactos */
-        .chat-messages {
-            padding: 8px;
-            gap: 6px;
-        }
-
-        .chat-message {
-            padding: 7px 10px;
-            font-size: 11px;
-            border-radius: 10px;
-            max-width: 85%;
-        }
-
-        .chat-message-time {
-            font-size: 8px;
+            font-size: 10px;
+            color: #94a3b8;
             margin-top: 2px;
         }
 
-        .chat-no-messages,
+        .chat-contact-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #ef4444;
+            color: white;
+            font-size: 10px;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-contact-badge.hidden {
+            display: none;
+        }
+
+        /* Área de conversación */
+        .chat-conversation {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .chat-message.enviado {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-message.recibido {
+            align-self: flex-start;
+            background: #f1f5f9;
+            color: #334155;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-message-time {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .chat-no-messages {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            padding: 40px 20px;
+        }
+
         .chat-select-contact {
-            font-size: 11px;
-            padding: 20px 10px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
 
         .chat-select-contact svg {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 6px;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 10px;
+            opacity: 0.5;
         }
 
-        /* Input más compacto */
+        /* Input de mensaje */
         .chat-input-area {
-            padding: 8px 10px;
-            gap: 6px;
+            padding: 12px 15px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
         .chat-input {
-            padding: 7px 12px;
-            font-size: 11px;
-            border-radius: 16px;
+            flex: 1;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 10px 16px;
+            font-size: 13px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: #f97316;
         }
 
         .chat-send-btn {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .chat-send-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .chat-send-btn svg {
-            width: 14px;
-            height: 14px;
+            width: 18px;
+            height: 18px;
+            color: white;
         }
-    }
+
+        /* Responsive Tablet */
+        @media (max-width: 1024px) {
+            .chat-fab {
+                width: 45px;
+                height: 45px;
+                right: 15px;
+                bottom: 20px;
+            }
+
+            .chat-fab svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .chat-fab-badge {
+                min-width: 18px;
+                height: 18px;
+                font-size: 10px;
+                top: -3px;
+                right: -3px;
+            }
+
+            .chat-modal {
+                bottom: 75px;
+                right: 15px;
+            }
+        }
+
+        /* Responsive Móvil */
+        @media (max-width: 500px) {
+            .chat-fab {
+                width: 40px;
+                height: 40px;
+                right: 10px;
+                bottom: 15px;
+            }
+
+            .chat-fab svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .chat-fab-badge {
+                min-width: 16px;
+                height: 16px;
+                font-size: 9px;
+                top: -2px;
+                right: -2px;
+            }
+
+            /* Modal más compacto */
+            .chat-modal {
+                width: 300px;
+                right: 8px;
+                bottom: 60px;
+                height: 60vh;
+                max-height: 400px;
+                border-radius: 12px;
+            }
+
+            /* Header más pequeño */
+            .chat-header {
+                padding: 10px 12px;
+            }
+
+            .chat-header-title {
+                font-size: 13px;
+                gap: 6px;
+            }
+
+            .chat-header-title svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .chat-close-btn {
+                width: 26px;
+                height: 26px;
+            }
+
+            .chat-close-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            /* Lista de contactos más compacta */
+            .chat-contacts {
+                width: 70px;
+            }
+
+            .chat-contact-item {
+                padding: 8px 6px;
+            }
+
+            .chat-contact-name {
+                font-size: 10px;
+            }
+
+            .chat-contact-tipo {
+                font-size: 8px;
+            }
+
+            .chat-contact-badge {
+                min-width: 14px;
+                height: 14px;
+                font-size: 8px;
+                top: 4px;
+                right: 4px;
+            }
+
+            /* Mensajes más compactos */
+            .chat-messages {
+                padding: 8px;
+                gap: 6px;
+            }
+
+            .chat-message {
+                padding: 7px 10px;
+                font-size: 11px;
+                border-radius: 10px;
+                max-width: 85%;
+            }
+
+            .chat-message-time {
+                font-size: 8px;
+                margin-top: 2px;
+            }
+
+            .chat-no-messages,
+            .chat-select-contact {
+                font-size: 11px;
+                padding: 20px 10px;
+            }
+
+            .chat-select-contact svg {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 6px;
+            }
+
+            /* Input más compacto */
+            .chat-input-area {
+                padding: 8px 10px;
+                gap: 6px;
+            }
+
+            .chat-input {
+                padding: 7px 12px;
+                font-size: 11px;
+                border-radius: 16px;
+            }
+
+            .chat-send-btn {
+                width: 32px;
+                height: 32px;
+            }
+
+            .chat-send-btn svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
     </style>
 
     <!-- Botón flotante -->
@@ -2179,207 +2447,209 @@ $conn->close();
     </div>
 
     <script>
-    // ==================== CHAT FUNCTIONALITY ====================
-    let chatAbierto = false;
-    let contactoActual = null;
-    let chatRefreshInterval = null;
+        // ==================== CHAT FUNCTIONALITY ====================
+        let chatAbierto = false;
+        let contactoActual = null;
+        let chatRefreshInterval = null;
 
-    function toggleChat() {
-        chatAbierto = !chatAbierto;
-        const modal = document.getElementById('chatModal');
+        function toggleChat() {
+            chatAbierto = !chatAbierto;
+            const modal = document.getElementById('chatModal');
 
-        if (chatAbierto) {
-            modal.classList.add('active');
-            cargarContactosChat();
-            iniciarRefreshChat();
-        } else {
-            modal.classList.remove('active');
-            detenerRefreshChat();
+            if (chatAbierto) {
+                modal.classList.add('active');
+                cargarContactosChat();
+                iniciarRefreshChat();
+            } else {
+                modal.classList.remove('active');
+                detenerRefreshChat();
+            }
         }
-    }
 
-    function cargarContactosChat() {
-        fetch('api/chat_obtener_contactos.php')
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    renderizarContactos(data.contactos);
-                }
-            })
-            .catch(error => console.error('Error cargando contactos:', error));
-    }
-
-    function formatearNombreMovil(nombreCompleto) {
-        // Separar el nombre completo en partes
-        const partes = nombreCompleto.trim().split(' ');
-        if (partes.length >= 2) {
-            // Primera inicial del nombre + primer apellido
-            const inicial = partes[0].charAt(0).toUpperCase();
-            // Buscar el primer apellido (asumiendo que está después del nombre)
-            // Si hay 2 palabras: nombre + apellido
-            // Si hay 3+ palabras: puede ser nombre + segundo nombre + apellido o nombre + apellido + segundo apellido
-            let apellido = partes.length === 2 ? partes[1] : partes[Math.floor(partes.length / 2)];
-            return `${inicial}. ${apellido}`;
+        function cargarContactosChat() {
+            fetch('api/chat_obtener_contactos.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        renderizarContactos(data.contactos);
+                    }
+                })
+                .catch(error => console.error('Error cargando contactos:', error));
         }
-        return nombreCompleto;
-    }
 
-    function esMovil() {
-        return window.innerWidth <= 500;
-    }
+        function formatearNombreMovil(nombreCompleto) {
+            // Separar el nombre completo en partes
+            const partes = nombreCompleto.trim().split(' ');
+            if (partes.length >= 2) {
+                // Primera inicial del nombre + primer apellido
+                const inicial = partes[0].charAt(0).toUpperCase();
+                // Buscar el primer apellido (asumiendo que está después del nombre)
+                // Si hay 2 palabras: nombre + apellido
+                // Si hay 3+ palabras: puede ser nombre + segundo nombre + apellido o nombre + apellido + segundo apellido
+                let apellido = partes.length === 2 ? partes[1] : partes[Math.floor(partes.length / 2)];
+                return `${inicial}. ${apellido}`;
+            }
+            return nombreCompleto;
+        }
 
-    function renderizarContactos(contactos) {
-        const container = document.getElementById('chatContacts');
-        container.innerHTML = '';
+        function esMovil() {
+            return window.innerWidth <= 500;
+        }
 
-        contactos.forEach(contacto => {
-            const div = document.createElement('div');
-            div.className = 'chat-contact-item' + (contacto.es_admin ? ' es-admin' : '');
-            div.dataset.id = contacto.id;
-            div.onclick = () => seleccionarContacto(contacto);
+        function renderizarContactos(contactos) {
+            const container = document.getElementById('chatContacts');
+            container.innerHTML = '';
 
-            const nombreMostrar = formatearNombreMovil(contacto.nombre);
+            contactos.forEach(contacto => {
+                const div = document.createElement('div');
+                div.className = 'chat-contact-item' + (contacto.es_admin ? ' es-admin' : '');
+                div.dataset.id = contacto.id;
+                div.onclick = () => seleccionarContacto(contacto);
 
-            const tipoHtml = contacto.tipo === 'administrador' ? '' : '<div class="chat-contact-tipo">Docente</div>';
+                const nombreMostrar = formatearNombreMovil(contacto.nombre);
 
-            div.innerHTML = `
+                const tipoHtml = contacto.tipo === 'administrador' ? '' : '<div class="chat-contact-tipo">Docente</div>';
+
+                div.innerHTML = `
                 <div class="chat-contact-name">${nombreMostrar}</div>
                 ${tipoHtml}
                 <span class="chat-contact-badge ${contacto.mensajes_no_leidos > 0 ? '' : 'hidden'}">${contacto.mensajes_no_leidos}</span>
             `;
 
-            container.appendChild(div);
-        });
-    }
-
-    function seleccionarContacto(contacto) {
-        contactoActual = contacto;
-
-        // Marcar activo
-        document.querySelectorAll('.chat-contact-item').forEach(item => {
-            item.classList.remove('active');
-            if (item.dataset.id == contacto.id) {
-                item.classList.add('active');
-            }
-        });
-
-        // Habilitar input
-        document.getElementById('chatInput').disabled = false;
-        document.getElementById('chatSendBtn').disabled = false;
-
-        // Cargar mensajes
-        cargarMensajesChat(contacto.id);
-    }
-
-    function cargarMensajesChat(contactoId) {
-        fetch(`api/chat_obtener_mensajes.php?contacto_id=${contactoId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    renderizarMensajes(data.mensajes);
-                    // Actualizar badge del contacto
-                    const badge = document.querySelector(`.chat-contact-item[data-id="${contactoId}"] .chat-contact-badge`);
-                    if (badge) {
-                        badge.classList.add('hidden');
-                        badge.textContent = '0';
-                    }
-                    actualizarBadgeTotal();
-                }
-            })
-            .catch(error => console.error('Error cargando mensajes:', error));
-    }
-
-    function renderizarMensajes(mensajes) {
-        const container = document.getElementById('chatMessages');
-
-        if (mensajes.length === 0) {
-            container.innerHTML = '<div class="chat-no-messages">No hay mensajes aún. ¡Inicia la conversación!</div>';
-            return;
+                container.appendChild(div);
+            });
         }
 
-        container.innerHTML = '';
-        mensajes.forEach(msg => {
-            const div = document.createElement('div');
-            div.className = `chat-message ${msg.tipo}`;
+        function seleccionarContacto(contacto) {
+            contactoActual = contacto;
 
-            const fecha = new Date(msg.fecha_envio);
-            const hora = fecha.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+            // Marcar activo
+            document.querySelectorAll('.chat-contact-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.id == contacto.id) {
+                    item.classList.add('active');
+                }
+            });
 
-            div.innerHTML = `
+            // Habilitar input
+            document.getElementById('chatInput').disabled = false;
+            document.getElementById('chatSendBtn').disabled = false;
+
+            // Cargar mensajes
+            cargarMensajesChat(contacto.id);
+        }
+
+        function cargarMensajesChat(contactoId) {
+            fetch(`api/chat_obtener_mensajes.php?contacto_id=${contactoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        renderizarMensajes(data.mensajes);
+                        // Actualizar badge del contacto
+                        const badge = document.querySelector(`.chat-contact-item[data-id="${contactoId}"] .chat-contact-badge`);
+                        if (badge) {
+                            badge.classList.add('hidden');
+                            badge.textContent = '0';
+                        }
+                        actualizarBadgeTotal();
+                    }
+                })
+                .catch(error => console.error('Error cargando mensajes:', error));
+        }
+
+        function renderizarMensajes(mensajes) {
+            const container = document.getElementById('chatMessages');
+
+            if (mensajes.length === 0) {
+                container.innerHTML = '<div class="chat-no-messages">No hay mensajes aún. ¡Inicia la conversación!</div>';
+                return;
+            }
+
+            container.innerHTML = '';
+            mensajes.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = `chat-message ${msg.tipo}`;
+
+                const fecha = new Date(msg.fecha_envio);
+                const hora = fecha.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+
+                div.innerHTML = `
                 ${msg.mensaje}
                 <div class="chat-message-time">${hora}</div>
             `;
-            container.appendChild(div);
+                container.appendChild(div);
+            });
+
+            // Scroll al final
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function enviarMensajeChat() {
+            const input = document.getElementById('chatInput');
+            const mensaje = input.value.trim();
+
+            if (!mensaje || !contactoActual) return;
+
+            fetch('api/chat_enviar_mensaje.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contacto_id: contactoActual.id,
+                    mensaje: mensaje
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        input.value = '';
+                        cargarMensajesChat(contactoActual.id);
+                    }
+                })
+                .catch(error => console.error('Error enviando mensaje:', error));
+        }
+
+        // Enviar con Enter
+        document.getElementById('chatInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                enviarMensajeChat();
+            }
         });
 
-        // Scroll al final
-        container.scrollTop = container.scrollHeight;
-    }
-
-    function enviarMensajeChat() {
-        const input = document.getElementById('chatInput');
-        const mensaje = input.value.trim();
-
-        if (!mensaje || !contactoActual) return;
-
-        fetch('api/chat_enviar_mensaje.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contacto_id: contactoActual.id,
-                mensaje: mensaje
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                input.value = '';
-                cargarMensajesChat(contactoActual.id);
-            }
-        })
-        .catch(error => console.error('Error enviando mensaje:', error));
-    }
-
-    // Enviar con Enter
-    document.getElementById('chatInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            enviarMensajeChat();
-        }
-    });
-
-    function iniciarRefreshChat() {
-        chatRefreshInterval = setInterval(() => {
-            if (contactoActual) {
-                cargarMensajesChat(contactoActual.id);
-            }
-            cargarContactosChat();
-        }, 2000);
-    }
-
-    function detenerRefreshChat() {
-        if (chatRefreshInterval) {
-            clearInterval(chatRefreshInterval);
-            chatRefreshInterval = null;
-        }
-    }
-
-    function actualizarBadgeTotal() {
-        fetch('api/chat_contar_no_leidos.php')
-            .then(response => response.json())
-            .then(data => {
-                const badge = document.getElementById('chatFabBadge');
-                if (data.total_no_leidos > 0) {
-                    badge.textContent = data.total_no_leidos > 99 ? '99+' : data.total_no_leidos;
-                    badge.classList.remove('hidden');
-                } else {
-                    badge.classList.add('hidden');
+        function iniciarRefreshChat() {
+            chatRefreshInterval = setInterval(() => {
+                if (contactoActual) {
+                    cargarMensajesChat(contactoActual.id);
                 }
-            });
-    }
+                cargarContactosChat();
+            }, 2000);
+        }
 
-    // Verificar mensajes no leídos cada 3 segundos
-    setInterval(actualizarBadgeTotal, 3000);
-    actualizarBadgeTotal();
+        function detenerRefreshChat() {
+            if (chatRefreshInterval) {
+                clearInterval(chatRefreshInterval);
+                chatRefreshInterval = null;
+            }
+        }
+
+        function actualizarBadgeTotal() {
+            fetch('api/chat_contar_no_leidos.php')
+                .then(response => response.json())
+                .then(data => {
+                    const badge = document.getElementById('chatFabBadge');
+                    if (data.total_no_leidos > 0) {
+                        badge.textContent = data.total_no_leidos > 99 ? '99+' : data.total_no_leidos;
+                        badge.classList.remove('hidden');
+                    } else {
+                        badge.classList.add('hidden');
+                    }
+                });
+        }
+
+        // Verificar mensajes no leídos cada 3 segundos
+        setInterval(actualizarBadgeTotal, 3000);
+        actualizarBadgeTotal();
     </script>
+    <?php include 'componentes/barra_presentacion.php'; ?>
 </body>
+
 </html>
